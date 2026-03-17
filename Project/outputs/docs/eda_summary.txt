@@ -1,0 +1,20 @@
+EDA INSIGHT SUMMARY
+====================
+Demand Pattern over Time:
+- Clear seasonality is observed in the time series plot, with higher demand in warmer months.
+- A strong daily cycle exists, with peaks during morning (7-9 AM) and evening (5-7 PM) commute hours on weekdays.
+- Weekends show a more distributed demand peak during the afternoon.
+
+Rare Regimes:
+- Extreme weather conditions (very high windspeed or very low/high humidity) correspond to significantly lower demand.
+- Heavy precipitation or severe weather (weathersit 4) is extremely rare in this dataset.
+
+Modelling Risks:
+- High variance in demand at peak hours suggests that 'hr' and 'workingday' interactions are critical.
+- The target 'cnt' is right-skewed, which might require transformation or specific loss functions.
+- 'temp' and 'atemp' are highly correlated (multi-collinearity risk).
+
+Data Quality & Leakage:
+- No missing values or duplicates remain in the cleaned dataset.
+- Leakage columns (casual, registered) were successfully removed in Task 1.
+- No obvious remaining leakage detected; correlations between features and target are within reasonable bounds.

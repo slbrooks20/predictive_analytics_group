@@ -1,0 +1,275 @@
+--- DATA PROCESSING STARTED ---
+Dataset shape: (17379, 17)
+
+Column names and data types:
+instant         int64
+dteday         object
+season          int64
+yr              int64
+mnth            int64
+hr              int64
+holiday         int64
+weekday         int64
+workingday      int64
+weathersit      int64
+temp          float64
+atemp         float64
+hum           float64
+windspeed     float64
+casual          int64
+registered      int64
+cnt             int64
+dtype: object
+
+Numeric variables: ['instant', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt']
+Categorical variables: ['dteday']
+
+Missing values per column:
+instant       0
+dteday        0
+season        0
+yr            0
+mnth          0
+hr            0
+holiday       0
+weekday       0
+workingday    0
+weathersit    0
+temp          0
+atemp         0
+hum           0
+windspeed     0
+casual        0
+registered    0
+cnt           0
+dtype: int64
+
+Duplicate rows: 0
+
+Leakage detected: casual + registered = cnt. Removing casual and registered columns.
+
+Max feature correlation with target: 0.4047722757786578
+
+Target non-negative check: True
+
+Cleaned dataset saved to: outputs/cleaned_data.csv
+Validation report saved to: outputs/benchmark/data_validation_report.csv
+
+--- DATA PROCESSING COMPLETED ---
+--- DATA PROCESSING STARTED ---
+Dataset shape: (17379, 17)
+
+Column names and data types:
+instant         int64
+dteday         object
+season          int64
+yr              int64
+mnth            int64
+hr              int64
+holiday         int64
+weekday         int64
+workingday      int64
+weathersit      int64
+temp          float64
+atemp         float64
+hum           float64
+windspeed     float64
+casual          int64
+registered      int64
+cnt             int64
+dtype: object
+
+Numeric variables: ['instant', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt']
+Categorical variables: ['dteday']
+
+Missing values per column:
+instant       0
+dteday        0
+season        0
+yr            0
+mnth          0
+hr            0
+holiday       0
+weekday       0
+workingday    0
+weathersit    0
+temp          0
+atemp         0
+hum           0
+windspeed     0
+casual        0
+registered    0
+cnt           0
+dtype: int64
+
+Duplicate rows: 0
+
+Leakage detected: casual + registered = cnt. Removing casual and registered columns.
+
+Max feature correlation with target: 0.4047722757786578
+
+Target non-negative check: True
+
+Cleaned dataset saved to: outputs/cleaned_data.csv
+Validation report saved to: outputs/benchmark/data_validation_report.csv
+
+--- DATA PROCESSING COMPLETED ---
+
+--- EDA STARTED ---
+EDA tables saved to eda_tables.csv
+EDA summary written to eda_summary.txt
+--- EDA COMPLETED ---
+--- DATA PROCESSING STARTED ---
+Dataset shape: (17379, 17)
+
+Column names and data types:
+instant         int64
+dteday         object
+season          int64
+yr              int64
+mnth            int64
+hr              int64
+holiday         int64
+weekday         int64
+workingday      int64
+weathersit      int64
+temp          float64
+atemp         float64
+hum           float64
+windspeed     float64
+casual          int64
+registered      int64
+cnt             int64
+dtype: object
+
+Numeric variables: ['instant', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt']
+Categorical variables: ['dteday']
+
+Missing values per column:
+instant       0
+dteday        0
+season        0
+yr            0
+mnth          0
+hr            0
+holiday       0
+weekday       0
+workingday    0
+weathersit    0
+temp          0
+atemp         0
+hum           0
+windspeed     0
+casual        0
+registered    0
+cnt           0
+dtype: int64
+
+Duplicate rows: 0
+
+Leakage detected: casual + registered = cnt. Removing casual and registered columns.
+
+Max feature correlation with target: 0.4047722757786578
+
+Target non-negative check: True
+
+Cleaned dataset saved to: outputs/cleaned_data.csv
+Validation report saved to: outputs/benchmark/data_validation_report.csv
+
+--- DATA PROCESSING COMPLETED ---
+
+--- EDA STARTED ---
+EDA tables saved to eda_tables.csv
+EDA summary written to eda_summary.txt
+--- EDA COMPLETED ---
+
+--- BASELINE MODEL TRAINING STARTED ---
+Chronological split verified. Train: 12165, Val: 2607, Test: 2607
+Model: LinearRegression, Features: F0, MAE: 155.29, RMSE: 189.77
+Model: LinearRegression, Features: F1, MAE: 137.55, RMSE: 174.13
+--- BASELINE MODEL TRAINING COMPLETED ---
+--- DATA PROCESSING STARTED ---
+Dataset shape: (17379, 17)
+
+Column names and data types:
+instant         int64
+dteday         object
+season          int64
+yr              int64
+mnth            int64
+hr              int64
+holiday         int64
+weekday         int64
+workingday      int64
+weathersit      int64
+temp          float64
+atemp         float64
+hum           float64
+windspeed     float64
+casual          int64
+registered      int64
+cnt             int64
+dtype: object
+
+Numeric variables: ['instant', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt']
+Categorical variables: ['dteday']
+
+Missing values per column:
+instant       0
+dteday        0
+season        0
+yr            0
+mnth          0
+hr            0
+holiday       0
+weekday       0
+workingday    0
+weathersit    0
+temp          0
+atemp         0
+hum           0
+windspeed     0
+casual        0
+registered    0
+cnt           0
+dtype: int64
+
+Duplicate rows: 0
+
+Leakage detected: casual + registered = cnt. Removing casual and registered columns.
+
+Max feature correlation with target: 0.4047722757786578
+
+Target non-negative check: True
+
+Cleaned dataset saved to: outputs/cleaned_data.csv
+Validation report saved to: outputs/benchmark/data_validation_report.csv
+
+--- DATA PROCESSING COMPLETED ---
+
+--- EDA STARTED ---
+EDA tables saved to eda_tables.csv
+EDA summary written to eda_summary.txt
+--- EDA COMPLETED ---
+
+--- BASELINE MODEL TRAINING STARTED ---
+Chronological split verified. Train: 12165, Val: 2607, Test: 2607
+Model: LinearRegression, Features: F0, MAE: 155.29, RMSE: 189.77
+Model: LinearRegression, Features: F1, MAE: 137.55, RMSE: 174.13
+--- BASELINE MODEL TRAINING COMPLETED ---
+
+--- MODEL IMPROVEMENT STARTED ---
+Model: Ridge, Features: F0, MAE: 155.33
+Model: Ridge, Features: F1, MAE: 137.54
+Model: RandomForest, Features: F0, MAE: 47.85
+Model: RandomForest, Features: F1, MAE: 51.36
+Model: GradientBoosting, Features: F0, MAE: 74.57
+Model: GradientBoosting, Features: F1, MAE: 72.75
+Model: MLP, Features: F0, MAE: 98.21
+Model: MLP, Features: F1, MAE: 68.84
+
+--- Tuning Models ---
+
+Best Model Selected: RandomForest
+Test Set Evaluation: MAE=55.96, RMSE=82.04
+--- MODEL IMPROVEMENT COMPLETED ---
