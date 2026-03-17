@@ -1,0 +1,90 @@
+======================================================================
+EXPLORATORY DATA ANALYSIS SUMMARY - BIKE-SHARING DATASET
+======================================================================
+
+DATASET OVERVIEW
+----------------------------------------------------------------------
+Observations: 17,379
+Features: 15
+Target Variable: cnt (hourly bike rental count)
+
+TARGET VARIABLE DISTRIBUTION
+----------------------------------------------------------------------
+Mean: 189.46 rentals/hour
+Median: 142.00 rentals/hour
+Std Dev: 181.39
+Range: [1, 977]
+Skewness: The distribution shows moderate positive skew,
+          indicating more frequent low-demand hours with occasional high peaks.
+
+KEY DEMAND PATTERNS
+----------------------------------------------------------------------
+Hourly Pattern:
+  - Clear bimodal pattern with peaks during morning (6-9am) and evening (5-7pm)
+  - Peak demand at hour 17 (461 rentals)
+  - Minimum demand at hour 4 (6 rentals)
+  - Implies strong cyclical behavior tied to commuting patterns
+
+Weekday Pattern:
+  - Variation across days suggests workday vs weekend effect
+  - Weekday demand shows consistent commuting patterns
+  - Weekend demand may differ due to leisure usage patterns
+
+WEATHER AND ENVIRONMENTAL RELATIONSHIPS
+----------------------------------------------------------------------
+Temperature-Demand Correlation: 0.405
+  - Positive relationship: milder temperatures associated with higher demand
+
+Humidity-Demand Correlation: -0.323
+  - Weak negative relationship: high humidity may deter bike rentals
+
+Wind Speed-Demand Correlation: 0.093
+  - Weak relationship: wind has minimal direct impact on demand
+
+RARE REGIMES AND DATA QUALITY CONCERNS
+----------------------------------------------------------------------
+Weather Extremes: 1 weather categories with < 5% representation
+  - Heavy rain/snow (if present) is rare and may have high prediction error
+
+Temporal Structure:
+  - Data spans 2 years with varying observation counts
+  - Potential year-over-year growth trend (check time series plot)
+  - May indicate concept drift or changing behavior over time
+
+
+LIKELY MODELLING RISKS AND CONSIDERATIONS
+----------------------------------------------------------------------
+1. Seasonality & Cyclicity:
+   - Strong hourly, daily, and seasonal patterns require careful feature engineering
+   - Time-based features (hour, weekday, month) will be important predictors
+
+2. Temporal Dependency:
+   - Observations are NOT independent (time series structure)
+   - Standard cross-validation may lead to data leakage; use time-based splits
+
+3. Heteroscedastic Variance:
+   - Prediction error likely varies by time of day (higher during peak hours)
+   - May benefit from separate models for different demand regimes
+
+4. Rare Weather Events:
+   - Limited samples of extreme weather may lead to poor predictions
+   - Consider stratified evaluation by weather category
+
+5. Outliers and Anomalies:
+   - Holidays and special events may create demand outliers
+   - Holiday feature (if available) should help capture these
+
+6. Multicollinearity:
+   - Temperature and 'feels like' temperature (atemp) are highly correlated
+   - Consider using only one of these in final model
+
+DATA QUALITY CONFIRMATION
+----------------------------------------------------------------------
+Missing Values: None detected
+Duplicates: None detected (verified in data ingestion phase)
+Leakage: Removed (casual and registered columns)
+Target Non-Negative: Yes (all cnt values >= 0)
+
+======================================================================
+EDA COMPLETE
+======================================================================

@@ -1,0 +1,435 @@
+[2026-03-17 17:24:15] ============================================================
+[2026-03-17 17:24:15] TASK 1 〞 Data Ingestion, Schema Checks & Missingness Handling
+[2026-03-17 17:24:15] ============================================================
+[2026-03-17 17:24:15] Dataset loaded from: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\dataset\hour.csv
+[2026-03-17 17:24:15] Dataset shape: 17379 rows ℅ 17 columns
+[2026-03-17 17:24:15] Column dtypes logged.
+[2026-03-17 17:24:15] Numeric cols: ['instant', 'temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt']
+[2026-03-17 17:24:15] Categorical cols: ['season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit']
+[2026-03-17 17:24:15] Total missing values: 0
+[2026-03-17 17:24:15] Duplicate rows found: 0
+[2026-03-17 17:24:15] Leakage detected: casual + registered == cnt. Columns removed.
+[2026-03-17 17:24:15] Max |corr| with cnt: 0.4048
+[2026-03-17 17:24:15] High-corr features (>0.95): []
+[2026-03-17 17:24:15] cnt >= 0 for all rows: True
+[2026-03-17 17:24:15] Cleaned dataset saved to: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\cleaned_data.csv  (17379 rows ℅ 15 cols)
+[2026-03-17 17:24:15] Validation report saved to: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\benchmark\data_validation_report.csv
+[2026-03-17 17:24:15] Task 1 complete.
+[2026-03-17 17:24:15] ============================================================
+[2026-03-17 17:27:22] ============================================================
+[2026-03-17 17:27:22] TASK 1 〞 Data Ingestion, Schema Checks & Missingness Handling
+[2026-03-17 17:27:22] ============================================================
+[2026-03-17 17:27:22] Dataset loaded from: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\dataset\hour.csv
+[2026-03-17 17:27:22] Dataset shape: 17379 rows ℅ 17 columns
+[2026-03-17 17:27:22] Column dtypes logged.
+[2026-03-17 17:27:22] Numeric cols: ['instant', 'temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt']
+[2026-03-17 17:27:22] Categorical cols: ['season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit']
+[2026-03-17 17:27:22] Total missing values: 0
+[2026-03-17 17:27:22] Duplicate rows found: 0
+[2026-03-17 17:27:22] Leakage detected: casual + registered == cnt. Columns removed.
+[2026-03-17 17:27:22] Max |corr| with cnt: 0.4048
+[2026-03-17 17:27:22] High-corr features (>0.95): []
+[2026-03-17 17:27:22] cnt >= 0 for all rows: True
+[2026-03-17 17:27:22] Cleaned dataset saved to: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\cleaned_data.csv  (17379 rows ℅ 15 cols)
+[2026-03-17 17:27:22] Validation report saved to: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\benchmark\data_validation_report.csv
+[2026-03-17 17:27:22] Task 1 complete.
+[2026-03-17 17:27:22] ============================================================
+[2026-03-17 17:27:23] ============================================================
+[2026-03-17 17:27:23] TASK 2 〞 Exploratory Data Analysis
+[2026-03-17 17:27:23] ============================================================
+[2026-03-17 17:27:23] Loaded cleaned data: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\cleaned_data.csv  shape=(17379, 15)
+[2026-03-17 17:27:23] Plotting target distribution ＃
+[2026-03-17 17:27:24] Figure saved: outputs/figures/target_distribution.png
+[2026-03-17 17:27:24] cnt 〞 mean=189.5, median=142.0, std=181.4, max=977, skew=1.277
+[2026-03-17 17:27:24] Plotting demand time series ＃
+[2026-03-17 17:27:24] Figure saved: outputs/figures/demand_time_series.png
+[2026-03-17 17:27:24] Plotting heatmap hour ℅ weekday ＃
+[2026-03-17 17:27:25] Figure saved: outputs/figures/heatmap_hour_weekday.png
+[2026-03-17 17:27:25] Plotting cnt vs temperature ＃
+[2026-03-17 17:27:25] Figure saved: outputs/figures/demand_vs_temp.png
+[2026-03-17 17:27:25] Plotting cnt vs humidity ＃
+[2026-03-17 17:27:25] Figure saved: outputs/figures/demand_vs_hum.png
+[2026-03-17 17:27:25] Plotting cnt vs windspeed ＃
+[2026-03-17 17:27:25] Figure saved: outputs/figures/demand_vs_windspeed.png
+[2026-03-17 17:27:25] Plotting correlation matrix ＃
+[2026-03-17 17:27:25] Figure saved: outputs/figures/correlation_matrix.png
+[2026-03-17 17:27:25] Computing EDA tables ＃
+[2026-03-17 17:27:25] EDA tables saved: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\benchmark\eda_tables.csv
+[2026-03-17 17:27:25] Outlier threshold (Q3+3IQR): 1004.0  ↙ 0 rows (0.00%)
+[2026-03-17 17:27:25] weathersit distribution (%):
+weathersit
+1    65.67
+2    26.15
+3     8.17
+4     0.02
+[2026-03-17 17:27:25] Rare weather categories (<1%): [4]
+[2026-03-17 17:27:25] Writing EDA summary ＃
+[2026-03-17 17:27:25] EDA summary saved: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\docs\eda_summary.txt
+[2026-03-17 17:27:25] Task 2 complete.
+[2026-03-17 17:27:25] ============================================================
+[2026-03-17 17:29:15] ============================================================
+[2026-03-17 17:29:15] TASK 1 〞 Data Ingestion, Schema Checks & Missingness Handling
+[2026-03-17 17:29:15] ============================================================
+[2026-03-17 17:29:15] Dataset loaded from: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\dataset\hour.csv
+[2026-03-17 17:29:15] Dataset shape: 17379 rows ℅ 17 columns
+[2026-03-17 17:29:15] Column dtypes logged.
+[2026-03-17 17:29:15] Numeric cols: ['instant', 'temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt']
+[2026-03-17 17:29:15] Categorical cols: ['season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit']
+[2026-03-17 17:29:15] Total missing values: 0
+[2026-03-17 17:29:15] Duplicate rows found: 0
+[2026-03-17 17:29:15] Leakage detected: casual + registered == cnt. Columns removed.
+[2026-03-17 17:29:15] Max |corr| with cnt: 0.4048
+[2026-03-17 17:29:15] High-corr features (>0.95): []
+[2026-03-17 17:29:15] cnt >= 0 for all rows: True
+[2026-03-17 17:29:15] Cleaned dataset saved to: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\cleaned_data.csv  (17379 rows ℅ 15 cols)
+[2026-03-17 17:29:15] Validation report saved to: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\benchmark\data_validation_report.csv
+[2026-03-17 17:29:15] Task 1 complete.
+[2026-03-17 17:29:15] ============================================================
+[2026-03-17 17:30:27] ============================================================
+[2026-03-17 17:30:27] TASK 1 〞 Data Ingestion, Schema Checks & Missingness Handling
+[2026-03-17 17:30:27] ============================================================
+[2026-03-17 17:30:27] Dataset loaded from: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\dataset\hour.csv
+[2026-03-17 17:30:27] Dataset shape: 17379 rows ℅ 17 columns
+[2026-03-17 17:30:27] Column dtypes logged.
+[2026-03-17 17:30:27] Numeric cols: ['instant', 'temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt']
+[2026-03-17 17:30:27] Categorical cols: ['season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit']
+[2026-03-17 17:30:27] Total missing values: 0
+[2026-03-17 17:30:27] Duplicate rows found: 0
+[2026-03-17 17:30:27] Leakage detected: casual + registered == cnt. Columns removed.
+[2026-03-17 17:30:27] Max |corr| with cnt: 0.4048
+[2026-03-17 17:30:27] High-corr features (>0.95): []
+[2026-03-17 17:30:27] cnt >= 0 for all rows: True
+[2026-03-17 17:30:27] Cleaned dataset saved to: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\cleaned_data.csv  (17379 rows ℅ 15 cols)
+[2026-03-17 17:30:27] Validation report saved to: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\benchmark\data_validation_report.csv
+[2026-03-17 17:30:27] Task 1 complete.
+[2026-03-17 17:30:27] ============================================================
+[2026-03-17 17:30:28] ============================================================
+[2026-03-17 17:30:28] TASK 2 〞 Exploratory Data Analysis
+[2026-03-17 17:30:28] ============================================================
+[2026-03-17 17:30:28] Loaded cleaned data: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\cleaned_data.csv  shape=(17379, 15)
+[2026-03-17 17:30:28] Plotting target distribution ＃
+[2026-03-17 17:30:29] Figure saved: outputs/figures/target_distribution.png
+[2026-03-17 17:30:29] cnt 〞 mean=189.5, median=142.0, std=181.4, max=977, skew=1.277
+[2026-03-17 17:30:29] Plotting demand time series ＃
+[2026-03-17 17:30:29] Figure saved: outputs/figures/demand_time_series.png
+[2026-03-17 17:30:29] Plotting heatmap hour ℅ weekday ＃
+[2026-03-17 17:30:29] Figure saved: outputs/figures/heatmap_hour_weekday.png
+[2026-03-17 17:30:29] Plotting cnt vs temperature ＃
+[2026-03-17 17:30:29] Figure saved: outputs/figures/demand_vs_temp.png
+[2026-03-17 17:30:29] Plotting cnt vs humidity ＃
+[2026-03-17 17:30:29] Figure saved: outputs/figures/demand_vs_hum.png
+[2026-03-17 17:30:29] Plotting cnt vs windspeed ＃
+[2026-03-17 17:30:29] Figure saved: outputs/figures/demand_vs_windspeed.png
+[2026-03-17 17:30:29] Plotting correlation matrix ＃
+[2026-03-17 17:30:30] Figure saved: outputs/figures/correlation_matrix.png
+[2026-03-17 17:30:30] Computing EDA tables ＃
+[2026-03-17 17:30:30] EDA tables saved: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\benchmark\eda_tables.csv
+[2026-03-17 17:30:30] Outlier threshold (Q3+3IQR): 1004.0  ↙ 0 rows (0.00%)
+[2026-03-17 17:30:30] weathersit distribution (%):
+weathersit
+1    65.67
+2    26.15
+3     8.17
+4     0.02
+[2026-03-17 17:30:30] Rare weather categories (<1%): [4]
+[2026-03-17 17:30:30] Writing EDA summary ＃
+[2026-03-17 17:30:30] EDA summary saved: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\docs\eda_summary.txt
+[2026-03-17 17:30:30] Task 2 complete.
+[2026-03-17 17:30:30] ============================================================
+[2026-03-17 17:30:31] ============================================================
+[2026-03-17 17:30:31] TASK 3 〞 Baseline Model (Linear Regression)
+[2026-03-17 17:30:31] ============================================================
+[2026-03-17 17:30:31] Loaded cleaned data: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\cleaned_data.csv  shape=(17379, 15)
+[2026-03-17 17:30:31] Dropped columns: ['instant', 'dteday']
+[2026-03-17 17:30:31] Split sizes 〞 train: 12165  val: 2607  test: 2607
+[2026-03-17 17:30:31] Chronological split assertions PASSED.
+[2026-03-17 17:30:31]   train rows [0每12164]  val [12165每14771]  test [14772每17378]
+[2026-03-17 17:30:31] Splits saved: train.csv  val.csv  test.csv
+[2026-03-17 17:30:31] F0 features (11): ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed']
+[2026-03-17 17:30:31] F1 features (15): ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'sin_hour', 'cos_hour', 'sin_month', 'cos_month']
+[2026-03-17 17:30:31] Preprocessing report saved: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\benchmark\preprocessing_report.csv
+[2026-03-17 17:30:31] Linear Regression | F0 | val MAE=155.293  RMSE=189.772  time=0.0024s
+[2026-03-17 17:30:31] Linear Regression | F1 | val MAE=137.550  RMSE=174.132  time=0.0026s
+[2026-03-17 17:30:31] Baseline results saved: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\metrics\baseline_model_results.csv
+[2026-03-17 17:30:31] Figure saved: outputs/figures/actual_vs_predicted.png
+[2026-03-17 17:30:31] Figure saved: outputs/figures/residual_distribution.png
+[2026-03-17 17:30:31] Task 3 complete.
+[2026-03-17 17:30:31] ============================================================
+[2026-03-17 17:33:23] ============================================================
+[2026-03-17 17:33:23] TASK 4 〞 Model Comparison, Tuning & Final Evaluation
+[2026-03-17 17:33:23] ============================================================
+[2026-03-17 17:33:23] Splits loaded 〞 train:(12165, 13)  val:(2607, 13)  test:(2607, 13)
+[2026-03-17 17:33:23] F0 (11 features): ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed']
+[2026-03-17 17:33:23] F1 (15 features): ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'sin_hour', 'cos_hour', 'sin_month', 'cos_month']
+[2026-03-17 17:33:23] --- Model comparison (default hyper-params, validation set) ---
+[2026-03-17 17:33:23]   Ridge                | F0 | MAE=155.294  RMSE=189.770  time=0.001s
+[2026-03-17 17:33:25]   RandomForest         | F0 | MAE=47.885  RMSE=73.712  time=2.124s
+[2026-03-17 17:33:26]   GradientBoosting     | F0 | MAE=58.673  RMSE=80.456  time=0.716s
+[2026-03-17 17:33:37]   MLPRegressor         | F0 | MAE=51.388  RMSE=77.019  time=11.032s
+[2026-03-17 17:33:37]   Ridge                | F1 | MAE=137.549  RMSE=174.132  time=0.001s
+[2026-03-17 17:33:40]   RandomForest         | F1 | MAE=48.961  RMSE=74.736  time=2.692s
+[2026-03-17 17:33:41]   GradientBoosting     | F1 | MAE=54.780  RMSE=77.247  time=0.909s
+[2026-03-17 17:33:53]   MLPRegressor         | F1 | MAE=60.000  RMSE=83.394  time=11.761s
+[2026-03-17 17:33:53] All results saved: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\metrics\all_results.csv
+[2026-03-17 17:33:53] --- Hyperparameter tuning ---
+[2026-03-17 17:33:53]   Ridge: sweeping alpha ＃
+[2026-03-17 17:33:53]   tune Ridge                | F0 | alpha=0.01 ↙ MAE=155.293  RMSE=189.772
+[2026-03-17 17:33:53]   tune Ridge                | F1 | alpha=0.01 ↙ MAE=137.550  RMSE=174.132
+[2026-03-17 17:33:53]   tune Ridge                | F0 | alpha=0.1 ↙ MAE=155.293  RMSE=189.772
+[2026-03-17 17:33:53]   tune Ridge                | F1 | alpha=0.1 ↙ MAE=137.550  RMSE=174.132
+[2026-03-17 17:33:53]   tune Ridge                | F0 | alpha=1.0 ↙ MAE=155.294  RMSE=189.770
+[2026-03-17 17:33:53]   tune Ridge                | F1 | alpha=1.0 ↙ MAE=137.549  RMSE=174.132
+[2026-03-17 17:33:53]   tune Ridge                | F0 | alpha=10.0 ↙ MAE=155.293  RMSE=189.753
+[2026-03-17 17:33:53]   tune Ridge                | F1 | alpha=10.0 ↙ MAE=137.544  RMSE=174.135
+[2026-03-17 17:33:53]   tune Ridge                | F0 | alpha=100.0 ↙ MAE=155.206  RMSE=189.701
+[2026-03-17 17:33:53]   tune Ridge                | F1 | alpha=100.0 ↙ MAE=137.507  RMSE=174.219
+[2026-03-17 17:33:53]   tune Ridge                | F0 | alpha=1000.0 ↙ MAE=153.798  RMSE=190.083
+[2026-03-17 17:33:53]   tune Ridge                | F1 | alpha=1000.0 ↙ MAE=137.337  RMSE=175.445
+[2026-03-17 17:33:53]   RandomForest: sweeping n_estimators ℅ max_depth ＃
+[2026-03-17 17:33:53]   tune RandomForest         | F0 | n_est=50,depth=8 ↙ MAE=58.369  RMSE=85.635
+[2026-03-17 17:33:54]   tune RandomForest         | F1 | n_est=50,depth=8 ↙ MAE=58.984  RMSE=84.908
+[2026-03-17 17:33:55]   tune RandomForest         | F0 | n_est=50,depth=16 ↙ MAE=48.145  RMSE=73.710
+[2026-03-17 17:33:56]   tune RandomForest         | F1 | n_est=50,depth=16 ↙ MAE=48.795  RMSE=74.539
+[2026-03-17 17:33:57]   tune RandomForest         | F0 | n_est=50,depth=None ↙ MAE=47.954  RMSE=73.613
+[2026-03-17 17:33:58]   tune RandomForest         | F1 | n_est=50,depth=None ↙ MAE=49.735  RMSE=75.836
+[2026-03-17 17:33:59]   tune RandomForest         | F0 | n_est=100,depth=8 ↙ MAE=58.459  RMSE=85.471
+[2026-03-17 17:34:00]   tune RandomForest         | F1 | n_est=100,depth=8 ↙ MAE=59.071  RMSE=84.640
+[2026-03-17 17:34:02]   tune RandomForest         | F0 | n_est=100,depth=16 ↙ MAE=47.916  RMSE=73.695
+[2026-03-17 17:34:05]   tune RandomForest         | F1 | n_est=100,depth=16 ↙ MAE=48.729  RMSE=74.545
+[2026-03-17 17:34:07]   tune RandomForest         | F0 | n_est=100,depth=None ↙ MAE=47.885  RMSE=73.712
+[2026-03-17 17:34:10]   tune RandomForest         | F1 | n_est=100,depth=None ↙ MAE=48.961  RMSE=74.736
+[2026-03-17 17:34:11]   tune RandomForest         | F0 | n_est=200,depth=8 ↙ MAE=58.197  RMSE=85.304
+[2026-03-17 17:34:14]   tune RandomForest         | F1 | n_est=200,depth=8 ↙ MAE=59.138  RMSE=84.923
+[2026-03-17 17:34:18]   tune RandomForest         | F0 | n_est=200,depth=16 ↙ MAE=47.922  RMSE=73.936
+[2026-03-17 17:34:22]   tune RandomForest         | F1 | n_est=200,depth=16 ↙ MAE=48.534  RMSE=74.381
+[2026-03-17 17:34:27]   tune RandomForest         | F0 | n_est=200,depth=None ↙ MAE=47.885  RMSE=73.872
+[2026-03-17 17:34:32]   tune RandomForest         | F1 | n_est=200,depth=None ↙ MAE=48.687  RMSE=74.581
+[2026-03-17 17:34:32]   GradientBoosting: sweeping n_estimators ＃
+[2026-03-17 17:34:33]     GB n_est=50  F0 MAE=66.631  F1 MAE=64.520
+[2026-03-17 17:34:35]     GB n_est=100  F0 MAE=58.673  F1 MAE=54.780
+[2026-03-17 17:34:37]     GB n_est=150  F0 MAE=54.019  F1 MAE=50.564
+[2026-03-17 17:34:40]     GB n_est=200  F0 MAE=51.293  F1 MAE=49.233
+[2026-03-17 17:34:45]     GB n_est=300  F0 MAE=50.749  F1 MAE=47.428
+[2026-03-17 17:34:52]     GB n_est=400  F0 MAE=50.286  F1 MAE=46.675
+[2026-03-17 17:35:00]     GB n_est=500  F0 MAE=49.833  F1 MAE=46.231
+[2026-03-17 17:35:00] Figure saved: outputs/figures/validation_curve_gb.png
+[2026-03-17 17:35:00]   Best GB n_estimators 〞 F0: 500  F1: 500
+[2026-03-17 17:35:04]   tune GradientBoosting     | F0 | n_est=500,lr=0.05,depth=4 ↙ MAE=50.752  RMSE=72.689
+[2026-03-17 17:35:08]   tune GradientBoosting     | F1 | n_est=500,lr=0.05,depth=4 ↙ MAE=49.488  RMSE=70.775
+[2026-03-17 17:35:12]   tune GradientBoosting     | F0 | n_est=500,lr=0.1,depth=4 ↙ MAE=49.833  RMSE=71.937
+[2026-03-17 17:35:16]   tune GradientBoosting     | F1 | n_est=500,lr=0.1,depth=4 ↙ MAE=46.231  RMSE=66.887
+[2026-03-17 17:35:20]   tune GradientBoosting     | F0 | n_est=500,lr=0.2,depth=4 ↙ MAE=50.508  RMSE=73.544
+[2026-03-17 17:35:24]   tune GradientBoosting     | F1 | n_est=500,lr=0.2,depth=4 ↙ MAE=48.143  RMSE=69.187
+[2026-03-17 17:35:24]   MLP: sweeping architecture and learning rate ＃
+[2026-03-17 17:35:38]   tune MLPRegressor         | F0 | arch=(128, 64),lr=0.001 ↙ MAE=52.675  RMSE=78.360
+[2026-03-17 17:35:50]   tune MLPRegressor         | F1 | arch=(128, 64),lr=0.001 ↙ MAE=60.000  RMSE=83.394
+[2026-03-17 17:35:57]   tune MLPRegressor         | F0 | arch=(128, 64),lr=0.01 ↙ MAE=56.594  RMSE=82.877
+[2026-03-17 17:35:59]   tune MLPRegressor         | F1 | arch=(128, 64),lr=0.01 ↙ MAE=46.563  RMSE=68.202
+[2026-03-17 17:36:14]   tune MLPRegressor         | F0 | arch=(256, 128, 64),lr=0.001 ↙ MAE=71.177  RMSE=112.702
+[2026-03-17 17:36:28]   tune MLPRegressor         | F1 | arch=(256, 128, 64),lr=0.001 ↙ MAE=70.512  RMSE=100.885
+[2026-03-17 17:36:40]   tune MLPRegressor         | F0 | arch=(256, 128, 64),lr=0.01 ↙ MAE=57.200  RMSE=85.686
+[2026-03-17 17:36:51]   tune MLPRegressor         | F1 | arch=(256, 128, 64),lr=0.01 ↙ MAE=50.216  RMSE=76.222
+[2026-03-17 17:36:57]   tune MLPRegressor         | F0 | arch=(64, 32),lr=0.001 ↙ MAE=67.591  RMSE=95.759
+[2026-03-17 17:37:03]   tune MLPRegressor         | F1 | arch=(64, 32),lr=0.001 ↙ MAE=66.511  RMSE=91.728
+[2026-03-17 17:37:05]   tune MLPRegressor         | F0 | arch=(64, 32),lr=0.01 ↙ MAE=55.799  RMSE=79.298
+[2026-03-17 17:37:06]   tune MLPRegressor         | F1 | arch=(64, 32),lr=0.01 ↙ MAE=54.875  RMSE=77.667
+[2026-03-17 17:37:06] Tuning results saved: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\metrics\tuning_results.csv  (62 runs)
+[2026-03-17 17:37:06] --- Selecting best model by validation MAE ---
+[2026-03-17 17:37:06] Best tuned MAE per model:
+           model feature_set      MAE
+GradientBoosting          F1  46.2310
+    MLPRegressor          F1  46.5626
+    RandomForest          F0  47.8845
+    RandomForest          F1  48.5342
+GradientBoosting          F0  49.8332
+    MLPRegressor          F0  52.6755
+           Ridge          F1 137.3365
+           Ridge          F0 153.7981
+[2026-03-17 17:37:06] Best model: GradientBoosting (F1)  val MAE=46.2310
+[2026-03-17 17:37:06]   Best config for GradientBoosting/F1: n_est=500,lr=0.1,depth=4
+[2026-03-17 17:37:11] Best model refit on training set.
+[2026-03-17 17:37:11] Final model saved: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\models\final_model.pkl
+[2026-03-17 17:37:11] --- Final evaluation on TEST set ---
+[2026-03-17 17:37:11] TEST  MAE=52.5985  RMSE=78.1029
+[2026-03-17 17:37:11] Final results saved: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\metrics\final_model_results.csv
+[2026-03-17 17:37:11] Figure saved: outputs/figures/residual_distribution.png
+[2026-03-17 17:37:11] Figure saved: outputs/figures/mae_by_hour.png
+[2026-03-17 17:37:11] Figure saved: outputs/figures/mae_by_weekday.png
+[2026-03-17 17:37:11] Figure saved: outputs/figures/residual_vs_temperature.png
+[2026-03-17 17:37:11] Figure saved: outputs/figures/rolling_mae_over_time.png
+[2026-03-17 17:37:11] Task 4 complete.
+[2026-03-17 17:37:11] ============================================================
+[2026-03-17 18:36:34] ============================================================
+[2026-03-17 18:36:34] TASK 1 〞 Data Ingestion, Schema Checks & Missingness Handling
+[2026-03-17 18:36:34] ============================================================
+[2026-03-17 18:36:34] Dataset loaded from: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\dataset\hour.csv
+[2026-03-17 18:36:34] Dataset shape: 17379 rows ℅ 17 columns
+[2026-03-17 18:36:34] Column dtypes logged.
+[2026-03-17 18:36:34] Numeric cols: ['instant', 'temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt']
+[2026-03-17 18:36:34] Categorical cols: ['season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit']
+[2026-03-17 18:36:34] Total missing values: 0
+[2026-03-17 18:36:34] Duplicate rows found: 0
+[2026-03-17 18:36:34] Leakage detected: casual + registered == cnt. Columns removed.
+[2026-03-17 18:36:34] Max |corr| with cnt: 0.4048
+[2026-03-17 18:36:34] High-corr features (>0.95): []
+[2026-03-17 18:36:34] cnt >= 0 for all rows: True
+[2026-03-17 18:36:34] Cleaned dataset saved to: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\cleaned_data.csv  (17379 rows ℅ 15 cols)
+[2026-03-17 18:36:34] Validation report saved to: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\benchmark\data_validation_report.csv
+[2026-03-17 18:36:34] Task 1 complete.
+[2026-03-17 18:36:34] ============================================================
+[2026-03-17 18:42:05] ============================================================
+[2026-03-17 18:42:05] TASK 2 〞 Exploratory Data Analysis
+[2026-03-17 18:42:05] ============================================================
+[2026-03-17 18:42:05] Loaded cleaned data: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\cleaned_data.csv  shape=(17379, 15)
+[2026-03-17 18:42:05] Plotting target distribution ＃
+[2026-03-17 18:42:05] Figure saved: outputs/figures/target_distribution.png
+[2026-03-17 18:42:05] cnt 〞 mean=189.5, median=142.0, std=181.4, max=977, skew=1.277
+[2026-03-17 18:42:05] Plotting demand time series ＃
+[2026-03-17 18:42:05] Figure saved: outputs/figures/demand_time_series.png
+[2026-03-17 18:42:05] Plotting heatmap hour ℅ weekday ＃
+[2026-03-17 18:42:06] Figure saved: outputs/figures/heatmap_hour_weekday.png
+[2026-03-17 18:42:06] Plotting cnt vs temperature ＃
+[2026-03-17 18:42:06] Figure saved: outputs/figures/demand_vs_temp.png
+[2026-03-17 18:42:06] Plotting cnt vs humidity ＃
+[2026-03-17 18:42:06] Figure saved: outputs/figures/demand_vs_hum.png
+[2026-03-17 18:42:06] Plotting cnt vs windspeed ＃
+[2026-03-17 18:42:06] Figure saved: outputs/figures/demand_vs_windspeed.png
+[2026-03-17 18:42:06] Plotting correlation matrix ＃
+[2026-03-17 18:42:07] Figure saved: outputs/figures/correlation_matrix.png
+[2026-03-17 18:42:07] Computing EDA tables ＃
+[2026-03-17 18:42:07] EDA tables saved: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\benchmark\eda_tables.csv
+[2026-03-17 18:42:07] Outlier threshold (Q3+3IQR): 1004.0  ↙ 0 rows (0.00%)
+[2026-03-17 18:42:07] weathersit distribution (%):
+weathersit
+1    65.67
+2    26.15
+3     8.17
+4     0.02
+[2026-03-17 18:42:07] Rare weather categories (<1%): [4]
+[2026-03-17 18:42:07] Writing EDA summary ＃
+[2026-03-17 18:42:07] EDA summary saved: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\docs\eda_summary.txt
+[2026-03-17 18:42:07] Task 2 complete.
+[2026-03-17 18:42:07] ============================================================
+[2026-03-17 18:46:08] ============================================================
+[2026-03-17 18:46:08] TASK 3 〞 Baseline Model (Linear Regression)
+[2026-03-17 18:46:08] ============================================================
+[2026-03-17 18:46:08] Loaded cleaned data: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\cleaned_data.csv  shape=(17379, 15)
+[2026-03-17 18:46:08] Dropped columns: ['instant', 'dteday']
+[2026-03-17 18:46:08] Split sizes 〞 train: 12165  val: 2607  test: 2607
+[2026-03-17 18:46:08] Chronological split assertions PASSED.
+[2026-03-17 18:46:08]   train rows [0每12164]  val [12165每14771]  test [14772每17378]
+[2026-03-17 18:46:08] Splits saved: train.csv  val.csv  test.csv
+[2026-03-17 18:46:08] F0 features (11): ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed']
+[2026-03-17 18:46:08] F1 features (15): ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'sin_hour', 'cos_hour', 'sin_month', 'cos_month']
+[2026-03-17 18:46:08] Preprocessing report saved: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\benchmark\preprocessing_report.csv
+[2026-03-17 18:46:08] Linear Regression | F0 | val MAE=155.293  RMSE=189.772  time=0.0016s
+[2026-03-17 18:46:08] Linear Regression | F1 | val MAE=137.550  RMSE=174.132  time=0.0023s
+[2026-03-17 18:46:08] Baseline results saved: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\metrics\baseline_model_results.csv
+[2026-03-17 18:46:08] Figure saved: outputs/figures/actual_vs_predicted.png
+[2026-03-17 18:46:08] Figure saved: outputs/figures/residual_distribution.png
+[2026-03-17 18:46:08] Task 3 complete.
+[2026-03-17 18:46:08] ============================================================
+[2026-03-17 18:50:56] ============================================================
+[2026-03-17 18:50:56] TASK 4 〞 Model Comparison, Tuning & Final Evaluation
+[2026-03-17 18:50:56] ============================================================
+[2026-03-17 18:50:56] Splits loaded 〞 train:(12165, 13)  val:(2607, 13)  test:(2607, 13)
+[2026-03-17 18:50:56] F0 (11 features): ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed']
+[2026-03-17 18:50:56] F1 (15 features): ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'sin_hour', 'cos_hour', 'sin_month', 'cos_month']
+[2026-03-17 18:50:56] --- Model comparison (default hyper-params, validation set) ---
+[2026-03-17 18:50:56]   Ridge                | F0 | MAE=155.294  RMSE=189.770  time=0.001s
+[2026-03-17 18:50:58]   RandomForest         | F0 | MAE=47.885  RMSE=73.712  time=2.168s
+[2026-03-17 18:50:59]   GradientBoosting     | F0 | MAE=58.673  RMSE=80.456  time=0.706s
+[2026-03-17 18:51:10]   MLPRegressor         | F0 | MAE=51.388  RMSE=77.019  time=10.962s
+[2026-03-17 18:51:10]   Ridge                | F1 | MAE=137.549  RMSE=174.132  time=0.001s
+[2026-03-17 18:51:13]   RandomForest         | F1 | MAE=48.961  RMSE=74.736  time=2.824s
+[2026-03-17 18:51:14]   GradientBoosting     | F1 | MAE=54.780  RMSE=77.247  time=0.934s
+[2026-03-17 18:51:26]   MLPRegressor         | F1 | MAE=60.000  RMSE=83.394  time=12.007s
+[2026-03-17 18:51:26] All results saved: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\metrics\all_results.csv
+[2026-03-17 18:51:26] --- Hyperparameter tuning ---
+[2026-03-17 18:51:26]   Ridge: sweeping alpha ＃
+[2026-03-17 18:51:26]   tune Ridge                | F0 | alpha=0.01 ↙ MAE=155.293  RMSE=189.772
+[2026-03-17 18:51:26]   tune Ridge                | F1 | alpha=0.01 ↙ MAE=137.550  RMSE=174.132
+[2026-03-17 18:51:26]   tune Ridge                | F0 | alpha=0.1 ↙ MAE=155.293  RMSE=189.772
+[2026-03-17 18:51:26]   tune Ridge                | F1 | alpha=0.1 ↙ MAE=137.550  RMSE=174.132
+[2026-03-17 18:51:26]   tune Ridge                | F0 | alpha=1.0 ↙ MAE=155.294  RMSE=189.770
+[2026-03-17 18:51:26]   tune Ridge                | F1 | alpha=1.0 ↙ MAE=137.549  RMSE=174.132
+[2026-03-17 18:51:26]   tune Ridge                | F0 | alpha=10.0 ↙ MAE=155.293  RMSE=189.753
+[2026-03-17 18:51:26]   tune Ridge                | F1 | alpha=10.0 ↙ MAE=137.544  RMSE=174.135
+[2026-03-17 18:51:26]   tune Ridge                | F0 | alpha=100.0 ↙ MAE=155.206  RMSE=189.701
+[2026-03-17 18:51:26]   tune Ridge                | F1 | alpha=100.0 ↙ MAE=137.507  RMSE=174.219
+[2026-03-17 18:51:26]   tune Ridge                | F0 | alpha=1000.0 ↙ MAE=153.798  RMSE=190.083
+[2026-03-17 18:51:26]   tune Ridge                | F1 | alpha=1000.0 ↙ MAE=137.337  RMSE=175.445
+[2026-03-17 18:51:26]   RandomForest: sweeping n_estimators ℅ max_depth ＃
+[2026-03-17 18:51:26]   tune RandomForest         | F0 | n_est=50,depth=8 ↙ MAE=58.369  RMSE=85.635
+[2026-03-17 18:51:27]   tune RandomForest         | F1 | n_est=50,depth=8 ↙ MAE=58.984  RMSE=84.908
+[2026-03-17 18:51:28]   tune RandomForest         | F0 | n_est=50,depth=16 ↙ MAE=48.145  RMSE=73.710
+[2026-03-17 18:51:29]   tune RandomForest         | F1 | n_est=50,depth=16 ↙ MAE=48.795  RMSE=74.539
+[2026-03-17 18:51:30]   tune RandomForest         | F0 | n_est=50,depth=None ↙ MAE=47.954  RMSE=73.613
+[2026-03-17 18:51:32]   tune RandomForest         | F1 | n_est=50,depth=None ↙ MAE=49.735  RMSE=75.836
+[2026-03-17 18:51:33]   tune RandomForest         | F0 | n_est=100,depth=8 ↙ MAE=58.459  RMSE=85.471
+[2026-03-17 18:51:34]   tune RandomForest         | F1 | n_est=100,depth=8 ↙ MAE=59.071  RMSE=84.640
+[2026-03-17 18:51:36]   tune RandomForest         | F0 | n_est=100,depth=16 ↙ MAE=47.916  RMSE=73.695
+[2026-03-17 18:51:39]   tune RandomForest         | F1 | n_est=100,depth=16 ↙ MAE=48.729  RMSE=74.545
+[2026-03-17 18:51:41]   tune RandomForest         | F0 | n_est=100,depth=None ↙ MAE=47.885  RMSE=73.712
+[2026-03-17 18:51:44]   tune RandomForest         | F1 | n_est=100,depth=None ↙ MAE=48.961  RMSE=74.736
+[2026-03-17 18:51:46]   tune RandomForest         | F0 | n_est=200,depth=8 ↙ MAE=58.197  RMSE=85.304
+[2026-03-17 18:51:49]   tune RandomForest         | F1 | n_est=200,depth=8 ↙ MAE=59.138  RMSE=84.923
+[2026-03-17 18:51:55]   tune RandomForest         | F0 | n_est=200,depth=16 ↙ MAE=47.922  RMSE=73.936
+[2026-03-17 18:52:01]   tune RandomForest         | F1 | n_est=200,depth=16 ↙ MAE=48.534  RMSE=74.381
+[2026-03-17 18:52:06]   tune RandomForest         | F0 | n_est=200,depth=None ↙ MAE=47.885  RMSE=73.872
+[2026-03-17 18:52:11]   tune RandomForest         | F1 | n_est=200,depth=None ↙ MAE=48.687  RMSE=74.581
+[2026-03-17 18:52:11]   GradientBoosting: sweeping n_estimators ＃
+[2026-03-17 18:52:12]     GB n_est=50  F0 MAE=66.631  F1 MAE=64.520
+[2026-03-17 18:52:14]     GB n_est=100  F0 MAE=58.673  F1 MAE=54.780
+[2026-03-17 18:52:17]     GB n_est=150  F0 MAE=54.019  F1 MAE=50.564
+[2026-03-17 18:52:21]     GB n_est=200  F0 MAE=51.293  F1 MAE=49.233
+[2026-03-17 18:52:26]     GB n_est=300  F0 MAE=50.749  F1 MAE=47.428
+[2026-03-17 18:52:33]     GB n_est=400  F0 MAE=50.286  F1 MAE=46.675
+[2026-03-17 18:52:42]     GB n_est=500  F0 MAE=49.833  F1 MAE=46.231
+[2026-03-17 18:52:42] Figure saved: outputs/figures/validation_curve_gb.png
+[2026-03-17 18:52:42]   Best GB n_estimators 〞 F0: 500  F1: 500
+[2026-03-17 18:52:46]   tune GradientBoosting     | F0 | n_est=500,lr=0.05,depth=4 ↙ MAE=50.752  RMSE=72.689
+[2026-03-17 18:52:51]   tune GradientBoosting     | F1 | n_est=500,lr=0.05,depth=4 ↙ MAE=49.488  RMSE=70.775
+[2026-03-17 18:52:55]   tune GradientBoosting     | F0 | n_est=500,lr=0.1,depth=4 ↙ MAE=49.833  RMSE=71.937
+[2026-03-17 18:53:01]   tune GradientBoosting     | F1 | n_est=500,lr=0.1,depth=4 ↙ MAE=46.231  RMSE=66.887
+[2026-03-17 18:53:05]   tune GradientBoosting     | F0 | n_est=500,lr=0.2,depth=4 ↙ MAE=50.508  RMSE=73.544
+[2026-03-17 18:53:11]   tune GradientBoosting     | F1 | n_est=500,lr=0.2,depth=4 ↙ MAE=48.143  RMSE=69.187
+[2026-03-17 18:53:11]   MLP: sweeping architecture and learning rate ＃
+[2026-03-17 18:53:31]   tune MLPRegressor         | F0 | arch=(128, 64),lr=0.001 ↙ MAE=52.675  RMSE=78.360
+[2026-03-17 18:53:46]   tune MLPRegressor         | F1 | arch=(128, 64),lr=0.001 ↙ MAE=60.000  RMSE=83.394
+[2026-03-17 18:53:54]   tune MLPRegressor         | F0 | arch=(128, 64),lr=0.01 ↙ MAE=56.594  RMSE=82.877
+[2026-03-17 18:53:57]   tune MLPRegressor         | F1 | arch=(128, 64),lr=0.01 ↙ MAE=46.563  RMSE=68.202
+[2026-03-17 18:54:14]   tune MLPRegressor         | F0 | arch=(256, 128, 64),lr=0.001 ↙ MAE=71.177  RMSE=112.702
+[2026-03-17 18:54:28]   tune MLPRegressor         | F1 | arch=(256, 128, 64),lr=0.001 ↙ MAE=70.512  RMSE=100.885
+[2026-03-17 18:54:41]   tune MLPRegressor         | F0 | arch=(256, 128, 64),lr=0.01 ↙ MAE=57.200  RMSE=85.686
+[2026-03-17 18:54:54]   tune MLPRegressor         | F1 | arch=(256, 128, 64),lr=0.01 ↙ MAE=50.216  RMSE=76.222
+[2026-03-17 18:55:00]   tune MLPRegressor         | F0 | arch=(64, 32),lr=0.001 ↙ MAE=67.591  RMSE=95.759
+[2026-03-17 18:55:07]   tune MLPRegressor         | F1 | arch=(64, 32),lr=0.001 ↙ MAE=66.511  RMSE=91.728
+[2026-03-17 18:55:09]   tune MLPRegressor         | F0 | arch=(64, 32),lr=0.01 ↙ MAE=55.799  RMSE=79.298
+[2026-03-17 18:55:10]   tune MLPRegressor         | F1 | arch=(64, 32),lr=0.01 ↙ MAE=54.875  RMSE=77.667
+[2026-03-17 18:55:10] Tuning results saved: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\metrics\tuning_results.csv  (62 runs)
+[2026-03-17 18:55:10] --- Selecting best model by validation MAE ---
+[2026-03-17 18:55:10] Best tuned MAE per model:
+           model feature_set      MAE
+GradientBoosting          F1  46.2310
+    MLPRegressor          F1  46.5626
+    RandomForest          F0  47.8845
+    RandomForest          F1  48.5342
+GradientBoosting          F0  49.8332
+    MLPRegressor          F0  52.6755
+           Ridge          F1 137.3365
+           Ridge          F0 153.7981
+[2026-03-17 18:55:10] Best model: GradientBoosting (F1)  val MAE=46.2310
+[2026-03-17 18:55:10]   Best config for GradientBoosting/F1: n_est=500,lr=0.1,depth=4
+[2026-03-17 18:55:16] Best model refit on training set.
+[2026-03-17 18:55:16] Final model saved: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\models\final_model.pkl
+[2026-03-17 18:55:16] --- Final evaluation on TEST set ---
+[2026-03-17 18:55:16] TEST  MAE=52.5985  RMSE=78.1029
+[2026-03-17 18:55:16] Final results saved: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\SonnetT\project\outputs\metrics\final_model_results.csv
+[2026-03-17 18:55:16] Figure saved: outputs/figures/residual_distribution.png
+[2026-03-17 18:55:16] Figure saved: outputs/figures/mae_by_hour.png
+[2026-03-17 18:55:16] Figure saved: outputs/figures/mae_by_weekday.png
+[2026-03-17 18:55:16] Figure saved: outputs/figures/residual_vs_temperature.png
+[2026-03-17 18:55:16] Figure saved: outputs/figures/rolling_mae_over_time.png
+[2026-03-17 18:55:16] Task 4 complete.
+[2026-03-17 18:55:16] ============================================================
