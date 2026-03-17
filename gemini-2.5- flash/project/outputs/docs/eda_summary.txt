@@ -1,0 +1,5 @@
+EDA Summary:
+- Demand pattern over time: Shows clear seasonal trends and an overall increase in demand from year 0 to year 1. Daily cycles are highly pronounced, with peaks during morning and evening rush hours on weekdays.
+- Rare regimes: Extreme weather conditions (high windspeed, very low/high humidity, or weathersit category 4) are rare but show significantly lower demand.
+- Likely modelling risks: The target 'cnt' is highly skewed with many low values, suggesting potential issues for standard linear regression. Temporal autocorrelation is likely strong.
+- Remaining leakage/data quality: No further leakage detected after removing casual/registered. Data appears clean with no missing values.

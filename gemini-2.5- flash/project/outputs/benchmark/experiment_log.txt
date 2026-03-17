@@ -1,0 +1,1278 @@
+2026-03-16 20:00:49,898 - INFO - Logging initialized. Log file: outputs/benchmark/experiment_log.txt
+2026-03-16 20:00:49,898 - INFO - Starting data preparation and validation pipeline.
+2026-03-16 20:00:49,898 - INFO - Loading dataset from dataset/hour.csv
+2026-03-16 20:00:49,940 - INFO - Dataset loaded successfully. Initial shape: (17379, 17)
+2026-03-16 20:00:49,940 - INFO - Dataset columns and data types:
+2026-03-16 20:00:49,940 - INFO -   instant: int64
+2026-03-16 20:00:49,940 - INFO -   dteday: object
+2026-03-16 20:00:49,940 - INFO -   season: int64
+2026-03-16 20:00:49,940 - INFO -   yr: int64
+2026-03-16 20:00:49,940 - INFO -   mnth: int64
+2026-03-16 20:00:49,940 - INFO -   hr: int64
+2026-03-16 20:00:49,940 - INFO -   holiday: int64
+2026-03-16 20:00:49,940 - INFO -   weekday: int64
+2026-03-16 20:00:49,940 - INFO -   workingday: int64
+2026-03-16 20:00:49,940 - INFO -   weathersit: int64
+2026-03-16 20:00:49,940 - INFO -   temp: float64
+2026-03-16 20:00:49,940 - INFO -   atemp: float64
+2026-03-16 20:00:49,940 - INFO -   hum: float64
+2026-03-16 20:00:49,946 - INFO -   windspeed: float64
+2026-03-16 20:00:49,946 - INFO -   casual: int64
+2026-03-16 20:00:49,946 - INFO -   registered: int64
+2026-03-16 20:00:49,946 - INFO -   cnt: int64
+2026-03-16 20:00:49,961 - INFO - 
+2026-03-16 20:00:49,961 - INFO - Identified Numeric Columns: ['instant', 'temp', 'atemp', 'hum', 'casual', 'registered', 'cnt']
+2026-03-16 20:00:49,961 - INFO - Identified Categorical Columns: ['dteday', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'windspeed']
+2026-03-16 20:00:49,963 - INFO - 
+2026-03-16 20:00:49,963 - INFO - Missing values per column:
+2026-03-16 20:00:49,963 - INFO - Series([], dtype: int64)
+2026-03-16 20:00:49,963 - INFO - No missing values found.
+2026-03-16 20:00:49,976 - INFO - 
+2026-03-16 20:00:49,976 - INFO - Duplicate rows found: 0
+2026-03-16 20:00:49,978 - WARNING - Leakage detected: casual + registered equals cnt.
+2026-03-16 20:00:49,978 - INFO - Removed leakage columns: casual, registered. New shape: (17379, 15)
+2026-03-16 20:00:49,998 - INFO - 
+2026-03-16 20:00:49,998 - INFO - No features with absolute correlation > 0.95 with 'cnt'.
+2026-03-16 20:00:49,998 - INFO - All values in target variable 'cnt' are non-negative.
+2026-03-16 20:00:49,998 - INFO - Count-like field 'cnt' is valid (non-negative integers).
+2026-03-16 20:00:49,998 - INFO - 
+2026-03-16 20:00:49,998 - INFO - Final dataset shape before saving: (17379, 15)
+2026-03-16 20:00:50,095 - INFO - Cleaned dataset saved to outputs/cleaned_data.csv
+2026-03-16 20:00:50,098 - INFO - Validation report saved to outputs/benchmark/data_validation_report.csv
+2026-03-16 20:00:50,098 - INFO - --- Summary of Data Preparation ---
+2026-03-16 20:00:50,098 - INFO - - No missing values detected.
+2026-03-16 20:00:50,100 - INFO - - No duplicate rows detected.
+2026-03-16 20:00:50,100 - INFO - - Leakage detected and columns casual, registered removed.
+2026-03-16 20:00:50,100 - INFO - - No features highly correlated with 'cnt'.
+2026-03-16 20:00:50,101 - INFO - - Target variable 'cnt' is non-negative.
+2026-03-16 20:00:50,101 - INFO - - All 'count-like' fields validated successfully.
+2026-03-16 20:00:50,101 - INFO - - Cleaned dataset saved to outputs/cleaned_data.csv.
+2026-03-16 20:00:50,101 - INFO - - Validation report saved to outputs/benchmark/data_validation_report.csv.
+2026-03-16 20:00:50,101 - INFO - Data preparation and validation pipeline completed.
+2026-03-16 20:03:57,615 - INFO - Logging initialized. Log file: outputs/benchmark/experiment_log.txt
+2026-03-16 20:03:57,615 - INFO - Starting data preparation and validation pipeline.
+2026-03-16 20:03:57,615 - INFO - Loading dataset from dataset/hour.csv
+2026-03-16 20:03:57,636 - INFO - Dataset loaded successfully. Initial shape: (17379, 17)
+2026-03-16 20:03:57,636 - INFO - Dataset columns and data types:
+2026-03-16 20:03:57,636 - INFO -   instant: int64
+2026-03-16 20:03:57,636 - INFO -   dteday: object
+2026-03-16 20:03:57,636 - INFO -   season: int64
+2026-03-16 20:03:57,636 - INFO -   yr: int64
+2026-03-16 20:03:57,636 - INFO -   mnth: int64
+2026-03-16 20:03:57,644 - INFO -   hr: int64
+2026-03-16 20:03:57,644 - INFO -   holiday: int64
+2026-03-16 20:03:57,644 - INFO -   weekday: int64
+2026-03-16 20:03:57,644 - INFO -   workingday: int64
+2026-03-16 20:03:57,644 - INFO -   weathersit: int64
+2026-03-16 20:03:57,644 - INFO -   temp: float64
+2026-03-16 20:03:57,644 - INFO -   atemp: float64
+2026-03-16 20:03:57,644 - INFO -   hum: float64
+2026-03-16 20:03:57,644 - INFO -   windspeed: float64
+2026-03-16 20:03:57,644 - INFO -   casual: int64
+2026-03-16 20:03:57,644 - INFO -   registered: int64
+2026-03-16 20:03:57,644 - INFO -   cnt: int64
+2026-03-16 20:03:57,657 - INFO - 
+2026-03-16 20:03:57,657 - INFO - Identified Numeric Columns: ['instant', 'temp', 'atemp', 'hum', 'casual', 'registered', 'cnt']
+2026-03-16 20:03:57,657 - INFO - Identified Categorical Columns: ['dteday', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'windspeed']
+2026-03-16 20:03:57,657 - INFO - 
+2026-03-16 20:03:57,657 - INFO - Missing values per column:
+2026-03-16 20:03:57,657 - INFO - Series([], dtype: int64)
+2026-03-16 20:03:57,657 - INFO - No missing values found.
+2026-03-16 20:03:57,667 - INFO - 
+2026-03-16 20:03:57,667 - INFO - Duplicate rows found: 0
+2026-03-16 20:03:57,672 - WARNING - Leakage detected: casual + registered equals cnt.
+2026-03-16 20:03:57,672 - INFO - Removed leakage columns: casual, registered. New shape: (17379, 15)
+2026-03-16 20:03:57,684 - INFO - 
+2026-03-16 20:03:57,684 - INFO - No features with absolute correlation > 0.95 with 'cnt'.
+2026-03-16 20:03:57,684 - INFO - All values in target variable 'cnt' are non-negative.
+2026-03-16 20:03:57,684 - INFO - Count-like field 'cnt' is valid (non-negative integers).
+2026-03-16 20:03:57,684 - INFO - 
+2026-03-16 20:03:57,684 - INFO - Final dataset shape before saving: (17379, 15)
+2026-03-16 20:03:57,766 - INFO - Cleaned dataset saved to outputs/cleaned_data.csv
+2026-03-16 20:03:57,768 - INFO - Validation report saved to outputs/benchmark/data_validation_report.csv
+2026-03-16 20:03:57,768 - INFO - --- Summary of Data Preparation ---
+2026-03-16 20:03:57,768 - INFO - - No missing values detected.
+2026-03-16 20:03:57,768 - INFO - - No duplicate rows detected.
+2026-03-16 20:03:57,768 - INFO - - Leakage detected and columns casual, registered removed.
+2026-03-16 20:03:57,768 - INFO - - No features highly correlated with 'cnt'.
+2026-03-16 20:03:57,768 - INFO - - Target variable 'cnt' is non-negative.
+2026-03-16 20:03:57,769 - INFO - - All 'count-like' fields validated successfully.
+2026-03-16 20:03:57,769 - INFO - - Cleaned dataset saved to outputs/cleaned_data.csv.
+2026-03-16 20:03:57,769 - INFO - - Validation report saved to outputs/benchmark/data_validation_report.csv.
+2026-03-16 20:03:57,769 - INFO - Data preparation and validation pipeline completed.
+2026-03-16 20:04:02,546 - INFO - EDA Logging initialized.
+2026-03-16 20:04:02,546 - INFO - Starting EDA pipeline.
+2026-03-16 20:04:02,551 - INFO - Loading data from outputs/cleaned_data.csv
+2026-03-16 20:04:02,582 - INFO - Data loaded successfully. Shape: (17379, 15)
+2026-03-16 20:04:02,595 - INFO - Converted 'dteday' to datetime and extracted time features.
+2026-03-16 20:04:02,595 - INFO - Analyzing target variable: cnt
+2026-03-16 20:04:03,242 - INFO - Saved target_distribution.png to outputs/figures/
+2026-03-16 20:04:03,596 - INFO - Saved demand_time_series.png to outputs/figures/
+2026-03-16 20:04:03,953 - INFO - Saved heatmap_hour_weekday.png to outputs/figures/
+2026-03-16 20:04:03,964 - INFO - Saved mean demand tables to outputs/benchmark/eda_tables.csv
+2026-03-16 20:04:04,230 - INFO - Saved demand_vs_temp.png to outputs/figures/
+2026-03-16 20:04:04,492 - INFO - Saved demand_vs_hum.png to outputs/figures/
+2026-03-16 20:04:04,752 - INFO - Saved demand_vs_windspeed.png to outputs/figures/
+2026-03-16 20:04:05,297 - INFO - Saved correlation_matrix.png to outputs/figures/
+2026-03-16 20:04:05,297 - INFO - Generating EDA insights summary.
+2026-03-16 20:04:05,297 - INFO - Saved EDA insights summary to outputs/docs/eda_summary.txt
+2026-03-16 20:04:05,297 - INFO - EDA pipeline completed.
+2026-03-16 20:05:42,188 - INFO - Logging initialized. Log file: outputs/benchmark/experiment_log.txt
+2026-03-16 20:05:42,188 - INFO - Starting data preparation and validation pipeline.
+2026-03-16 20:05:42,188 - INFO - Loading dataset from dataset/hour.csv
+2026-03-16 20:05:42,218 - INFO - Dataset loaded successfully. Initial shape: (17379, 17)
+2026-03-16 20:05:42,218 - INFO - Dataset columns and data types:
+2026-03-16 20:05:42,218 - INFO -   instant: int64
+2026-03-16 20:05:42,218 - INFO -   dteday: object
+2026-03-16 20:05:42,218 - INFO -   season: int64
+2026-03-16 20:05:42,219 - INFO -   yr: int64
+2026-03-16 20:05:42,219 - INFO -   mnth: int64
+2026-03-16 20:05:42,219 - INFO -   hr: int64
+2026-03-16 20:05:42,219 - INFO -   holiday: int64
+2026-03-16 20:05:42,219 - INFO -   weekday: int64
+2026-03-16 20:05:42,219 - INFO -   workingday: int64
+2026-03-16 20:05:42,219 - INFO -   weathersit: int64
+2026-03-16 20:05:42,219 - INFO -   temp: float64
+2026-03-16 20:05:42,219 - INFO -   atemp: float64
+2026-03-16 20:05:42,219 - INFO -   hum: float64
+2026-03-16 20:05:42,219 - INFO -   windspeed: float64
+2026-03-16 20:05:42,219 - INFO -   casual: int64
+2026-03-16 20:05:42,220 - INFO -   registered: int64
+2026-03-16 20:05:42,220 - INFO -   cnt: int64
+2026-03-16 20:05:42,220 - INFO - 
+2026-03-16 20:05:42,220 - INFO - Identified Numeric Columns: ['instant', 'temp', 'atemp', 'hum', 'casual', 'registered', 'cnt']
+2026-03-16 20:05:42,220 - INFO - Identified Categorical Columns: ['dteday', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'windspeed']
+2026-03-16 20:05:42,220 - INFO - 
+2026-03-16 20:05:42,220 - INFO - Missing values per column:
+2026-03-16 20:05:42,220 - INFO - Series([], dtype: int64)
+2026-03-16 20:05:42,229 - INFO - No missing values found.
+2026-03-16 20:05:42,231 - INFO - 
+2026-03-16 20:05:42,231 - INFO - Duplicate rows found: 0
+2026-03-16 20:05:42,236 - WARNING - Leakage detected: casual + registered equals cnt.
+2026-03-16 20:05:42,236 - INFO - Removed leakage columns: casual, registered. New shape: (17379, 15)
+2026-03-16 20:05:42,240 - INFO - 
+2026-03-16 20:05:42,240 - INFO - No features with absolute correlation > 0.95 with 'cnt'.
+2026-03-16 20:05:42,240 - INFO - All values in target variable 'cnt' are non-negative.
+2026-03-16 20:05:42,240 - INFO - Count-like field 'cnt' is valid (non-negative integers).
+2026-03-16 20:05:42,251 - INFO - 
+2026-03-16 20:05:42,251 - INFO - Final dataset shape before saving: (17379, 15)
+2026-03-16 20:05:42,323 - INFO - Cleaned dataset saved to outputs/cleaned_data.csv
+2026-03-16 20:05:42,331 - INFO - Validation report saved to outputs/benchmark/data_validation_report.csv
+2026-03-16 20:05:42,331 - INFO - --- Summary of Data Preparation ---
+2026-03-16 20:05:42,331 - INFO - - No missing values detected.
+2026-03-16 20:05:42,331 - INFO - - No duplicate rows detected.
+2026-03-16 20:05:42,331 - INFO - - Leakage detected and columns casual, registered removed.
+2026-03-16 20:05:42,333 - INFO - - No features highly correlated with 'cnt'.
+2026-03-16 20:05:42,333 - INFO - - Target variable 'cnt' is non-negative.
+2026-03-16 20:05:42,333 - INFO - - All 'count-like' fields validated successfully.
+2026-03-16 20:05:42,333 - INFO - - Cleaned dataset saved to outputs/cleaned_data.csv.
+2026-03-16 20:05:42,333 - INFO - - Validation report saved to outputs/benchmark/data_validation_report.csv.
+2026-03-16 20:05:42,333 - INFO - Data preparation and validation pipeline completed.
+2026-03-16 20:05:44,277 - INFO - EDA Logging initialized.
+2026-03-16 20:05:44,277 - INFO - Starting EDA pipeline.
+2026-03-16 20:05:44,277 - INFO - Loading data from outputs/cleaned_data.csv
+2026-03-16 20:05:44,305 - INFO - Data loaded successfully. Shape: (17379, 15)
+2026-03-16 20:05:44,311 - INFO - Converted 'dteday' to datetime and extracted time features.
+2026-03-16 20:05:44,311 - INFO - Analyzing target variable: cnt
+2026-03-16 20:05:44,845 - INFO - Saved target_distribution.png to outputs/figures/
+2026-03-16 20:05:45,154 - INFO - Saved demand_time_series.png to outputs/figures/
+2026-03-16 20:05:45,517 - INFO - Saved heatmap_hour_weekday.png to outputs/figures/
+2026-03-16 20:05:45,530 - INFO - Saved mean demand tables to outputs/benchmark/eda_tables.csv
+2026-03-16 20:05:45,787 - INFO - Saved demand_vs_temp.png to outputs/figures/
+2026-03-16 20:05:46,056 - INFO - Saved demand_vs_hum.png to outputs/figures/
+2026-03-16 20:05:46,324 - INFO - Saved demand_vs_windspeed.png to outputs/figures/
+2026-03-16 20:05:46,843 - INFO - Saved correlation_matrix.png to outputs/figures/
+2026-03-16 20:05:46,843 - INFO - Generating EDA insights summary.
+2026-03-16 20:05:46,843 - INFO - Saved EDA insights summary to outputs/docs/eda_summary.txt
+2026-03-16 20:05:46,843 - INFO - EDA pipeline completed.
+2026-03-16 20:05:48,887 - INFO - Baseline Model Logging initialized.
+2026-03-16 20:05:48,887 - INFO - Starting Baseline Model pipeline.
+2026-03-16 20:05:48,887 - INFO - Loading data from outputs/cleaned_data.csv
+2026-03-16 20:05:48,915 - INFO - Data loaded successfully. Shape: (17379, 15)
+2026-03-16 20:05:48,918 - INFO - Sorted data chronologically by 'dteday'.
+2026-03-16 20:05:48,918 - INFO - F0 Feature Set: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed']
+2026-03-16 20:05:48,918 - INFO - F1 Feature Set: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'sin_hr', 'cos_hr', 'sin_mnth', 'cos_mnth']
+2026-03-16 20:05:48,931 - ERROR - Chronological split verification failed: Chronological split failed: max(train_time) is not less than min(validation_time)
+2026-03-16 20:06:24,388 - INFO - Logging initialized. Log file: outputs/benchmark/experiment_log.txt
+2026-03-16 20:06:24,388 - INFO - Starting data preparation and validation pipeline.
+2026-03-16 20:06:24,388 - INFO - Loading dataset from dataset/hour.csv
+2026-03-16 20:06:24,415 - INFO - Dataset loaded successfully. Initial shape: (17379, 17)
+2026-03-16 20:06:24,415 - INFO - Dataset columns and data types:
+2026-03-16 20:06:24,415 - INFO -   instant: int64
+2026-03-16 20:06:24,415 - INFO -   dteday: object
+2026-03-16 20:06:24,415 - INFO -   season: int64
+2026-03-16 20:06:24,415 - INFO -   yr: int64
+2026-03-16 20:06:24,415 - INFO -   mnth: int64
+2026-03-16 20:06:24,415 - INFO -   hr: int64
+2026-03-16 20:06:24,415 - INFO -   holiday: int64
+2026-03-16 20:06:24,415 - INFO -   weekday: int64
+2026-03-16 20:06:24,415 - INFO -   workingday: int64
+2026-03-16 20:06:24,415 - INFO -   weathersit: int64
+2026-03-16 20:06:24,415 - INFO -   temp: float64
+2026-03-16 20:06:24,415 - INFO -   atemp: float64
+2026-03-16 20:06:24,415 - INFO -   hum: float64
+2026-03-16 20:06:24,415 - INFO -   windspeed: float64
+2026-03-16 20:06:24,415 - INFO -   casual: int64
+2026-03-16 20:06:24,415 - INFO -   registered: int64
+2026-03-16 20:06:24,415 - INFO -   cnt: int64
+2026-03-16 20:06:24,421 - INFO - 
+2026-03-16 20:06:24,421 - INFO - Identified Numeric Columns: ['instant', 'temp', 'atemp', 'hum', 'casual', 'registered', 'cnt']
+2026-03-16 20:06:24,421 - INFO - Identified Categorical Columns: ['dteday', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'windspeed']
+2026-03-16 20:06:24,421 - INFO - 
+2026-03-16 20:06:24,421 - INFO - Missing values per column:
+2026-03-16 20:06:24,421 - INFO - Series([], dtype: int64)
+2026-03-16 20:06:24,421 - INFO - No missing values found.
+2026-03-16 20:06:24,431 - INFO - 
+2026-03-16 20:06:24,431 - INFO - Duplicate rows found: 0
+2026-03-16 20:06:24,431 - WARNING - Leakage detected: casual + registered equals cnt.
+2026-03-16 20:06:24,436 - INFO - Removed leakage columns: casual, registered. New shape: (17379, 15)
+2026-03-16 20:06:24,447 - INFO - 
+2026-03-16 20:06:24,447 - INFO - No features with absolute correlation > 0.95 with 'cnt'.
+2026-03-16 20:06:24,447 - INFO - All values in target variable 'cnt' are non-negative.
+2026-03-16 20:06:24,447 - INFO - Count-like field 'cnt' is valid (non-negative integers).
+2026-03-16 20:06:24,447 - INFO - 
+2026-03-16 20:06:24,447 - INFO - Final dataset shape before saving: (17379, 15)
+2026-03-16 20:06:24,531 - INFO - Cleaned dataset saved to outputs/cleaned_data.csv
+2026-03-16 20:06:24,534 - INFO - Validation report saved to outputs/benchmark/data_validation_report.csv
+2026-03-16 20:06:24,534 - INFO - --- Summary of Data Preparation ---
+2026-03-16 20:06:24,534 - INFO - - No missing values detected.
+2026-03-16 20:06:24,534 - INFO - - No duplicate rows detected.
+2026-03-16 20:06:24,534 - INFO - - Leakage detected and columns casual, registered removed.
+2026-03-16 20:06:24,534 - INFO - - No features highly correlated with 'cnt'.
+2026-03-16 20:06:24,534 - INFO - - Target variable 'cnt' is non-negative.
+2026-03-16 20:06:24,534 - INFO - - All 'count-like' fields validated successfully.
+2026-03-16 20:06:24,534 - INFO - - Cleaned dataset saved to outputs/cleaned_data.csv.
+2026-03-16 20:06:24,534 - INFO - - Validation report saved to outputs/benchmark/data_validation_report.csv.
+2026-03-16 20:06:24,534 - INFO - Data preparation and validation pipeline completed.
+2026-03-16 20:06:26,594 - INFO - EDA Logging initialized.
+2026-03-16 20:06:26,604 - INFO - Starting EDA pipeline.
+2026-03-16 20:06:26,604 - INFO - Loading data from outputs/cleaned_data.csv
+2026-03-16 20:06:26,631 - INFO - Data loaded successfully. Shape: (17379, 15)
+2026-03-16 20:06:26,637 - INFO - Converted 'dteday' to datetime and extracted time features.
+2026-03-16 20:06:26,637 - INFO - Analyzing target variable: cnt
+2026-03-16 20:06:27,175 - INFO - Saved target_distribution.png to outputs/figures/
+2026-03-16 20:06:27,483 - INFO - Saved demand_time_series.png to outputs/figures/
+2026-03-16 20:06:27,843 - INFO - Saved heatmap_hour_weekday.png to outputs/figures/
+2026-03-16 20:06:27,846 - INFO - Saved mean demand tables to outputs/benchmark/eda_tables.csv
+2026-03-16 20:06:28,113 - INFO - Saved demand_vs_temp.png to outputs/figures/
+2026-03-16 20:06:28,370 - INFO - Saved demand_vs_hum.png to outputs/figures/
+2026-03-16 20:06:28,629 - INFO - Saved demand_vs_windspeed.png to outputs/figures/
+2026-03-16 20:06:29,148 - INFO - Saved correlation_matrix.png to outputs/figures/
+2026-03-16 20:06:29,148 - INFO - Generating EDA insights summary.
+2026-03-16 20:06:29,148 - INFO - Saved EDA insights summary to outputs/docs/eda_summary.txt
+2026-03-16 20:06:29,148 - INFO - EDA pipeline completed.
+2026-03-16 20:06:31,025 - INFO - Baseline Model Logging initialized.
+2026-03-16 20:06:31,025 - INFO - Starting Baseline Model pipeline.
+2026-03-16 20:06:31,025 - INFO - Loading data from outputs/cleaned_data.csv
+2026-03-16 20:06:31,040 - INFO - Data loaded successfully. Shape: (17379, 15)
+2026-03-16 20:06:31,055 - INFO - Sorted data chronologically by 'dteday'.
+2026-03-16 20:06:31,055 - INFO - F0 Feature Set: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed']
+2026-03-16 20:06:31,055 - INFO - F1 Feature Set: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'sin_hr', 'cos_hr', 'sin_mnth', 'cos_mnth']
+2026-03-16 20:06:50,010 - INFO - Logging initialized. Log file: outputs/benchmark/experiment_log.txt
+2026-03-16 20:06:50,010 - INFO - Starting data preparation and validation pipeline.
+2026-03-16 20:06:50,010 - INFO - Loading dataset from dataset/hour.csv
+2026-03-16 20:06:50,031 - INFO - Dataset loaded successfully. Initial shape: (17379, 17)
+2026-03-16 20:06:50,031 - INFO - Dataset columns and data types:
+2026-03-16 20:06:50,031 - INFO -   instant: int64
+2026-03-16 20:06:50,031 - INFO -   dteday: object
+2026-03-16 20:06:50,031 - INFO -   season: int64
+2026-03-16 20:06:50,031 - INFO -   yr: int64
+2026-03-16 20:06:50,031 - INFO -   mnth: int64
+2026-03-16 20:06:50,031 - INFO -   hr: int64
+2026-03-16 20:06:50,031 - INFO -   holiday: int64
+2026-03-16 20:06:50,031 - INFO -   weekday: int64
+2026-03-16 20:06:50,031 - INFO -   workingday: int64
+2026-03-16 20:06:50,031 - INFO -   weathersit: int64
+2026-03-16 20:06:50,031 - INFO -   temp: float64
+2026-03-16 20:06:50,031 - INFO -   atemp: float64
+2026-03-16 20:06:50,031 - INFO -   hum: float64
+2026-03-16 20:06:50,031 - INFO -   windspeed: float64
+2026-03-16 20:06:50,031 - INFO -   casual: int64
+2026-03-16 20:06:50,031 - INFO -   registered: int64
+2026-03-16 20:06:50,031 - INFO -   cnt: int64
+2026-03-16 20:06:50,041 - INFO - 
+2026-03-16 20:06:50,041 - INFO - Identified Numeric Columns: ['instant', 'temp', 'atemp', 'hum', 'casual', 'registered', 'cnt']
+2026-03-16 20:06:50,041 - INFO - Identified Categorical Columns: ['dteday', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'windspeed']
+2026-03-16 20:06:50,041 - INFO - 
+2026-03-16 20:06:50,041 - INFO - Missing values per column:
+2026-03-16 20:06:50,041 - INFO - Series([], dtype: int64)
+2026-03-16 20:06:50,046 - INFO - No missing values found.
+2026-03-16 20:06:50,051 - INFO - 
+2026-03-16 20:06:50,051 - INFO - Duplicate rows found: 0
+2026-03-16 20:06:50,051 - WARNING - Leakage detected: casual + registered equals cnt.
+2026-03-16 20:06:50,051 - INFO - Removed leakage columns: casual, registered. New shape: (17379, 15)
+2026-03-16 20:06:50,062 - INFO - 
+2026-03-16 20:06:50,062 - INFO - No features with absolute correlation > 0.95 with 'cnt'.
+2026-03-16 20:06:50,062 - INFO - All values in target variable 'cnt' are non-negative.
+2026-03-16 20:06:50,062 - INFO - Count-like field 'cnt' is valid (non-negative integers).
+2026-03-16 20:06:50,062 - INFO - 
+2026-03-16 20:06:50,062 - INFO - Final dataset shape before saving: (17379, 15)
+2026-03-16 20:06:50,144 - INFO - Cleaned dataset saved to outputs/cleaned_data.csv
+2026-03-16 20:06:50,144 - INFO - Validation report saved to outputs/benchmark/data_validation_report.csv
+2026-03-16 20:06:50,144 - INFO - --- Summary of Data Preparation ---
+2026-03-16 20:06:50,149 - INFO - - No missing values detected.
+2026-03-16 20:06:50,149 - INFO - - No duplicate rows detected.
+2026-03-16 20:06:50,149 - INFO - - Leakage detected and columns casual, registered removed.
+2026-03-16 20:06:50,149 - INFO - - No features highly correlated with 'cnt'.
+2026-03-16 20:06:50,149 - INFO - - Target variable 'cnt' is non-negative.
+2026-03-16 20:06:50,149 - INFO - - All 'count-like' fields validated successfully.
+2026-03-16 20:06:50,149 - INFO - - Cleaned dataset saved to outputs/cleaned_data.csv.
+2026-03-16 20:06:50,149 - INFO - - Validation report saved to outputs/benchmark/data_validation_report.csv.
+2026-03-16 20:06:50,149 - INFO - Data preparation and validation pipeline completed.
+2026-03-16 20:06:52,073 - INFO - EDA Logging initialized.
+2026-03-16 20:06:52,073 - INFO - Starting EDA pipeline.
+2026-03-16 20:06:52,073 - INFO - Loading data from outputs/cleaned_data.csv
+2026-03-16 20:06:52,099 - INFO - Data loaded successfully. Shape: (17379, 15)
+2026-03-16 20:06:52,107 - INFO - Converted 'dteday' to datetime and extracted time features.
+2026-03-16 20:06:52,107 - INFO - Analyzing target variable: cnt
+2026-03-16 20:06:52,639 - INFO - Saved target_distribution.png to outputs/figures/
+2026-03-16 20:06:52,954 - INFO - Saved demand_time_series.png to outputs/figures/
+2026-03-16 20:06:53,313 - INFO - Saved heatmap_hour_weekday.png to outputs/figures/
+2026-03-16 20:06:53,319 - INFO - Saved mean demand tables to outputs/benchmark/eda_tables.csv
+2026-03-16 20:06:53,575 - INFO - Saved demand_vs_temp.png to outputs/figures/
+2026-03-16 20:06:53,836 - INFO - Saved demand_vs_hum.png to outputs/figures/
+2026-03-16 20:06:54,079 - INFO - Saved demand_vs_windspeed.png to outputs/figures/
+2026-03-16 20:06:54,626 - INFO - Saved correlation_matrix.png to outputs/figures/
+2026-03-16 20:06:54,626 - INFO - Generating EDA insights summary.
+2026-03-16 20:06:54,626 - INFO - Saved EDA insights summary to outputs/docs/eda_summary.txt
+2026-03-16 20:06:54,626 - INFO - EDA pipeline completed.
+2026-03-16 20:06:56,516 - INFO - Baseline Model Logging initialized.
+2026-03-16 20:06:56,516 - INFO - Starting Baseline Model pipeline.
+2026-03-16 20:06:56,516 - INFO - Loading data from outputs/cleaned_data.csv
+2026-03-16 20:06:56,546 - INFO - Data loaded successfully. Shape: (17379, 15)
+2026-03-16 20:06:56,550 - INFO - Sorted data chronologically by 'dteday'.
+2026-03-16 20:06:56,557 - INFO - F0 Feature Set: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed']
+2026-03-16 20:06:56,557 - INFO - F1 Feature Set: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'sin_hr', 'cos_hr', 'sin_mnth', 'cos_mnth']
+2026-03-16 20:06:56,577 - INFO - Chronological split verified successfully.
+2026-03-16 20:06:56,577 - INFO - Train rows: 12139, Validation rows: 2616, Test rows: 2624
+2026-03-16 20:06:56,762 - INFO - Train, validation, and test sets saved to outputs/train.csv, outputs/val.csv, outputs/test.csv
+2026-03-16 20:06:56,762 - INFO - Preprocessing report saved to outputs/benchmark/preprocessing_report.csv
+2026-03-16 20:06:56,762 - INFO - Training LinearRegression with F0 feature set...
+2026-03-16 20:06:56,783 - INFO - Training completed in 0.02 seconds.
+2026-03-16 20:06:56,783 - INFO - Validation MAE for LinearRegression (F0): 155.25
+2026-03-16 20:06:56,783 - INFO - Validation RMSE for LinearRegression (F0): 189.45
+2026-03-16 20:06:56,783 - INFO - Training LinearRegression with F1 feature set...
+2026-03-16 20:06:56,793 - INFO - Training completed in 0.01 seconds.
+2026-03-16 20:06:56,793 - INFO - Validation MAE for LinearRegression (F1): 137.28
+2026-03-16 20:06:56,793 - INFO - Validation RMSE for LinearRegression (F1): 173.62
+2026-03-16 20:06:56,803 - INFO - Baseline model results saved to outputs/metrics/baseline_model_results.csv
+2026-03-16 20:07:15,012 - INFO - Logging initialized. Log file: outputs/benchmark/experiment_log.txt
+2026-03-16 20:07:15,012 - INFO - Starting data preparation and validation pipeline.
+2026-03-16 20:07:15,012 - INFO - Loading dataset from dataset/hour.csv
+2026-03-16 20:07:15,034 - INFO - Dataset loaded successfully. Initial shape: (17379, 17)
+2026-03-16 20:07:15,034 - INFO - Dataset columns and data types:
+2026-03-16 20:07:15,034 - INFO -   instant: int64
+2026-03-16 20:07:15,034 - INFO -   dteday: object
+2026-03-16 20:07:15,034 - INFO -   season: int64
+2026-03-16 20:07:15,034 - INFO -   yr: int64
+2026-03-16 20:07:15,034 - INFO -   mnth: int64
+2026-03-16 20:07:15,034 - INFO -   hr: int64
+2026-03-16 20:07:15,034 - INFO -   holiday: int64
+2026-03-16 20:07:15,034 - INFO -   weekday: int64
+2026-03-16 20:07:15,034 - INFO -   workingday: int64
+2026-03-16 20:07:15,034 - INFO -   weathersit: int64
+2026-03-16 20:07:15,034 - INFO -   temp: float64
+2026-03-16 20:07:15,034 - INFO -   atemp: float64
+2026-03-16 20:07:15,034 - INFO -   hum: float64
+2026-03-16 20:07:15,034 - INFO -   windspeed: float64
+2026-03-16 20:07:15,034 - INFO -   casual: int64
+2026-03-16 20:07:15,034 - INFO -   registered: int64
+2026-03-16 20:07:15,034 - INFO -   cnt: int64
+2026-03-16 20:07:15,043 - INFO - 
+2026-03-16 20:07:15,043 - INFO - Identified Numeric Columns: ['instant', 'temp', 'atemp', 'hum', 'casual', 'registered', 'cnt']
+2026-03-16 20:07:15,043 - INFO - Identified Categorical Columns: ['dteday', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'windspeed']
+2026-03-16 20:07:15,043 - INFO - 
+2026-03-16 20:07:15,043 - INFO - Missing values per column:
+2026-03-16 20:07:15,043 - INFO - Series([], dtype: int64)
+2026-03-16 20:07:15,043 - INFO - No missing values found.
+2026-03-16 20:07:15,051 - INFO - 
+2026-03-16 20:07:15,053 - INFO - Duplicate rows found: 0
+2026-03-16 20:07:15,053 - WARNING - Leakage detected: casual + registered equals cnt.
+2026-03-16 20:07:15,053 - INFO - Removed leakage columns: casual, registered. New shape: (17379, 15)
+2026-03-16 20:07:15,065 - INFO - 
+2026-03-16 20:07:15,065 - INFO - No features with absolute correlation > 0.95 with 'cnt'.
+2026-03-16 20:07:15,065 - INFO - All values in target variable 'cnt' are non-negative.
+2026-03-16 20:07:15,065 - INFO - Count-like field 'cnt' is valid (non-negative integers).
+2026-03-16 20:07:15,065 - INFO - 
+2026-03-16 20:07:15,065 - INFO - Final dataset shape before saving: (17379, 15)
+2026-03-16 20:07:15,150 - INFO - Cleaned dataset saved to outputs/cleaned_data.csv
+2026-03-16 20:07:15,152 - INFO - Validation report saved to outputs/benchmark/data_validation_report.csv
+2026-03-16 20:07:15,152 - INFO - --- Summary of Data Preparation ---
+2026-03-16 20:07:15,152 - INFO - - No missing values detected.
+2026-03-16 20:07:15,152 - INFO - - No duplicate rows detected.
+2026-03-16 20:07:15,152 - INFO - - Leakage detected and columns casual, registered removed.
+2026-03-16 20:07:15,152 - INFO - - No features highly correlated with 'cnt'.
+2026-03-16 20:07:15,152 - INFO - - Target variable 'cnt' is non-negative.
+2026-03-16 20:07:15,152 - INFO - - All 'count-like' fields validated successfully.
+2026-03-16 20:07:15,152 - INFO - - Cleaned dataset saved to outputs/cleaned_data.csv.
+2026-03-16 20:07:15,152 - INFO - - Validation report saved to outputs/benchmark/data_validation_report.csv.
+2026-03-16 20:07:15,152 - INFO - Data preparation and validation pipeline completed.
+2026-03-16 20:07:17,145 - INFO - EDA Logging initialized.
+2026-03-16 20:07:17,145 - INFO - Starting EDA pipeline.
+2026-03-16 20:07:17,145 - INFO - Loading data from outputs/cleaned_data.csv
+2026-03-16 20:07:17,168 - INFO - Data loaded successfully. Shape: (17379, 15)
+2026-03-16 20:07:17,176 - INFO - Converted 'dteday' to datetime and extracted time features.
+2026-03-16 20:07:17,176 - INFO - Analyzing target variable: cnt
+2026-03-16 20:07:17,715 - INFO - Saved target_distribution.png to outputs/figures/
+2026-03-16 20:07:18,035 - INFO - Saved demand_time_series.png to outputs/figures/
+2026-03-16 20:07:18,395 - INFO - Saved heatmap_hour_weekday.png to outputs/figures/
+2026-03-16 20:07:18,399 - INFO - Saved mean demand tables to outputs/benchmark/eda_tables.csv
+2026-03-16 20:07:18,672 - INFO - Saved demand_vs_temp.png to outputs/figures/
+2026-03-16 20:07:18,929 - INFO - Saved demand_vs_hum.png to outputs/figures/
+2026-03-16 20:07:19,186 - INFO - Saved demand_vs_windspeed.png to outputs/figures/
+2026-03-16 20:07:19,710 - INFO - Saved correlation_matrix.png to outputs/figures/
+2026-03-16 20:07:19,710 - INFO - Generating EDA insights summary.
+2026-03-16 20:07:19,716 - INFO - Saved EDA insights summary to outputs/docs/eda_summary.txt
+2026-03-16 20:07:19,716 - INFO - EDA pipeline completed.
+2026-03-16 20:07:22,083 - INFO - Baseline Model Logging initialized.
+2026-03-16 20:07:22,083 - INFO - Starting Baseline Model pipeline.
+2026-03-16 20:07:22,085 - INFO - Loading data from outputs/cleaned_data.csv
+2026-03-16 20:07:22,106 - INFO - Data loaded successfully. Shape: (17379, 15)
+2026-03-16 20:07:22,116 - INFO - Sorted data chronologically by 'dteday'.
+2026-03-16 20:07:22,116 - INFO - F0 Feature Set: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed']
+2026-03-16 20:07:22,116 - INFO - F1 Feature Set: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'sin_hr', 'cos_hr', 'sin_mnth', 'cos_mnth']
+2026-03-16 20:07:22,189 - INFO - Chronological split verified successfully.
+2026-03-16 20:07:22,189 - INFO - Train rows: 12139, Validation rows: 2616, Test rows: 2624
+2026-03-16 20:07:22,375 - INFO - Train, validation, and test sets saved to outputs/train.csv, outputs/val.csv, outputs/test.csv
+2026-03-16 20:07:22,375 - INFO - Preprocessing report saved to outputs/benchmark/preprocessing_report.csv
+2026-03-16 20:07:22,375 - INFO - Training LinearRegression with F0 feature set...
+2026-03-16 20:07:22,385 - INFO - Training completed in 0.01 seconds.
+2026-03-16 20:07:22,385 - INFO - Validation MAE for LinearRegression (F0): 155.25
+2026-03-16 20:07:22,391 - INFO - Validation RMSE for LinearRegression (F0): 189.45
+2026-03-16 20:07:22,391 - INFO - Training LinearRegression with F1 feature set...
+2026-03-16 20:07:22,395 - INFO - Training completed in 0.00 seconds.
+2026-03-16 20:07:22,395 - INFO - Validation MAE for LinearRegression (F1): 137.28
+2026-03-16 20:07:22,395 - INFO - Validation RMSE for LinearRegression (F1): 173.62
+2026-03-16 20:07:22,395 - INFO - Baseline model results saved to outputs/metrics/baseline_model_results.csv
+2026-03-16 20:07:22,839 - INFO - Saved actual_vs_predicted.png to outputs/figures/
+2026-03-16 20:07:40,320 - INFO - Logging initialized. Log file: outputs/benchmark/experiment_log.txt
+2026-03-16 20:07:40,320 - INFO - Starting data preparation and validation pipeline.
+2026-03-16 20:07:40,328 - INFO - Loading dataset from dataset/hour.csv
+2026-03-16 20:07:40,344 - INFO - Dataset loaded successfully. Initial shape: (17379, 17)
+2026-03-16 20:07:40,344 - INFO - Dataset columns and data types:
+2026-03-16 20:07:40,344 - INFO -   instant: int64
+2026-03-16 20:07:40,351 - INFO -   dteday: object
+2026-03-16 20:07:40,351 - INFO -   season: int64
+2026-03-16 20:07:40,351 - INFO -   yr: int64
+2026-03-16 20:07:40,351 - INFO -   mnth: int64
+2026-03-16 20:07:40,351 - INFO -   hr: int64
+2026-03-16 20:07:40,351 - INFO -   holiday: int64
+2026-03-16 20:07:40,351 - INFO -   weekday: int64
+2026-03-16 20:07:40,351 - INFO -   workingday: int64
+2026-03-16 20:07:40,351 - INFO -   weathersit: int64
+2026-03-16 20:07:40,351 - INFO -   temp: float64
+2026-03-16 20:07:40,351 - INFO -   atemp: float64
+2026-03-16 20:07:40,351 - INFO -   hum: float64
+2026-03-16 20:07:40,351 - INFO -   windspeed: float64
+2026-03-16 20:07:40,351 - INFO -   casual: int64
+2026-03-16 20:07:40,351 - INFO -   registered: int64
+2026-03-16 20:07:40,351 - INFO -   cnt: int64
+2026-03-16 20:07:40,359 - INFO - 
+2026-03-16 20:07:40,359 - INFO - Identified Numeric Columns: ['instant', 'temp', 'atemp', 'hum', 'casual', 'registered', 'cnt']
+2026-03-16 20:07:40,359 - INFO - Identified Categorical Columns: ['dteday', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'windspeed']
+2026-03-16 20:07:40,360 - INFO - 
+2026-03-16 20:07:40,360 - INFO - Missing values per column:
+2026-03-16 20:07:40,360 - INFO - Series([], dtype: int64)
+2026-03-16 20:07:40,360 - INFO - No missing values found.
+2026-03-16 20:07:40,362 - INFO - 
+2026-03-16 20:07:40,362 - INFO - Duplicate rows found: 0
+2026-03-16 20:07:40,362 - WARNING - Leakage detected: casual + registered equals cnt.
+2026-03-16 20:07:40,362 - INFO - Removed leakage columns: casual, registered. New shape: (17379, 15)
+2026-03-16 20:07:40,376 - INFO - 
+2026-03-16 20:07:40,376 - INFO - No features with absolute correlation > 0.95 with 'cnt'.
+2026-03-16 20:07:40,376 - INFO - All values in target variable 'cnt' are non-negative.
+2026-03-16 20:07:40,382 - INFO - Count-like field 'cnt' is valid (non-negative integers).
+2026-03-16 20:07:40,382 - INFO - 
+2026-03-16 20:07:40,382 - INFO - Final dataset shape before saving: (17379, 15)
+2026-03-16 20:07:40,456 - INFO - Cleaned dataset saved to outputs/cleaned_data.csv
+2026-03-16 20:07:40,464 - INFO - Validation report saved to outputs/benchmark/data_validation_report.csv
+2026-03-16 20:07:40,464 - INFO - --- Summary of Data Preparation ---
+2026-03-16 20:07:40,464 - INFO - - No missing values detected.
+2026-03-16 20:07:40,464 - INFO - - No duplicate rows detected.
+2026-03-16 20:07:40,464 - INFO - - Leakage detected and columns casual, registered removed.
+2026-03-16 20:07:40,464 - INFO - - No features highly correlated with 'cnt'.
+2026-03-16 20:07:40,464 - INFO - - Target variable 'cnt' is non-negative.
+2026-03-16 20:07:40,464 - INFO - - All 'count-like' fields validated successfully.
+2026-03-16 20:07:40,464 - INFO - - Cleaned dataset saved to outputs/cleaned_data.csv.
+2026-03-16 20:07:40,464 - INFO - - Validation report saved to outputs/benchmark/data_validation_report.csv.
+2026-03-16 20:07:40,464 - INFO - Data preparation and validation pipeline completed.
+2026-03-16 20:07:42,386 - INFO - EDA Logging initialized.
+2026-03-16 20:07:42,387 - INFO - Starting EDA pipeline.
+2026-03-16 20:07:42,387 - INFO - Loading data from outputs/cleaned_data.csv
+2026-03-16 20:07:42,407 - INFO - Data loaded successfully. Shape: (17379, 15)
+2026-03-16 20:07:42,418 - INFO - Converted 'dteday' to datetime and extracted time features.
+2026-03-16 20:07:42,418 - INFO - Analyzing target variable: cnt
+2026-03-16 20:07:42,958 - INFO - Saved target_distribution.png to outputs/figures/
+2026-03-16 20:07:43,262 - INFO - Saved demand_time_series.png to outputs/figures/
+2026-03-16 20:07:43,613 - INFO - Saved heatmap_hour_weekday.png to outputs/figures/
+2026-03-16 20:07:43,624 - INFO - Saved mean demand tables to outputs/benchmark/eda_tables.csv
+2026-03-16 20:07:43,902 - INFO - Saved demand_vs_temp.png to outputs/figures/
+2026-03-16 20:07:44,160 - INFO - Saved demand_vs_hum.png to outputs/figures/
+2026-03-16 20:07:44,409 - INFO - Saved demand_vs_windspeed.png to outputs/figures/
+2026-03-16 20:07:44,926 - INFO - Saved correlation_matrix.png to outputs/figures/
+2026-03-16 20:07:44,926 - INFO - Generating EDA insights summary.
+2026-03-16 20:07:44,926 - INFO - Saved EDA insights summary to outputs/docs/eda_summary.txt
+2026-03-16 20:07:44,926 - INFO - EDA pipeline completed.
+2026-03-16 20:07:47,272 - INFO - Baseline Model Logging initialized.
+2026-03-16 20:07:47,272 - INFO - Starting Baseline Model pipeline.
+2026-03-16 20:07:47,272 - INFO - Loading data from outputs/cleaned_data.csv
+2026-03-16 20:07:47,292 - INFO - Data loaded successfully. Shape: (17379, 15)
+2026-03-16 20:07:47,297 - INFO - Sorted data chronologically by 'dteday'.
+2026-03-16 20:07:47,301 - INFO - F0 Feature Set: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed']
+2026-03-16 20:07:47,301 - INFO - F1 Feature Set: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'sin_hr', 'cos_hr', 'sin_mnth', 'cos_mnth']
+2026-03-16 20:07:47,354 - INFO - Chronological split verified successfully.
+2026-03-16 20:07:47,354 - INFO - Train rows: 12139, Validation rows: 2616, Test rows: 2624
+2026-03-16 20:07:47,537 - INFO - Train, validation, and test sets saved to outputs/train.csv, outputs/val.csv, outputs/test.csv
+2026-03-16 20:07:47,538 - INFO - Preprocessing report saved to outputs/benchmark/preprocessing_report.csv
+2026-03-16 20:07:47,540 - INFO - Training LinearRegression with F0 feature set...
+2026-03-16 20:07:47,544 - INFO - Training completed in 0.00 seconds.
+2026-03-16 20:07:47,548 - INFO - Validation MAE for LinearRegression (F0): 155.25
+2026-03-16 20:07:47,548 - INFO - Validation RMSE for LinearRegression (F0): 189.45
+2026-03-16 20:07:47,549 - INFO - Training LinearRegression with F1 feature set...
+2026-03-16 20:07:47,553 - INFO - Training completed in 0.00 seconds.
+2026-03-16 20:07:47,553 - INFO - Validation MAE for LinearRegression (F1): 137.28
+2026-03-16 20:07:47,553 - INFO - Validation RMSE for LinearRegression (F1): 173.62
+2026-03-16 20:07:47,560 - INFO - Baseline model results saved to outputs/metrics/baseline_model_results.csv
+2026-03-16 20:07:47,957 - INFO - Saved actual_vs_predicted.png to outputs/figures/
+2026-03-16 20:07:48,249 - INFO - Saved residual_distribution.png to outputs/figures/
+2026-03-16 20:07:48,249 - INFO - Baseline Model pipeline completed.
+2026-03-16 20:12:56,425 - INFO - Logging initialized. Log file: outputs/benchmark/experiment_log.txt
+2026-03-16 20:12:56,425 - INFO - Starting data preparation and validation pipeline.
+2026-03-16 20:12:56,425 - INFO - Loading dataset from dataset/hour.csv
+2026-03-16 20:12:56,449 - INFO - Dataset loaded successfully. Initial shape: (17379, 17)
+2026-03-16 20:12:56,449 - INFO - Dataset columns and data types:
+2026-03-16 20:12:56,449 - INFO -   instant: int64
+2026-03-16 20:12:56,449 - INFO -   dteday: object
+2026-03-16 20:12:56,449 - INFO -   season: int64
+2026-03-16 20:12:56,449 - INFO -   yr: int64
+2026-03-16 20:12:56,449 - INFO -   mnth: int64
+2026-03-16 20:12:56,449 - INFO -   hr: int64
+2026-03-16 20:12:56,449 - INFO -   holiday: int64
+2026-03-16 20:12:56,449 - INFO -   weekday: int64
+2026-03-16 20:12:56,449 - INFO -   workingday: int64
+2026-03-16 20:12:56,449 - INFO -   weathersit: int64
+2026-03-16 20:12:56,450 - INFO -   temp: float64
+2026-03-16 20:12:56,450 - INFO -   atemp: float64
+2026-03-16 20:12:56,450 - INFO -   hum: float64
+2026-03-16 20:12:56,450 - INFO -   windspeed: float64
+2026-03-16 20:12:56,450 - INFO -   casual: int64
+2026-03-16 20:12:56,450 - INFO -   registered: int64
+2026-03-16 20:12:56,450 - INFO -   cnt: int64
+2026-03-16 20:12:56,456 - INFO - 
+2026-03-16 20:12:56,456 - INFO - Identified Numeric Columns: ['instant', 'temp', 'atemp', 'hum', 'casual', 'registered', 'cnt']
+2026-03-16 20:12:56,456 - INFO - Identified Categorical Columns: ['dteday', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'windspeed']
+2026-03-16 20:12:56,458 - INFO - 
+2026-03-16 20:12:56,458 - INFO - Missing values per column:
+2026-03-16 20:12:56,458 - INFO - Series([], dtype: int64)
+2026-03-16 20:12:56,460 - INFO - No missing values found.
+2026-03-16 20:12:56,467 - INFO - 
+2026-03-16 20:12:56,467 - INFO - Duplicate rows found: 0
+2026-03-16 20:12:56,471 - WARNING - Leakage detected: casual + registered equals cnt.
+2026-03-16 20:12:56,471 - INFO - Removed leakage columns: casual, registered. New shape: (17379, 15)
+2026-03-16 20:12:56,483 - INFO - 
+2026-03-16 20:12:56,483 - INFO - No features with absolute correlation > 0.95 with 'cnt'.
+2026-03-16 20:12:56,483 - INFO - All values in target variable 'cnt' are non-negative.
+2026-03-16 20:12:56,483 - INFO - Count-like field 'cnt' is valid (non-negative integers).
+2026-03-16 20:12:56,483 - INFO - 
+2026-03-16 20:12:56,483 - INFO - Final dataset shape before saving: (17379, 15)
+2026-03-16 20:12:56,569 - INFO - Cleaned dataset saved to outputs/cleaned_data.csv
+2026-03-16 20:12:56,570 - INFO - Validation report saved to outputs/benchmark/data_validation_report.csv
+2026-03-16 20:12:56,571 - INFO - --- Summary of Data Preparation ---
+2026-03-16 20:12:56,571 - INFO - - No missing values detected.
+2026-03-16 20:12:56,571 - INFO - - No duplicate rows detected.
+2026-03-16 20:12:56,571 - INFO - - Leakage detected and columns casual, registered removed.
+2026-03-16 20:12:56,571 - INFO - - No features highly correlated with 'cnt'.
+2026-03-16 20:12:56,571 - INFO - - Target variable 'cnt' is non-negative.
+2026-03-16 20:12:56,571 - INFO - - All 'count-like' fields validated successfully.
+2026-03-16 20:12:56,571 - INFO - - Cleaned dataset saved to outputs/cleaned_data.csv.
+2026-03-16 20:12:56,571 - INFO - - Validation report saved to outputs/benchmark/data_validation_report.csv.
+2026-03-16 20:12:56,571 - INFO - Data preparation and validation pipeline completed.
+2026-03-16 20:12:58,494 - INFO - EDA Logging initialized.
+2026-03-16 20:12:58,494 - INFO - Starting EDA pipeline.
+2026-03-16 20:12:58,494 - INFO - Loading data from outputs/cleaned_data.csv
+2026-03-16 20:12:58,523 - INFO - Data loaded successfully. Shape: (17379, 15)
+2026-03-16 20:12:58,532 - INFO - Converted 'dteday' to datetime and extracted time features.
+2026-03-16 20:12:58,532 - INFO - Analyzing target variable: cnt
+2026-03-16 20:12:59,079 - INFO - Saved target_distribution.png to outputs/figures/
+2026-03-16 20:12:59,401 - INFO - Saved demand_time_series.png to outputs/figures/
+2026-03-16 20:12:59,750 - INFO - Saved heatmap_hour_weekday.png to outputs/figures/
+2026-03-16 20:12:59,756 - INFO - Saved mean demand tables to outputs/benchmark/eda_tables.csv
+2026-03-16 20:13:00,029 - INFO - Saved demand_vs_temp.png to outputs/figures/
+2026-03-16 20:13:00,298 - INFO - Saved demand_vs_hum.png to outputs/figures/
+2026-03-16 20:13:00,549 - INFO - Saved demand_vs_windspeed.png to outputs/figures/
+2026-03-16 20:13:01,074 - INFO - Saved correlation_matrix.png to outputs/figures/
+2026-03-16 20:13:01,074 - INFO - Generating EDA insights summary.
+2026-03-16 20:13:01,074 - INFO - Saved EDA insights summary to outputs/docs/eda_summary.txt
+2026-03-16 20:13:01,074 - INFO - EDA pipeline completed.
+2026-03-16 20:13:03,454 - INFO - Baseline Model Logging initialized.
+2026-03-16 20:13:03,454 - INFO - Starting Baseline Model pipeline.
+2026-03-16 20:13:03,454 - INFO - Loading data from outputs/cleaned_data.csv
+2026-03-16 20:13:03,474 - INFO - Data loaded successfully. Shape: (17379, 15)
+2026-03-16 20:13:03,474 - INFO - Sorted data chronologically by 'dteday'.
+2026-03-16 20:13:03,485 - INFO - F0 Feature Set: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed']
+2026-03-16 20:13:03,485 - INFO - F1 Feature Set: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'sin_hr', 'cos_hr', 'sin_mnth', 'cos_mnth']
+2026-03-16 20:13:03,536 - INFO - Chronological split verified successfully.
+2026-03-16 20:13:03,536 - INFO - Train rows: 12139, Validation rows: 2616, Test rows: 2624
+2026-03-16 20:13:03,714 - INFO - Train, validation, and test sets saved to outputs/train.csv, outputs/val.csv, outputs/test.csv
+2026-03-16 20:13:03,714 - INFO - Preprocessing report saved to outputs/benchmark/preprocessing_report.csv
+2026-03-16 20:13:03,714 - INFO - Training LinearRegression with F0 feature set...
+2026-03-16 20:13:03,721 - INFO - Training completed in 0.01 seconds.
+2026-03-16 20:13:03,724 - INFO - Validation MAE for LinearRegression (F0): 155.25
+2026-03-16 20:13:03,724 - INFO - Validation RMSE for LinearRegression (F0): 189.45
+2026-03-16 20:13:03,724 - INFO - Training LinearRegression with F1 feature set...
+2026-03-16 20:13:03,731 - INFO - Training completed in 0.01 seconds.
+2026-03-16 20:13:03,733 - INFO - Validation MAE for LinearRegression (F1): 137.28
+2026-03-16 20:13:03,733 - INFO - Validation RMSE for LinearRegression (F1): 173.62
+2026-03-16 20:13:03,733 - INFO - Baseline model results saved to outputs/metrics/baseline_model_results.csv
+2026-03-16 20:13:04,127 - INFO - Saved actual_vs_predicted.png to outputs/figures/
+2026-03-16 20:13:04,433 - INFO - Saved residual_distribution.png to outputs/figures/
+2026-03-16 20:13:04,433 - INFO - Baseline Model pipeline completed.
+2026-03-16 20:13:07,033 - INFO - Model Development Logging initialized.
+2026-03-16 20:13:07,033 - INFO - Starting Model Development pipeline.
+2026-03-16 20:13:07,041 - INFO - Loading data splits (train, val, test).
+2026-03-16 20:13:07,106 - INFO - Train shape: (12139, 19), Val shape: (2616, 19), Test shape: (2624, 19)
+2026-03-16 20:13:07,112 - INFO - Converted 'dteday' to datetime in splits.
+2026-03-16 20:13:07,112 - INFO - Re-creating cyclical features on data splits.
+2026-03-16 20:13:07,116 - INFO - F0 Feature Set: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed']
+2026-03-16 20:13:07,118 - INFO - F1 Feature Set: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'sin_hr', 'cos_hr', 'sin_mnth', 'cos_mnth']
+2026-03-16 20:13:07,118 - INFO - Starting model comparison on validation set.
+2026-03-16 20:13:07,118 - INFO - Training LinearRegression with F0 feature set...
+2026-03-16 20:13:07,122 - INFO - Training completed in 0.00 seconds.
+2026-03-16 20:13:07,126 - INFO - Validation MAE for LinearRegression (F0): 155.25
+2026-03-16 20:13:07,126 - INFO - Validation RMSE for LinearRegression (F0): 189.45
+2026-03-16 20:13:07,128 - INFO - Training LinearRegression with F1 feature set...
+2026-03-16 20:13:07,130 - INFO - Training completed in 0.00 seconds.
+2026-03-16 20:13:07,135 - INFO - Validation MAE for LinearRegression (F1): 137.28
+2026-03-16 20:13:07,137 - INFO - Validation RMSE for LinearRegression (F1): 173.62
+2026-03-16 21:04:48,385 - INFO - Logging initialized. Log file: outputs/benchmark/experiment_log.txt
+2026-03-16 21:04:48,385 - INFO - Starting data preparation and validation pipeline.
+2026-03-16 21:04:48,385 - INFO - Loading dataset from dataset/hour.csv
+2026-03-16 21:04:48,420 - INFO - Dataset loaded successfully. Initial shape: (17379, 17)
+2026-03-16 21:04:48,420 - INFO - Dataset columns and data types:
+2026-03-16 21:04:48,420 - INFO -   instant: int64
+2026-03-16 21:04:48,421 - INFO -   dteday: object
+2026-03-16 21:04:48,421 - INFO -   season: int64
+2026-03-16 21:04:48,421 - INFO -   yr: int64
+2026-03-16 21:04:48,421 - INFO -   mnth: int64
+2026-03-16 21:04:48,421 - INFO -   hr: int64
+2026-03-16 21:04:48,421 - INFO -   holiday: int64
+2026-03-16 21:04:48,421 - INFO -   weekday: int64
+2026-03-16 21:04:48,421 - INFO -   workingday: int64
+2026-03-16 21:04:48,421 - INFO -   weathersit: int64
+2026-03-16 21:04:48,421 - INFO -   temp: float64
+2026-03-16 21:04:48,421 - INFO -   atemp: float64
+2026-03-16 21:04:48,421 - INFO -   hum: float64
+2026-03-16 21:04:48,421 - INFO -   windspeed: float64
+2026-03-16 21:04:48,421 - INFO -   casual: int64
+2026-03-16 21:04:48,421 - INFO -   registered: int64
+2026-03-16 21:04:48,421 - INFO -   cnt: int64
+2026-03-16 21:04:48,434 - INFO - 
+2026-03-16 21:04:48,434 - INFO - Identified Numeric Columns: ['instant', 'temp', 'atemp', 'hum', 'casual', 'registered', 'cnt']
+2026-03-16 21:04:48,434 - INFO - Identified Categorical Columns: ['dteday', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'windspeed']
+2026-03-16 21:04:48,438 - INFO - 
+2026-03-16 21:04:48,438 - INFO - Missing values per column:
+2026-03-16 21:04:48,438 - INFO - Series([], dtype: int64)
+2026-03-16 21:04:48,441 - INFO - No missing values found.
+2026-03-16 21:04:48,451 - INFO - 
+2026-03-16 21:04:48,451 - INFO - Duplicate rows found: 0
+2026-03-16 21:04:48,455 - WARNING - Leakage detected: casual + registered equals cnt.
+2026-03-16 21:04:48,455 - INFO - Removed leakage columns: casual, registered. New shape: (17379, 15)
+2026-03-16 21:04:48,465 - INFO - 
+2026-03-16 21:04:48,465 - INFO - No features with absolute correlation > 0.95 with 'cnt'.
+2026-03-16 21:04:48,470 - INFO - All values in target variable 'cnt' are non-negative.
+2026-03-16 21:04:48,470 - INFO - Count-like field 'cnt' is valid (non-negative integers).
+2026-03-16 21:04:48,470 - INFO - 
+2026-03-16 21:04:48,471 - INFO - Final dataset shape before saving: (17379, 15)
+2026-03-16 21:04:48,555 - INFO - Cleaned dataset saved to outputs/cleaned_data.csv
+2026-03-16 21:04:48,562 - INFO - Validation report saved to outputs/benchmark/data_validation_report.csv
+2026-03-16 21:04:48,562 - INFO - --- Summary of Data Preparation ---
+2026-03-16 21:04:48,562 - INFO - - No missing values detected.
+2026-03-16 21:04:48,562 - INFO - - No duplicate rows detected.
+2026-03-16 21:04:48,562 - INFO - - Leakage detected and columns casual, registered removed.
+2026-03-16 21:04:48,562 - INFO - - No features highly correlated with 'cnt'.
+2026-03-16 21:04:48,563 - INFO - - Target variable 'cnt' is non-negative.
+2026-03-16 21:04:48,563 - INFO - - All 'count-like' fields validated successfully.
+2026-03-16 21:04:48,563 - INFO - - Cleaned dataset saved to outputs/cleaned_data.csv.
+2026-03-16 21:04:48,563 - INFO - - Validation report saved to outputs/benchmark/data_validation_report.csv.
+2026-03-16 21:04:48,563 - INFO - Data preparation and validation pipeline completed.
+2026-03-16 21:04:51,410 - INFO - EDA Logging initialized.
+2026-03-16 21:04:51,410 - INFO - Starting EDA pipeline.
+2026-03-16 21:04:51,410 - INFO - Loading data from outputs/cleaned_data.csv
+2026-03-16 21:04:51,446 - INFO - Data loaded successfully. Shape: (17379, 15)
+2026-03-16 21:04:51,463 - INFO - Converted 'dteday' to datetime and extracted time features.
+2026-03-16 21:04:51,463 - INFO - Analyzing target variable: cnt
+2026-03-16 21:04:52,154 - INFO - Saved target_distribution.png to outputs/figures/
+2026-03-16 21:04:52,558 - INFO - Saved demand_time_series.png to outputs/figures/
+2026-03-16 21:04:53,034 - INFO - Saved heatmap_hour_weekday.png to outputs/figures/
+2026-03-16 21:04:53,043 - INFO - Saved mean demand tables to outputs/benchmark/eda_tables.csv
+2026-03-16 21:04:53,394 - INFO - Saved demand_vs_temp.png to outputs/figures/
+2026-03-16 21:04:53,787 - INFO - Saved demand_vs_hum.png to outputs/figures/
+2026-03-16 21:04:54,144 - INFO - Saved demand_vs_windspeed.png to outputs/figures/
+2026-03-16 21:04:54,735 - INFO - Saved correlation_matrix.png to outputs/figures/
+2026-03-16 21:04:54,735 - INFO - Generating EDA insights summary.
+2026-03-16 21:04:54,736 - INFO - Saved EDA insights summary to outputs/docs/eda_summary.txt
+2026-03-16 21:04:54,736 - INFO - EDA pipeline completed.
+2026-03-16 21:04:57,995 - INFO - Baseline Model Logging initialized.
+2026-03-16 21:04:57,995 - INFO - Starting Baseline Model pipeline.
+2026-03-16 21:04:57,995 - INFO - Loading data from outputs/cleaned_data.csv
+2026-03-16 21:04:58,029 - INFO - Data loaded successfully. Shape: (17379, 15)
+2026-03-16 21:04:58,038 - INFO - Sorted data chronologically by 'dteday'.
+2026-03-16 21:04:58,041 - INFO - F0 Feature Set: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed']
+2026-03-16 21:04:58,041 - INFO - F1 Feature Set: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'sin_hr', 'cos_hr', 'sin_mnth', 'cos_mnth']
+2026-03-16 21:04:58,110 - INFO - Chronological split verified successfully.
+2026-03-16 21:04:58,110 - INFO - Train rows: 12139, Validation rows: 2616, Test rows: 2624
+2026-03-16 21:04:58,302 - INFO - Train, validation, and test sets saved to outputs/train.csv, outputs/val.csv, outputs/test.csv
+2026-03-16 21:04:58,302 - INFO - Preprocessing report saved to outputs/benchmark/preprocessing_report.csv
+2026-03-16 21:04:58,302 - INFO - Training LinearRegression with F0 feature set...
+2026-03-16 21:04:58,323 - INFO - Training completed in 0.02 seconds.
+2026-03-16 21:04:58,327 - INFO - Validation MAE for LinearRegression (F0): 155.25
+2026-03-16 21:04:58,327 - INFO - Validation RMSE for LinearRegression (F0): 189.45
+2026-03-16 21:04:58,327 - INFO - Training LinearRegression with F1 feature set...
+2026-03-16 21:04:58,336 - INFO - Training completed in 0.01 seconds.
+2026-03-16 21:04:58,336 - INFO - Validation MAE for LinearRegression (F1): 137.28
+2026-03-16 21:04:58,336 - INFO - Validation RMSE for LinearRegression (F1): 173.62
+2026-03-16 21:04:58,336 - INFO - Baseline model results saved to outputs/metrics/baseline_model_results.csv
+2026-03-16 21:04:58,818 - INFO - Saved actual_vs_predicted.png to outputs/figures/
+2026-03-16 21:04:59,143 - INFO - Saved residual_distribution.png to outputs/figures/
+2026-03-16 21:04:59,143 - INFO - Baseline Model pipeline completed.
+2026-03-16 21:05:02,313 - INFO - Model Development Logging initialized.
+2026-03-16 21:05:02,313 - INFO - Starting Model Development pipeline.
+2026-03-16 21:05:02,314 - INFO - Loading data splits (train, val, test).
+2026-03-16 21:05:02,450 - INFO - Train shape: (12139, 19), Val shape: (2616, 19), Test shape: (2624, 19)
+2026-03-16 21:05:02,453 - INFO - Converted 'dteday' to datetime in splits.
+2026-03-16 21:05:02,453 - INFO - Re-creating cyclical features on data splits.
+2026-03-16 21:05:02,461 - INFO - F0 Feature Set: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed']
+2026-03-16 21:05:02,461 - INFO - F1 Feature Set: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'sin_hr', 'cos_hr', 'sin_mnth', 'cos_mnth']
+2026-03-16 21:05:02,461 - INFO - Starting model comparison on validation set.
+2026-03-16 21:05:02,463 - INFO - Training LinearRegression with F0 feature set...
+2026-03-16 21:05:02,468 - INFO - Training completed in 0.01 seconds.
+2026-03-16 21:05:02,472 - INFO - Validation MAE for LinearRegression (F0): 155.25
+2026-03-16 21:05:02,472 - INFO - Validation RMSE for LinearRegression (F0): 189.45
+2026-03-16 21:05:02,472 - INFO - Training LinearRegression with F1 feature set...
+2026-03-16 21:05:02,476 - INFO - Training completed in 0.00 seconds.
+2026-03-16 21:05:02,484 - INFO - Validation MAE for LinearRegression (F1): 137.28
+2026-03-16 21:05:02,484 - INFO - Validation RMSE for LinearRegression (F1): 173.62
+2026-03-16 21:05:02,484 - INFO - Training Ridge with F0 feature set...
+2026-03-16 21:05:02,493 - INFO - Training completed in 0.01 seconds.
+2026-03-16 21:05:02,493 - INFO - Validation MAE for Ridge (F0): 155.29
+2026-03-16 21:05:02,493 - INFO - Validation RMSE for Ridge (F0): 189.40
+2026-03-16 21:05:02,499 - INFO - Training Ridge with F1 feature set...
+2026-03-16 21:05:02,503 - INFO - Training completed in 0.00 seconds.
+2026-03-16 21:05:02,503 - INFO - Validation MAE for Ridge (F1): 137.28
+2026-03-16 21:05:02,503 - INFO - Validation RMSE for Ridge (F1): 173.60
+2026-03-16 21:05:02,509 - INFO - Training RandomForestRegressor with F0 feature set...
+2026-03-16 21:05:06,734 - INFO - Training completed in 4.22 seconds.
+2026-03-16 21:05:06,775 - INFO - Validation MAE for RandomForestRegressor (F0): 50.76
+2026-03-16 21:05:06,775 - INFO - Validation RMSE for RandomForestRegressor (F0): 78.01
+2026-03-16 21:05:06,785 - INFO - Training RandomForestRegressor with F1 feature set...
+2026-03-16 21:05:11,923 - INFO - Training completed in 5.14 seconds.
+2026-03-16 21:05:11,962 - INFO - Validation MAE for RandomForestRegressor (F1): 50.99
+2026-03-16 21:05:11,962 - INFO - Validation RMSE for RandomForestRegressor (F1): 77.69
+2026-03-16 21:05:11,973 - INFO - Training GradientBoostingRegressor with F0 feature set...
+2026-03-16 21:05:12,773 - INFO - Training completed in 0.80 seconds.
+2026-03-16 21:05:12,773 - INFO - Validation MAE for GradientBoostingRegressor (F0): 78.58
+2026-03-16 21:05:12,773 - INFO - Validation RMSE for GradientBoostingRegressor (F0): 104.40
+2026-03-16 21:05:12,773 - INFO - Training GradientBoostingRegressor with F1 feature set...
+2026-03-16 21:05:13,811 - INFO - Training completed in 1.04 seconds.
+2026-03-16 21:05:13,814 - INFO - Validation MAE for GradientBoostingRegressor (F1): 72.05
+2026-03-16 21:05:13,814 - INFO - Validation RMSE for GradientBoostingRegressor (F1): 97.16
+2026-03-16 21:05:13,814 - INFO - Training MLPRegressor with F0 feature set...
+2026-03-16 21:05:48,755 - INFO - Training completed in 34.94 seconds.
+2026-03-16 21:05:48,760 - INFO - Validation MAE for MLPRegressor (F0): 95.97
+2026-03-16 21:05:48,760 - INFO - Validation RMSE for MLPRegressor (F0): 137.30
+2026-03-16 21:05:48,760 - INFO - Training MLPRegressor with F1 feature set...
+2026-03-16 21:06:52,204 - INFO - Training completed in 63.44 seconds.
+2026-03-16 21:06:52,212 - INFO - Validation MAE for MLPRegressor (F1): 66.00
+2026-03-16 21:06:52,212 - INFO - Validation RMSE for MLPRegressor (F1): 96.75
+2026-03-16 21:06:52,212 - INFO - All model comparison results saved to outputs/metrics/all_results.csv
+2026-03-16 21:06:52,212 - INFO - Tuning Gradient Boosting Regressor (n_estimators).
+2026-03-16 21:07:01,022 - INFO - Best Gradient Boosting n_estimators: 300 (MAE: 55.48)
+2026-03-16 21:07:41,274 - INFO - Logging initialized. Log file: outputs/benchmark/experiment_log.txt
+2026-03-16 21:07:41,274 - INFO - Starting data preparation and validation pipeline.
+2026-03-16 21:07:41,274 - INFO - Loading dataset from dataset/hour.csv
+2026-03-16 21:07:41,311 - INFO - Dataset loaded successfully. Initial shape: (17379, 17)
+2026-03-16 21:07:41,311 - INFO - Dataset columns and data types:
+2026-03-16 21:07:41,311 - INFO -   instant: int64
+2026-03-16 21:07:41,311 - INFO -   dteday: object
+2026-03-16 21:07:41,311 - INFO -   season: int64
+2026-03-16 21:07:41,311 - INFO -   yr: int64
+2026-03-16 21:07:41,311 - INFO -   mnth: int64
+2026-03-16 21:07:41,315 - INFO -   hr: int64
+2026-03-16 21:07:41,315 - INFO -   holiday: int64
+2026-03-16 21:07:41,315 - INFO -   weekday: int64
+2026-03-16 21:07:41,315 - INFO -   workingday: int64
+2026-03-16 21:07:41,315 - INFO -   weathersit: int64
+2026-03-16 21:07:41,315 - INFO -   temp: float64
+2026-03-16 21:07:41,315 - INFO -   atemp: float64
+2026-03-16 21:07:41,315 - INFO -   hum: float64
+2026-03-16 21:07:41,315 - INFO -   windspeed: float64
+2026-03-16 21:07:41,315 - INFO -   casual: int64
+2026-03-16 21:07:41,316 - INFO -   registered: int64
+2026-03-16 21:07:41,316 - INFO -   cnt: int64
+2026-03-16 21:07:41,325 - INFO - 
+2026-03-16 21:07:41,325 - INFO - Identified Numeric Columns: ['instant', 'temp', 'atemp', 'hum', 'casual', 'registered', 'cnt']
+2026-03-16 21:07:41,325 - INFO - Identified Categorical Columns: ['dteday', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'windspeed']
+2026-03-16 21:07:41,325 - INFO - 
+2026-03-16 21:07:41,325 - INFO - Missing values per column:
+2026-03-16 21:07:41,325 - INFO - Series([], dtype: int64)
+2026-03-16 21:07:41,325 - INFO - No missing values found.
+2026-03-16 21:07:41,336 - INFO - 
+2026-03-16 21:07:41,336 - INFO - Duplicate rows found: 0
+2026-03-16 21:07:41,341 - WARNING - Leakage detected: casual + registered equals cnt.
+2026-03-16 21:07:41,342 - INFO - Removed leakage columns: casual, registered. New shape: (17379, 15)
+2026-03-16 21:07:41,352 - INFO - 
+2026-03-16 21:07:41,352 - INFO - No features with absolute correlation > 0.95 with 'cnt'.
+2026-03-16 21:07:41,352 - INFO - All values in target variable 'cnt' are non-negative.
+2026-03-16 21:07:41,357 - INFO - Count-like field 'cnt' is valid (non-negative integers).
+2026-03-16 21:07:41,357 - INFO - 
+2026-03-16 21:07:41,357 - INFO - Final dataset shape before saving: (17379, 15)
+2026-03-16 21:07:41,442 - INFO - Cleaned dataset saved to outputs/cleaned_data.csv
+2026-03-16 21:07:41,442 - INFO - Validation report saved to outputs/benchmark/data_validation_report.csv
+2026-03-16 21:07:41,442 - INFO - --- Summary of Data Preparation ---
+2026-03-16 21:07:41,442 - INFO - - No missing values detected.
+2026-03-16 21:07:41,442 - INFO - - No duplicate rows detected.
+2026-03-16 21:07:41,445 - INFO - - Leakage detected and columns casual, registered removed.
+2026-03-16 21:07:41,445 - INFO - - No features highly correlated with 'cnt'.
+2026-03-16 21:07:41,445 - INFO - - Target variable 'cnt' is non-negative.
+2026-03-16 21:07:41,445 - INFO - - All 'count-like' fields validated successfully.
+2026-03-16 21:07:41,445 - INFO - - Cleaned dataset saved to outputs/cleaned_data.csv.
+2026-03-16 21:07:41,445 - INFO - - Validation report saved to outputs/benchmark/data_validation_report.csv.
+2026-03-16 21:07:41,445 - INFO - Data preparation and validation pipeline completed.
+2026-03-16 21:07:43,898 - INFO - EDA Logging initialized.
+2026-03-16 21:07:43,898 - INFO - Starting EDA pipeline.
+2026-03-16 21:07:43,898 - INFO - Loading data from outputs/cleaned_data.csv
+2026-03-16 21:07:43,932 - INFO - Data loaded successfully. Shape: (17379, 15)
+2026-03-16 21:07:43,940 - INFO - Converted 'dteday' to datetime and extracted time features.
+2026-03-16 21:07:43,940 - INFO - Analyzing target variable: cnt
+2026-03-16 21:07:44,542 - INFO - Saved target_distribution.png to outputs/figures/
+2026-03-16 21:07:45,227 - INFO - Saved demand_time_series.png to outputs/figures/
+2026-03-16 21:07:45,731 - INFO - Saved heatmap_hour_weekday.png to outputs/figures/
+2026-03-16 21:07:45,748 - INFO - Saved mean demand tables to outputs/benchmark/eda_tables.csv
+2026-03-16 21:07:46,056 - INFO - Saved demand_vs_temp.png to outputs/figures/
+2026-03-16 21:07:46,332 - INFO - Saved demand_vs_hum.png to outputs/figures/
+2026-03-16 21:07:46,608 - INFO - Saved demand_vs_windspeed.png to outputs/figures/
+2026-03-16 21:07:47,193 - INFO - Saved correlation_matrix.png to outputs/figures/
+2026-03-16 21:07:47,193 - INFO - Generating EDA insights summary.
+2026-03-16 21:07:47,193 - INFO - Saved EDA insights summary to outputs/docs/eda_summary.txt
+2026-03-16 21:07:47,193 - INFO - EDA pipeline completed.
+2026-03-16 21:07:50,605 - INFO - Baseline Model Logging initialized.
+2026-03-16 21:07:50,605 - INFO - Starting Baseline Model pipeline.
+2026-03-16 21:07:50,605 - INFO - Loading data from outputs/cleaned_data.csv
+2026-03-16 21:07:50,630 - INFO - Data loaded successfully. Shape: (17379, 15)
+2026-03-16 21:07:50,651 - INFO - Sorted data chronologically by 'dteday'.
+2026-03-16 21:07:50,652 - INFO - F0 Feature Set: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed']
+2026-03-16 21:07:50,654 - INFO - F1 Feature Set: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'sin_hr', 'cos_hr', 'sin_mnth', 'cos_mnth']
+2026-03-16 21:07:50,721 - INFO - Chronological split verified successfully.
+2026-03-16 21:07:50,721 - INFO - Train rows: 12139, Validation rows: 2616, Test rows: 2624
+2026-03-16 21:07:50,932 - INFO - Train, validation, and test sets saved to outputs/train.csv, outputs/val.csv, outputs/test.csv
+2026-03-16 21:07:50,937 - INFO - Preprocessing report saved to outputs/benchmark/preprocessing_report.csv
+2026-03-16 21:07:50,938 - INFO - Training LinearRegression with F0 feature set...
+2026-03-16 21:07:50,942 - INFO - Training completed in 0.00 seconds.
+2026-03-16 21:07:50,947 - INFO - Validation MAE for LinearRegression (F0): 155.25
+2026-03-16 21:07:50,947 - INFO - Validation RMSE for LinearRegression (F0): 189.45
+2026-03-16 21:07:50,949 - INFO - Training LinearRegression with F1 feature set...
+2026-03-16 21:07:50,956 - INFO - Training completed in 0.01 seconds.
+2026-03-16 21:07:50,956 - INFO - Validation MAE for LinearRegression (F1): 137.28
+2026-03-16 21:07:50,956 - INFO - Validation RMSE for LinearRegression (F1): 173.62
+2026-03-16 21:07:50,959 - INFO - Baseline model results saved to outputs/metrics/baseline_model_results.csv
+2026-03-16 21:07:51,387 - INFO - Saved actual_vs_predicted.png to outputs/figures/
+2026-03-16 21:07:51,722 - INFO - Saved residual_distribution.png to outputs/figures/
+2026-03-16 21:07:51,722 - INFO - Baseline Model pipeline completed.
+2026-03-16 21:07:54,545 - INFO - Model Development Logging initialized.
+2026-03-16 21:07:54,545 - INFO - Starting Model Development pipeline.
+2026-03-16 21:07:54,545 - INFO - Loading data splits (train, val, test).
+2026-03-16 21:07:54,612 - INFO - Train shape: (12139, 19), Val shape: (2616, 19), Test shape: (2624, 19)
+2026-03-16 21:07:54,622 - INFO - Converted 'dteday' to datetime in splits.
+2026-03-16 21:07:54,622 - INFO - Re-creating cyclical features on data splits.
+2026-03-16 21:07:54,628 - INFO - F0 Feature Set: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed']
+2026-03-16 21:07:54,628 - INFO - F1 Feature Set: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'sin_hr', 'cos_hr', 'sin_mnth', 'cos_mnth']
+2026-03-16 21:07:54,628 - INFO - Starting model comparison on validation set.
+2026-03-16 21:07:54,628 - INFO - Training LinearRegression with F0 feature set...
+2026-03-16 21:07:54,633 - INFO - Training completed in 0.00 seconds.
+2026-03-16 21:07:54,638 - INFO - Validation MAE for LinearRegression (F0): 155.25
+2026-03-16 21:07:54,638 - INFO - Validation RMSE for LinearRegression (F0): 189.45
+2026-03-16 21:07:54,639 - INFO - Training LinearRegression with F1 feature set...
+2026-03-16 21:07:54,645 - INFO - Training completed in 0.01 seconds.
+2026-03-16 21:07:54,645 - INFO - Validation MAE for LinearRegression (F1): 137.28
+2026-03-16 21:07:54,645 - INFO - Validation RMSE for LinearRegression (F1): 173.62
+2026-03-16 21:07:54,649 - INFO - Training Ridge with F0 feature set...
+2026-03-16 21:07:54,651 - INFO - Training completed in 0.00 seconds.
+2026-03-16 21:07:54,655 - INFO - Validation MAE for Ridge (F0): 155.29
+2026-03-16 21:07:54,655 - INFO - Validation RMSE for Ridge (F0): 189.40
+2026-03-16 21:07:54,655 - INFO - Training Ridge with F1 feature set...
+2026-03-16 21:07:54,655 - INFO - Training completed in 0.00 seconds.
+2026-03-16 21:07:54,662 - INFO - Validation MAE for Ridge (F1): 137.28
+2026-03-16 21:07:54,662 - INFO - Validation RMSE for Ridge (F1): 173.60
+2026-03-16 21:07:54,664 - INFO - Training RandomForestRegressor with F0 feature set...
+2026-03-16 21:07:58,631 - INFO - Training completed in 3.97 seconds.
+2026-03-16 21:07:58,665 - INFO - Validation MAE for RandomForestRegressor (F0): 50.76
+2026-03-16 21:07:58,665 - INFO - Validation RMSE for RandomForestRegressor (F0): 78.01
+2026-03-16 21:07:58,675 - INFO - Training RandomForestRegressor with F1 feature set...
+2026-03-16 21:08:03,742 - INFO - Training completed in 5.07 seconds.
+2026-03-16 21:08:03,776 - INFO - Validation MAE for RandomForestRegressor (F1): 50.99
+2026-03-16 21:08:03,776 - INFO - Validation RMSE for RandomForestRegressor (F1): 77.69
+2026-03-16 21:08:03,785 - INFO - Training GradientBoostingRegressor with F0 feature set...
+2026-03-16 21:08:04,583 - INFO - Training completed in 0.80 seconds.
+2026-03-16 21:08:04,584 - INFO - Validation MAE for GradientBoostingRegressor (F0): 78.58
+2026-03-16 21:08:04,584 - INFO - Validation RMSE for GradientBoostingRegressor (F0): 104.40
+2026-03-16 21:08:04,584 - INFO - Training GradientBoostingRegressor with F1 feature set...
+2026-03-16 21:08:05,643 - INFO - Training completed in 1.06 seconds.
+2026-03-16 21:08:05,652 - INFO - Validation MAE for GradientBoostingRegressor (F1): 72.05
+2026-03-16 21:08:05,652 - INFO - Validation RMSE for GradientBoostingRegressor (F1): 97.16
+2026-03-16 21:08:05,652 - INFO - Training MLPRegressor with F0 feature set...
+Starting data ingestion...
+Dataset shape: (17379, 17)
+Column names and data types:
+instant         int64
+dteday         object
+season          int64
+yr              int64
+mnth            int64
+hr              int64
+holiday         int64
+weekday         int64
+workingday      int64
+weathersit      int64
+temp          float64
+atemp         float64
+hum           float64
+windspeed     float64
+casual          int64
+registered      int64
+cnt             int64
+dtype: object
+Numeric columns: ['instant', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt']
+Categorical columns: ['dteday']
+Missing values per column:
+instant       0
+dteday        0
+season        0
+yr            0
+mnth          0
+hr            0
+holiday       0
+weekday       0
+workingday    0
+weathersit    0
+temp          0
+atemp         0
+hum           0
+windspeed     0
+casual        0
+registered    0
+cnt           0
+dtype: int64
+Duplicate rows: 0
+Leakage detected (casual + registered = cnt). Columns 'casual' and 'registered' removed.
+Features with absolute correlation > 0.95: []
+Target 'cnt' non-negative check: True
+Cleaned dataset saved to: outputs/cleaned_data.csv
+Validation report saved to: outputs/benchmark/data_validation_report.csv
+
+Summary of findings:
+- Rows: 17379, Columns: 17
+- Missing values: 0
+- Duplicates: 0
+- Leakage found: True
+- Max feature-target correlation: 0.4048
+Starting data ingestion...
+Dataset shape: (17379, 17)
+Column names and data types:
+instant         int64
+dteday         object
+season          int64
+yr              int64
+mnth            int64
+hr              int64
+holiday         int64
+weekday         int64
+workingday      int64
+weathersit      int64
+temp          float64
+atemp         float64
+hum           float64
+windspeed     float64
+casual          int64
+registered      int64
+cnt             int64
+dtype: object
+Numeric columns: ['instant', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt']
+Categorical columns: ['dteday']
+Missing values per column:
+instant       0
+dteday        0
+season        0
+yr            0
+mnth          0
+hr            0
+holiday       0
+weekday       0
+workingday    0
+weathersit    0
+temp          0
+atemp         0
+hum           0
+windspeed     0
+casual        0
+registered    0
+cnt           0
+dtype: int64
+Duplicate rows: 0
+Leakage detected (casual + registered = cnt). Columns 'casual' and 'registered' removed.
+Features with absolute correlation > 0.95: []
+Target 'cnt' non-negative check: True
+Cleaned dataset saved to: outputs/cleaned_data.csv
+Validation report saved to: outputs/benchmark/data_validation_report.csv
+
+Summary of findings:
+- Rows: 17379, Columns: 17
+- Missing values: 0
+- Duplicates: 0
+- Leakage found: True
+- Max feature-target correlation: 0.4048
+Starting Exploratory Data Analysis (EDA)...
+Saved target_distribution.png
+Saved demand_time_series.png
+Saved heatmap_hour_weekday.png
+Saved demand_vs_temp.png
+Saved demand_vs_hum.png
+Saved demand_vs_windspeed.png
+Saved correlation_matrix.png
+Saved eda_tables.csv
+Saved eda_summary.txt
+Starting data ingestion...
+Dataset shape: (17379, 17)
+Column names and data types:
+instant         int64
+dteday         object
+season          int64
+yr              int64
+mnth            int64
+hr              int64
+holiday         int64
+weekday         int64
+workingday      int64
+weathersit      int64
+temp          float64
+atemp         float64
+hum           float64
+windspeed     float64
+casual          int64
+registered      int64
+cnt             int64
+dtype: object
+Numeric columns: ['instant', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt']
+Categorical columns: ['dteday']
+Missing values per column:
+instant       0
+dteday        0
+season        0
+yr            0
+mnth          0
+hr            0
+holiday       0
+weekday       0
+workingday    0
+weathersit    0
+temp          0
+atemp         0
+hum           0
+windspeed     0
+casual        0
+registered    0
+cnt           0
+dtype: int64
+Duplicate rows: 0
+Leakage detected (casual + registered = cnt). Columns 'casual' and 'registered' removed.
+Features with absolute correlation > 0.95: []
+Target 'cnt' non-negative check: True
+Cleaned dataset saved to: outputs/cleaned_data.csv
+Validation report saved to: outputs/benchmark/data_validation_report.csv
+
+Summary of findings:
+- Rows: 17379, Columns: 17
+- Missing values: 0
+- Duplicates: 0
+- Leakage found: True
+- Max feature-target correlation: 0.4048
+Starting Exploratory Data Analysis (EDA)...
+Saved target_distribution.png
+Saved demand_time_series.png
+Saved heatmap_hour_weekday.png
+Saved demand_vs_temp.png
+Saved demand_vs_hum.png
+Saved demand_vs_windspeed.png
+Saved correlation_matrix.png
+Saved eda_tables.csv
+Saved eda_summary.txt
+Starting baseline model training and evaluation...
+Chronological split verified: True
+Train rows: 12165, Val rows: 2607, Test rows: 2607
+Training Linear Regression with feature set F0...
+Training Linear Regression with feature set F1...
+Baseline results saved.
+Starting data ingestion...
+Dataset shape: (17379, 17)
+Column names and data types:
+instant         int64
+dteday         object
+season          int64
+yr              int64
+mnth            int64
+hr              int64
+holiday         int64
+weekday         int64
+workingday      int64
+weathersit      int64
+temp          float64
+atemp         float64
+hum           float64
+windspeed     float64
+casual          int64
+registered      int64
+cnt             int64
+dtype: object
+Numeric columns: ['instant', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt']
+Categorical columns: ['dteday']
+Missing values per column:
+instant       0
+dteday        0
+season        0
+yr            0
+mnth          0
+hr            0
+holiday       0
+weekday       0
+workingday    0
+weathersit    0
+temp          0
+atemp         0
+hum           0
+windspeed     0
+casual        0
+registered    0
+cnt           0
+dtype: int64
+Duplicate rows: 0
+Leakage detected (casual + registered = cnt). Columns 'casual' and 'registered' removed.
+Features with absolute correlation > 0.95: []
+Target 'cnt' non-negative check: True
+Cleaned dataset saved to: outputs/cleaned_data.csv
+Validation report saved to: outputs/benchmark/data_validation_report.csv
+
+Summary of findings:
+- Rows: 17379, Columns: 17
+- Missing values: 0
+- Duplicates: 0
+- Leakage found: True
+- Max feature-target correlation: 0.4048
+Starting Exploratory Data Analysis (EDA)...
+Saved target_distribution.png
+Saved demand_time_series.png
+Saved heatmap_hour_weekday.png
+Saved demand_vs_temp.png
+Saved demand_vs_hum.png
+Saved demand_vs_windspeed.png
+Saved correlation_matrix.png
+Saved eda_tables.csv
+Saved eda_summary.txt
+Starting baseline model training and evaluation...
+Chronological split verified: True
+Train rows: 12165, Val rows: 2607, Test rows: 2607
+Training Linear Regression with feature set F0...
+Training Linear Regression with feature set F1...
+Baseline results saved.
+Starting model improvement and comparison...
+Evaluating Ridge with F0...
+Evaluating Ridge with F1...
+Evaluating Random Forest with F0...
+Evaluating Random Forest with F1...
+Evaluating Gradient Boosting with F0...
+Evaluating Gradient Boosting with F1...
+Evaluating MLP with F0...
+Evaluating MLP with F1...
+Sweeping n_estimators for Gradient Boosting...
+Starting data ingestion...
+Dataset shape: (17379, 17)
+Column names and data types:
+instant         int64
+dteday         object
+season          int64
+yr              int64
+mnth            int64
+hr              int64
+holiday         int64
+weekday         int64
+workingday      int64
+weathersit      int64
+temp          float64
+atemp         float64
+hum           float64
+windspeed     float64
+casual          int64
+registered      int64
+cnt             int64
+dtype: object
+Numeric columns: ['instant', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt']
+Categorical columns: ['dteday']
+Missing values per column:
+instant       0
+dteday        0
+season        0
+yr            0
+mnth          0
+hr            0
+holiday       0
+weekday       0
+workingday    0
+weathersit    0
+temp          0
+atemp         0
+hum           0
+windspeed     0
+casual        0
+registered    0
+cnt           0
+dtype: int64
+Duplicate rows: 0
+Leakage detected (casual + registered = cnt). Columns 'casual' and 'registered' removed.
+Features with absolute correlation > 0.95: []
+Target 'cnt' non-negative check: True
+Cleaned dataset saved to: outputs/cleaned_data.csv
+Validation report saved to: outputs/benchmark/data_validation_report.csv
+
+Summary of findings:
+- Rows: 17379, Columns: 17
+- Missing values: 0
+- Duplicates: 0
+- Leakage found: True
+- Max feature-target correlation: 0.4048
+Starting Exploratory Data Analysis (EDA)...
+Saved target_distribution.png
+Saved demand_time_series.png
+Saved heatmap_hour_weekday.png
+Saved demand_vs_temp.png
+Saved demand_vs_hum.png
+Saved demand_vs_windspeed.png
+Saved correlation_matrix.png
+Saved eda_tables.csv
+Saved eda_summary.txt
+Starting baseline model training and evaluation...
+Chronological split verified: True
+Train rows: 12165, Val rows: 2607, Test rows: 2607
+Training Linear Regression with feature set F0...
+Training Linear Regression with feature set F1...
+Baseline results saved.
+Starting model improvement and comparison...
+Evaluating Ridge with F0...
+Evaluating Ridge with F1...
+Evaluating Random Forest with F0...
+Evaluating Random Forest with F1...
+Evaluating Gradient Boosting with F0...
+Evaluating Gradient Boosting with F1...
+Evaluating MLP with F0...
+Evaluating MLP with F1...
+Sweeping n_estimators for Gradient Boosting...
+Best model selected: Random Forest with F0 (Validation MAE: 47.8473)
+Final Test MAE: 50.3440, RMSE: 75.5171
+Model improvement task complete.
