@@ -1,5 +1,0 @@
-model,feature_set,best_param,best_mae
-Ridge,F0,alpha=10.0,155.47570229073074
-Ridge,F1,alpha=10.0,137.65774825721343
-Gradient Boosting,F0,n_estimators=150,49.181670446438076
-Gradient Boosting,F1,n_estimators=200,46.896235128438086
