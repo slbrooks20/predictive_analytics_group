@@ -1,0 +1,69 @@
+EDA SUMMARY ¡ª Bike-Sharing Demand (hour.csv)
+Generated: 2026-03-17 18:42:07
+==============================================================
+
+DATASET OVERVIEW
+  Shape after cleaning : 17379 rows ¡Á 15 columns
+  Target (cnt)         : hourly total bike rentals
+  Date range           : 2011-01-01 ¡ú 2012-12-31
+  Years in data        : [2011, 2012]
+
+TARGET DISTRIBUTION
+  Mean   : 189.5   Median : 142.0
+  Std    : 181.4    Max    : 977
+  Skew   : 1.277
+  The distribution is right-skewed with a long tail of high-demand hours.
+  0 rows (0.00%) exceed Q3+3¡ÁIQR = 1004.
+  Consideration: a log-transform or quantile-robust loss may reduce sensitivity
+  to these extreme values.
+
+DEMAND PATTERNS OVER TIME
+  Total rentals grew substantially from 2011 to 2012, suggesting a
+  secular upward trend (likely a mix of growing user base and seasonality).
+  The 30-day rolling mean (see demand_time_series.png) shows clear seasonal
+  peaks in mid-year (warm months) and troughs in winter.
+
+TEMPORAL STRUCTURE
+  Peak hours  : [17, 18] ¡ª matching morning and evening commute windows.
+  Busiest day : Fri   Quietest day: Mon
+  The hour¡Áweekday heatmap reveals a strong bimodal weekday pattern (commuters)
+  and a unimodal midday weekend pattern (leisure riders). This interaction
+  is a critical feature for modelling.
+
+WEATHER FEATURE RELATIONSHIPS
+  Temperature shows a moderate positive association with cnt (|r| ¡Ö 0.40).
+  Humidity shows a moderate negative association.
+  Wind speed has a weak negative association.
+  All continuous weather features are normalised (0¨C1 range).
+
+RARE REGIMES
+  weathersit categories present: [1, 2, 3, 4]
+  weathersit distribution (%):
+    1: 65.67%
+    2: 26.15%
+    3: 8.17%
+    4: 0.02%
+  Rare (<1%) weather categories: [4]
+  Extreme weather (category 4, if present) has very few samples and may cause
+  poor generalisation for models trained on underrepresented regimes.
+
+MODELLING RISKS & CONCERNS
+  1. Right-skewed target: models optimising MSE will underestimate peaks; prefer
+     MAE-robust models or apply log(1+cnt) transformation.
+  2. Temporal leakage: the 'instant' column is a monotone row index correlated
+     with time-based growth. Must not be used as a model feature.
+  3. Cyclical encodings: hr, mnth, weekday are treated as integers here; sine/
+     cosine encodings should be applied at feature-engineering stage.
+  4. Season ¡Á weather interaction: demand in extreme cold/rain combinations is
+     sparse and may not generalise.
+  5. Year trend: yr=0 vs yr=1 partly captures the secular growth. If the model
+     is deployed in year 3+, it will extrapolate out of distribution.
+
+DATA QUALITY CONCERNS
+  Missing values : 0   Duplicates: 0
+  Leakage columns 'casual' and 'registered' were removed in Task 1
+  (they sum exactly to cnt).
+  No additional leakage columns were detected in this EDA.
+  'dteday' should be excluded from model features (or used only to derive
+  temporal features such as month/weekday, which are already present).
+==============================================================
