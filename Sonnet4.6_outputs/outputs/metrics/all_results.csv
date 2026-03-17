@@ -1,0 +1,11 @@
+model,feature_set,split,MAE,RMSE,training_time_seconds
+Ridge,F0,validation,155.2935,189.7703,0.001013
+RandomForest,F0,validation,47.8851,73.7121,2.168097
+GradientBoosting,F0,validation,58.6734,80.4558,0.706254
+MLPRegressor,F0,validation,51.3875,77.0192,10.962158
+Ridge,F1,validation,137.5493,174.1324,0.00133
+RandomForest,F1,validation,48.9613,74.7355,2.823894
+GradientBoosting,F1,validation,54.7797,77.2465,0.934119
+MLPRegressor,F1,validation,59.9995,83.3936,12.007442
+LinearRegression,F0,validation,155.2933,189.7725,0.001585
+LinearRegression,F1,validation,137.55,174.1323,0.002304
