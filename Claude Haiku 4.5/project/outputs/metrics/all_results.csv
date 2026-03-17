@@ -1,0 +1,9 @@
+model,feature_set,split,MAE,RMSE,training_time_seconds
+Ridge,F0,validation,155.6365,190.5113,0.0015
+Ridge,F1,validation,137.9787,175.0888,0.001
+Random Forest,F0,validation,47.8095,73.7704,2.6547
+Random Forest,F1,validation,48.3936,74.1896,3.2193
+Gradient Boosting,F0,validation,49.3919,72.4236,1.0725
+Gradient Boosting,F1,validation,50.517,73.3259,1.3758
+MLP,F0,validation,58.5404,80.7637,16.2615
+MLP,F1,validation,56.2386,79.2421,9.0496

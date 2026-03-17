@@ -1,0 +1,370 @@
+[2026-03-16 03:00:55] ======================================================================
+[2026-03-16 03:00:55] TASK 1 — Data Ingestion, Schema Checks, Missingness Handling
+[2026-03-16 03:00:55] ======================================================================
+[2026-03-16 03:00:55] Loading dataset from: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\Sonnet 4.6\project\dataset\hour.csv
+[2026-03-16 03:00:55] Dataset loaded successfully.
+[2026-03-16 03:00:55] Dataset shape: 17379 rows x 17 columns
+[2026-03-16 03:00:55] Column names and data types:
+[2026-03-16 03:00:55] instant         int64
+dteday            str
+season          int64
+yr              int64
+mnth            int64
+hr              int64
+holiday         int64
+weekday         int64
+workingday      int64
+weathersit      int64
+temp          float64
+atemp         float64
+hum           float64
+windspeed     float64
+casual          int64
+registered      int64
+cnt             int64
+[2026-03-16 03:00:55] Numeric columns     (8): ['instant', 'temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt']
+[2026-03-16 03:00:55] Categorical columns (8): ['season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit']
+[2026-03-16 03:00:55] Missing values per column:
+instant       0
+dteday        0
+season        0
+yr            0
+mnth          0
+hr            0
+holiday       0
+weekday       0
+workingday    0
+weathersit    0
+temp          0
+atemp         0
+hum           0
+windspeed     0
+casual        0
+registered    0
+cnt           0
+[2026-03-16 03:00:55] Total missing values: 0
+[2026-03-16 03:00:55] Duplicate rows: 0
+[2026-03-16 03:00:55] Leakage identity check (casual + registered == cnt): True
+[2026-03-16 03:00:55] Removed leakage columns: ['casual', 'registered']
+[2026-03-16 03:03:40] ======================================================================
+[2026-03-16 03:03:40] TASK 1 — Data Ingestion, Schema Checks, Missingness Handling
+[2026-03-16 03:03:40] ======================================================================
+[2026-03-16 03:03:40] Loading dataset from: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\Sonnet 4.6\project\dataset\hour.csv
+[2026-03-16 03:03:40] Dataset loaded successfully.
+[2026-03-16 03:03:40] Dataset shape: 17379 rows x 17 columns
+[2026-03-16 03:03:40] Column names and data types:
+[2026-03-16 03:03:40] instant         int64
+dteday            str
+season          int64
+yr              int64
+mnth            int64
+hr              int64
+holiday         int64
+weekday         int64
+workingday      int64
+weathersit      int64
+temp          float64
+atemp         float64
+hum           float64
+windspeed     float64
+casual          int64
+registered      int64
+cnt             int64
+[2026-03-16 03:03:40] Numeric columns     (8): ['instant', 'temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt']
+[2026-03-16 03:03:40] Categorical columns (8): ['season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit']
+[2026-03-16 03:03:40] Missing values per column:
+instant       0
+dteday        0
+season        0
+yr            0
+mnth          0
+hr            0
+holiday       0
+weekday       0
+workingday    0
+weathersit    0
+temp          0
+atemp         0
+hum           0
+windspeed     0
+casual        0
+registered    0
+cnt           0
+[2026-03-16 03:03:40] Total missing values: 0
+[2026-03-16 03:03:40] Duplicate rows: 0
+[2026-03-16 03:03:40] Leakage identity check (casual + registered == cnt): True
+[2026-03-16 03:03:40] Removed leakage columns: ['casual', 'registered']
+[2026-03-16 03:03:40] Absolute correlation with cnt (top features):
+[2026-03-16 03:03:40] temp          0.404772
+atemp         0.400929
+hr            0.394071
+hum           0.322911
+instant       0.278379
+yr            0.250495
+season        0.178056
+weathersit    0.142426
+mnth          0.120638
+windspeed     0.093234
+holiday       0.030927
+workingday    0.030284
+weekday       0.026900
+[2026-03-16 03:03:40] No features exceed the |corr| > 0.95 threshold (max=0.4048).
+[2026-03-16 03:03:40] cnt >= 0 for all rows: True (negative count: 0)
+[2026-03-16 03:03:40] No impossible (negative) values found in count-like fields.
+[2026-03-16 03:03:40] Column 'temp': all values within [0,1].
+[2026-03-16 03:03:40] Column 'atemp': all values within [0,1].
+[2026-03-16 03:03:40] Column 'hum': all values within [0,1].
+[2026-03-16 03:03:40] Column 'windspeed': all values within [0,1].
+[2026-03-16 03:03:40] Cleaned dataset saved to: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\Sonnet 4.6\project\outputs\cleaned_data.csv  (shape: (17379, 15))
+[2026-03-16 03:03:40] Validation report saved to: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\Sonnet 4.6\project\outputs\benchmark\data_validation_report.csv
+[2026-03-16 03:03:40]   Original shape            : (17379, 17)
+[2026-03-16 03:03:40]   Final shape               : (17379, 15)
+[2026-03-16 03:03:40]   Total missing values      : 0
+[2026-03-16 03:03:40]   Duplicate rows dropped    : 0
+[2026-03-16 03:03:40]   Leakage detected          : True
+[2026-03-16 03:03:40]   Leakage columns removed   : ['casual', 'registered']
+[2026-03-16 03:03:40]   Max |corr| with cnt       : 0.4048
+[2026-03-16 03:03:40]   High-corr features (>0.95): []
+[2026-03-16 03:03:40]   cnt >= 0 check            : PASSED
+[2026-03-16 03:03:40]   Impossible value issues   : None
+[2026-03-16 03:03:40] Task 1 completed successfully.
+[2026-03-16 03:03:40] ======================================================================
+[2026-03-16 03:11:42] ======================================================================
+[2026-03-16 03:11:42] TASK 1 — Data Ingestion, Schema Checks, Missingness Handling
+[2026-03-16 03:11:43] ======================================================================
+[2026-03-16 03:11:43] Loading dataset from: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\Sonnet 4.6\project\dataset\hour.csv
+[2026-03-16 03:11:43] Dataset loaded successfully.
+[2026-03-16 03:11:43] Dataset shape: 17379 rows x 17 columns
+[2026-03-16 03:11:43] Column names and data types:
+[2026-03-16 03:11:43] instant         int64
+dteday            str
+season          int64
+yr              int64
+mnth            int64
+hr              int64
+holiday         int64
+weekday         int64
+workingday      int64
+weathersit      int64
+temp          float64
+atemp         float64
+hum           float64
+windspeed     float64
+casual          int64
+registered      int64
+cnt             int64
+[2026-03-16 03:11:43] Numeric columns     (8): ['instant', 'temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt']
+[2026-03-16 03:11:43] Categorical columns (8): ['season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit']
+[2026-03-16 03:11:43] Missing values per column:
+instant       0
+dteday        0
+season        0
+yr            0
+mnth          0
+hr            0
+holiday       0
+weekday       0
+workingday    0
+weathersit    0
+temp          0
+atemp         0
+hum           0
+windspeed     0
+casual        0
+registered    0
+cnt           0
+[2026-03-16 03:11:43] Total missing values: 0
+[2026-03-16 03:11:43] Duplicate rows: 0
+[2026-03-16 03:11:43] Leakage identity check (casual + registered == cnt): True
+[2026-03-16 03:11:43] Removed leakage columns: ['casual', 'registered']
+[2026-03-16 03:11:43] Absolute correlation with cnt (top features):
+[2026-03-16 03:11:43] temp          0.404772
+atemp         0.400929
+hr            0.394071
+hum           0.322911
+instant       0.278379
+yr            0.250495
+season        0.178056
+weathersit    0.142426
+mnth          0.120638
+windspeed     0.093234
+holiday       0.030927
+workingday    0.030284
+weekday       0.026900
+[2026-03-16 03:11:43] No features exceed the |corr| > 0.95 threshold (max=0.4048).
+[2026-03-16 03:11:43] cnt >= 0 for all rows: True (negative count: 0)
+[2026-03-16 03:11:43] No impossible (negative) values found in count-like fields.
+[2026-03-16 03:11:43] Column 'temp': all values within [0,1].
+[2026-03-16 03:11:43] Column 'atemp': all values within [0,1].
+[2026-03-16 03:11:43] Column 'hum': all values within [0,1].
+[2026-03-16 03:11:43] Column 'windspeed': all values within [0,1].
+[2026-03-16 03:11:43] Cleaned dataset saved to: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\Sonnet 4.6\project\outputs\cleaned_data.csv  (shape: (17379, 15))
+[2026-03-16 03:11:43] Validation report saved to: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\Sonnet 4.6\project\outputs\benchmark\data_validation_report.csv
+[2026-03-16 03:11:43]   Original shape            : (17379, 17)
+[2026-03-16 03:11:43]   Final shape               : (17379, 15)
+[2026-03-16 03:11:43]   Total missing values      : 0
+[2026-03-16 03:11:43]   Duplicate rows dropped    : 0
+[2026-03-16 03:11:43]   Leakage detected          : True
+[2026-03-16 03:11:43]   Leakage columns removed   : ['casual', 'registered']
+[2026-03-16 03:11:43]   Max |corr| with cnt       : 0.4048
+[2026-03-16 03:11:43]   High-corr features (>0.95): []
+[2026-03-16 03:11:43]   cnt >= 0 check            : PASSED
+[2026-03-16 03:11:43]   Impossible value issues   : None
+[2026-03-16 03:11:43] Task 1 completed successfully.
+[2026-03-16 03:11:43] ======================================================================
+[2026-03-16 03:11:44] ======================================================================
+[2026-03-16 03:11:44] TASK 2 — Exploratory Data Analysis
+[2026-03-16 03:11:44] ======================================================================
+[2026-03-16 03:11:44] Loaded cleaned data from: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\Sonnet 4.6\project\outputs\cleaned_data.csv  shape=(17379, 15)
+[2026-03-16 03:11:44] cnt  min=1  max=977  mean=189.5  median=142.0  std=181.4
+[2026-03-16 03:11:44] IQR outliers in cnt: 505 rows (2.9%)
+[2026-03-16 03:11:44] weathersit value counts:
+weathersit
+1    11413
+2     4544
+3     1419
+4        3
+[2026-03-16 03:11:44] Rare weather categories (<1%): [4]
+[2026-03-16 03:11:44] Saved figure: target_distribution.png
+[2026-03-16 03:11:44] Saved figure: demand_time_series.png
+[2026-03-16 03:11:45] Saved figure: heatmap_hour_weekday.png
+[2026-03-16 03:11:45] Saved figure: demand_vs_temp.png
+[2026-03-16 03:11:45] Saved figure: demand_vs_hum.png
+[2026-03-16 03:11:45] Saved figure: demand_vs_windspeed.png
+[2026-03-16 03:11:46] Saved figure: correlation_matrix.png
+[2026-03-16 03:11:46] EDA tables saved to: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\Sonnet 4.6\project\outputs\benchmark\eda_tables.csv
+[2026-03-16 03:11:46] Mean demand by hour (top 5 highest):
+ hour   mean_cnt
+   17 461.452055
+   18 425.510989
+    8 359.011004
+   16 311.983562
+   19 311.523352
+[2026-03-16 03:11:46] Mean demand by weekday:
+weekday_name   mean_cnt
+         Sun 177.468825
+         Mon 183.744655
+         Tue 191.238891
+         Wed 191.130505
+         Thu 196.436665
+         Fri 196.135907
+         Sat 190.209793
+[2026-03-16 03:11:46] EDA summary saved to: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\Sonnet 4.6\project\outputs\docs\eda_summary.txt
+[2026-03-16 03:11:46] Task 2 — EDA completed successfully.
+[2026-03-16 03:11:46] ======================================================================
+[2026-03-16 03:15:33] ======================================================================
+[2026-03-16 03:15:33] TASK 3 — Baseline Model & Evaluation Harness
+[2026-03-16 03:15:33] ======================================================================
+[2026-03-16 03:15:33] Loaded cleaned data: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\Sonnet 4.6\project\outputs\cleaned_data.csv  shape=(17379, 15)
+[2026-03-16 03:15:33] Date range: 2011-01-01 → 2012-12-31
+[2026-03-16 03:15:33] Split sizes — train: 12165  val: 2606  test: 2608
+[2026-03-16 03:15:33] Train dates: 2011-01-01 → 2012-05-27
+[2026-03-16 03:15:33] Val   dates: 2012-05-27   → 2012-09-12
+[2026-03-16 03:15:33] Test  dates: 2012-09-12  → 2012-12-31
+[2026-03-16 03:15:33] FATAL — Chronological violation: max(train)=2012-05-27 >= min(val)=2012-05-27
+[2026-03-16 03:16:01] ======================================================================
+[2026-03-16 03:16:01] TASK 3 — Baseline Model & Evaluation Harness
+[2026-03-16 03:16:01] ======================================================================
+[2026-03-16 03:16:01] Loaded cleaned data: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\Sonnet 4.6\project\outputs\cleaned_data.csv  shape=(17379, 15)
+[2026-03-16 03:16:01] Date range: 2011-01-01 → 2012-12-31
+[2026-03-16 03:16:40] ======================================================================
+[2026-03-16 03:16:40] TASK 3 — Baseline Model & Evaluation Harness
+[2026-03-16 03:16:40] ======================================================================
+[2026-03-16 03:16:40] Loaded cleaned data: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\Sonnet 4.6\project\outputs\cleaned_data.csv  shape=(17379, 15)
+[2026-03-16 03:16:40] Date range: 2011-01-01 → 2012-12-31
+[2026-03-16 03:16:40] Split sizes — train: 12139  val: 2616  test: 2624
+[2026-03-16 03:16:40] Train dates: 2011-01-01 → 2012-05-25
+[2026-03-16 03:16:40] Val   dates: 2012-05-26   → 2012-09-11
+[2026-03-16 03:16:40] Test  dates: 2012-09-12  → 2012-12-31
+[2026-03-16 03:16:40] Chronological split assertions PASSED.
+[2026-03-16 03:16:40] Splits saved: outputs/train.csv, val.csv, test.csv
+[2026-03-16 03:16:40] F0 features (11): ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed']
+[2026-03-16 03:16:40] F1 features (15): ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'sin_hour', 'cos_hour', 'sin_month', 'cos_month']
+[2026-03-16 03:16:40] Scaler for F0 fit on train only — mean range [0.1962, 11.5593]
+[2026-03-16 03:16:40] Scaler for F1 fit on train only — mean range [-0.0056, 11.5593]
+[2026-03-16 03:16:40] LinearRegression [F0] — train MAE=90.02 RMSE=120.17 | val MAE=155.25 RMSE=189.45 | time=0.0069s
+[2026-03-16 03:16:40] LinearRegression [F1] — train MAE=78.85 RMSE=107.37 | val MAE=137.28 RMSE=173.62 | time=0.0031s
+[2026-03-16 03:16:40] Baseline results saved to: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\Sonnet 4.6\project\outputs\metrics\baseline_model_results.csv
+[2026-03-16 03:16:40] Saved figure: actual_vs_predicted.png
+[2026-03-16 03:16:41] Saved figure: residual_distribution.png
+[2026-03-16 03:16:41] Preprocessing report saved to: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\Sonnet 4.6\project\outputs\benchmark\preprocessing_report.csv
+[2026-03-16 03:16:41] Task 3 — Baseline model completed successfully.
+[2026-03-16 03:16:41] ======================================================================
+[2026-03-16 03:20:22] ======================================================================
+[2026-03-16 03:20:22] TASK 4 — Model Comparison, Tuning & Final Evaluation
+[2026-03-16 03:20:22] ======================================================================
+[2026-03-16 03:20:22] Loaded splits — train:12139  val:2616  test:2624
+[2026-03-16 03:20:22] Scaler [F0] fit on train — 11 features
+[2026-03-16 03:20:22] Scaler [F1] fit on train — 15 features
+[2026-03-16 03:20:52] ======================================================================
+[2026-03-16 03:20:52] TASK 4 — Model Comparison, Tuning & Final Evaluation
+[2026-03-16 03:20:52] ======================================================================
+[2026-03-16 03:20:52] Loaded splits — train:12139  val:2616  test:2624
+[2026-03-16 03:20:52] Scaler [F0] fit on train — 11 features
+[2026-03-16 03:20:52] Scaler [F1] fit on train — 15 features
+[2026-03-16 03:20:52] ------------------------------------------------------------
+[2026-03-16 03:20:52] Phase 1: Model comparison (default configs)
+[2026-03-16 03:20:52] ------------------------------------------------------------
+[2026-03-16 03:20:52] Ridge [F0] — train MAE=90.02 RMSE=120.17 | val MAE=155.25 RMSE=189.45 | time=0.003s
+[2026-03-16 03:20:52] Ridge [F1] — train MAE=78.85 RMSE=107.37 | val MAE=137.28 RMSE=173.62 | time=0.001s
+[2026-03-16 03:20:56] RandomForest [F0] — train MAE=8.43 RMSE=14.05 | val MAE=50.81 RMSE=78.05 | time=2.914s
+[2026-03-16 03:20:59] RandomForest [F1] — train MAE=8.38 RMSE=13.94 | val MAE=51.02 RMSE=77.74 | time=3.694s
+[2026-03-16 03:21:00] GradientBoosting [F0] — train MAE=30.21 RMSE=44.90 | val MAE=57.29 RMSE=78.76 | time=1.016s
+[2026-03-16 03:21:02] GradientBoosting [F1] — train MAE=28.78 RMSE=43.00 | val MAE=55.17 RMSE=77.90 | time=1.370s
+[2026-03-16 03:21:16] MLP [F0] — train MAE=24.71 RMSE=36.21 | val MAE=64.88 RMSE=92.24 | time=13.967s
+[2026-03-16 03:21:30] MLP [F1] — train MAE=20.95 RMSE=31.64 | val MAE=51.55 RMSE=70.48 | time=13.878s
+[2026-03-16 03:21:30] Appended baseline LinearRegression results from Task 3.
+[2026-03-16 03:21:30] All results saved: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\Sonnet 4.6\project\outputs\metrics\all_results.csv
+[2026-03-16 03:21:30] ------------------------------------------------------------
+[2026-03-16 03:21:30] Phase 2: Hyperparameter tuning
+[2026-03-16 03:21:30] ------------------------------------------------------------
+[2026-03-16 03:21:30] Ridge tuning complete — best alpha: 1000.0
+[2026-03-16 03:21:32]   RF n_est=50 depth=None val MAE=51.28 RMSE=78.04
+[2026-03-16 03:21:35]   RF n_est=100 depth=None val MAE=51.02 RMSE=77.74
+[2026-03-16 03:21:43]   RF n_est=200 depth=None val MAE=50.70 RMSE=77.55
+[2026-03-16 03:21:45]   RF n_est=100 depth=10 val MAE=52.23 RMSE=76.79
+[2026-03-16 03:21:48]   RF n_est=100 depth=20 val MAE=51.16 RMSE=77.93
+[2026-03-16 03:21:55]   RF n_est=200 depth=20 val MAE=50.92 RMSE=77.91
+[2026-03-16 03:21:55]   GB n_est=  25  val MAE=78.03 RMSE=111.87
+[2026-03-16 03:21:56]   GB n_est=  50  val MAE=63.81 RMSE=90.06
+[2026-03-16 03:21:57]   GB n_est=  75  val MAE=57.31 RMSE=81.19
+[2026-03-16 03:21:58]   GB n_est= 100  val MAE=55.17 RMSE=77.90
+[2026-03-16 03:22:00]   GB n_est= 150  val MAE=51.75 RMSE=73.37
+[2026-03-16 03:22:02]   GB n_est= 200  val MAE=49.60 RMSE=71.05
+[2026-03-16 03:22:06]   GB n_est= 300  val MAE=47.47 RMSE=68.34
+[2026-03-16 03:22:11]   GB n_est= 400  val MAE=47.71 RMSE=68.86
+[2026-03-16 03:22:17]   GB n_est= 500  val MAE=46.95 RMSE=67.97
+[2026-03-16 03:22:17] Saved figure: validation_curve_gb.png
+[2026-03-16 03:22:17] Best GB n_estimators=500  val MAE=46.95
+[2026-03-16 03:22:22]   MLP (64,)  val MAE=63.04 RMSE=95.82
+[2026-03-16 03:22:30]   MLP (128,)  val MAE=64.59 RMSE=95.18
+[2026-03-16 03:22:49]   MLP (128,64)  val MAE=53.65 RMSE=72.38
+[2026-03-16 03:23:56]   MLP (256,128)  val MAE=52.36 RMSE=70.53
+[2026-03-16 03:24:14]   MLP (128,64,32)  val MAE=52.17 RMSE=78.95
+[2026-03-16 03:24:14] Tuning results saved: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\Sonnet 4.6\project\outputs\metrics\tuning_results.csv
+[2026-03-16 03:24:14] ------------------------------------------------------------
+[2026-03-16 03:24:14] Phase 3: Best model selection
+[2026-03-16 03:24:14] ------------------------------------------------------------
+[2026-03-16 03:24:14] Best Ridge alpha=1000.0
+[2026-03-16 03:24:14] Best RF config: {'n_estimators': 200, 'max_depth': None}
+[2026-03-16 03:24:14] Best GB n_estimators=500
+[2026-03-16 03:24:14] Best MLP architecture: (128,64,32)
+[2026-03-16 03:24:14] Tuned Ridge  val MAE=137.11  RMSE=174.97
+[2026-03-16 03:24:22] Tuned RandomForest  val MAE=50.70  RMSE=77.55
+[2026-03-16 03:24:28] Tuned GradientBoosting  val MAE=46.95  RMSE=67.97
+[2026-03-16 03:24:44] Tuned MLP  val MAE=52.17  RMSE=78.95
+[2026-03-16 03:24:44] BEST MODEL: GradientBoosting  val MAE=46.9494  RMSE=67.9745
+[2026-03-16 03:24:44] Best model saved: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\Sonnet 4.6\project\outputs\models\final_model.pkl
+[2026-03-16 03:24:44] ------------------------------------------------------------
+[2026-03-16 03:24:44] Phase 4: Final TEST set evaluation
+[2026-03-16 03:24:44] ------------------------------------------------------------
+[2026-03-16 03:24:44] GradientBoosting on TEST — MAE=50.2740  RMSE=74.6911
+[2026-03-16 03:24:44] Final test results saved: C:\Users\a2948\Desktop\25-26\T2\Predictive Analytics\Grp 20-3\claude\Sonnet 4.6\project\outputs\metrics\final_model_results.csv
+[2026-03-16 03:24:44] Updated all_results.csv with tuned and test rows.
+[2026-03-16 03:24:44] Saved figure: residual_distribution.png
+[2026-03-16 03:24:45] Saved figure: mae_by_hour.png
+[2026-03-16 03:24:45] Saved figure: mae_by_weekday.png
+[2026-03-16 03:24:45] Saved figure: residual_vs_temperature.png
+[2026-03-16 03:24:45] Saved figure: rolling_mae_over_time.png
+[2026-03-16 03:24:45] Task 4 completed successfully.
+[2026-03-16 03:24:45] ======================================================================
