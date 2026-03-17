@@ -1,0 +1,3 @@
+model,feature_set,split,MAE,RMSE,training_time_seconds
+Linear Regression,F0,validation,155.6364,190.5137,0.0025
+Linear Regression,F1,validation,137.9795,175.0887,0.003
