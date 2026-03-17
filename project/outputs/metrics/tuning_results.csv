@@ -1,0 +1,63 @@
+model,feature_set,config,MAE,RMSE,training_time_seconds
+Ridge,F0,alpha=0.01,155.2933,189.7724,0.001109
+Ridge,F1,alpha=0.01,137.55,174.1323,0.001365
+Ridge,F0,alpha=0.1,155.2933,189.7722,0.00091
+Ridge,F1,alpha=0.1,137.5499,174.1323,0.001186
+Ridge,F0,alpha=1.0,155.2935,189.7703,0.000961
+Ridge,F1,alpha=1.0,137.5493,174.1324,0.001236
+Ridge,F0,alpha=10.0,155.2932,189.7534,0.00086
+Ridge,F1,alpha=10.0,137.5435,174.1353,0.00111
+Ridge,F0,alpha=100.0,155.2059,189.701,0.000924
+Ridge,F1,alpha=100.0,137.507,174.2189,0.001108
+Ridge,F0,alpha=1000.0,153.7981,190.0831,0.00086
+Ridge,F1,alpha=1000.0,137.3365,175.4453,0.001181
+RandomForest,F0,"n_est=50,depth=8",58.3687,85.6354,0.48747
+RandomForest,F1,"n_est=50,depth=8",58.9844,84.9083,0.612993
+RandomForest,F0,"n_est=50,depth=16",48.1447,73.7102,0.9992
+RandomForest,F1,"n_est=50,depth=16",48.7947,74.5392,1.214625
+RandomForest,F0,"n_est=50,depth=None",47.9537,73.6134,1.077146
+RandomForest,F1,"n_est=50,depth=None",49.7345,75.8365,1.353534
+RandomForest,F0,"n_est=100,depth=8",58.4594,85.4712,0.932393
+RandomForest,F1,"n_est=100,depth=8",59.0714,84.6398,1.214505
+RandomForest,F0,"n_est=100,depth=16",47.9158,73.6949,2.157749
+RandomForest,F1,"n_est=100,depth=16",48.729,74.5446,2.549145
+RandomForest,F0,"n_est=100,depth=None",47.8851,73.7121,2.315779
+RandomForest,F1,"n_est=100,depth=None",48.9613,74.7355,3.033402
+RandomForest,F0,"n_est=200,depth=8",58.1975,85.304,2.273538
+RandomForest,F1,"n_est=200,depth=8",59.1379,84.9228,3.054397
+RandomForest,F0,"n_est=200,depth=16",47.9215,73.9361,5.858792
+RandomForest,F1,"n_est=200,depth=16",48.5342,74.3811,5.446761
+RandomForest,F0,"n_est=200,depth=None",47.8845,73.8724,4.68706
+RandomForest,F1,"n_est=200,depth=None",48.6868,74.5811,5.787073
+GradientBoosting,F0,"n_est=50,lr=0.1,depth=4",66.6311,91.7965,0.40047
+GradientBoosting,F1,"n_est=50,lr=0.1,depth=4",64.5197,89.9373,0.5679
+GradientBoosting,F0,"n_est=100,lr=0.1,depth=4",58.6734,80.4558,0.815588
+GradientBoosting,F1,"n_est=100,lr=0.1,depth=4",54.7797,77.2465,1.023312
+GradientBoosting,F0,"n_est=150,lr=0.1,depth=4",54.019,74.9412,1.170235
+GradientBoosting,F1,"n_est=150,lr=0.1,depth=4",50.564,71.6687,1.504047
+GradientBoosting,F0,"n_est=200,lr=0.1,depth=4",51.2932,71.5324,1.553741
+GradientBoosting,F1,"n_est=200,lr=0.1,depth=4",49.2332,70.1268,2.024757
+GradientBoosting,F0,"n_est=300,lr=0.1,depth=4",50.7488,72.0763,2.308174
+GradientBoosting,F1,"n_est=300,lr=0.1,depth=4",47.4277,67.8466,3.00766
+GradientBoosting,F0,"n_est=400,lr=0.1,depth=4",50.2859,72.2401,3.076541
+GradientBoosting,F1,"n_est=400,lr=0.1,depth=4",46.6754,67.3578,4.041389
+GradientBoosting,F0,"n_est=500,lr=0.1,depth=4",49.8332,71.9368,3.849879
+GradientBoosting,F1,"n_est=500,lr=0.1,depth=4",46.231,66.8867,5.123824
+GradientBoosting,F0,"n_est=500,lr=0.05,depth=4",50.7524,72.6886,3.845999
+GradientBoosting,F1,"n_est=500,lr=0.05,depth=4",49.4878,70.7754,4.988986
+GradientBoosting,F0,"n_est=500,lr=0.1,depth=4",49.8332,71.9368,4.160871
+GradientBoosting,F1,"n_est=500,lr=0.1,depth=4",46.231,66.8867,5.696927
+GradientBoosting,F0,"n_est=500,lr=0.2,depth=4",50.5079,73.5436,4.007697
+GradientBoosting,F1,"n_est=500,lr=0.2,depth=4",48.1435,69.187,6.378475
+MLPRegressor,F0,"arch=(128, 64),lr=0.001",52.6755,78.3598,19.57347
+MLPRegressor,F1,"arch=(128, 64),lr=0.001",59.9995,83.3936,15.151535
+MLPRegressor,F0,"arch=(128, 64),lr=0.01",56.5937,82.877,8.247992
+MLPRegressor,F1,"arch=(128, 64),lr=0.01",46.5626,68.2019,3.225414
+MLPRegressor,F0,"arch=(256, 128, 64),lr=0.001",71.1766,112.7017,16.15487
+MLPRegressor,F1,"arch=(256, 128, 64),lr=0.001",70.5115,100.8852,14.718096
+MLPRegressor,F0,"arch=(256, 128, 64),lr=0.01",57.2004,85.6857,12.952079
+MLPRegressor,F1,"arch=(256, 128, 64),lr=0.01",50.2163,76.2221,12.406138
+MLPRegressor,F0,"arch=(64, 32),lr=0.001",67.5909,95.7587,6.62321
+MLPRegressor,F1,"arch=(64, 32),lr=0.001",66.5111,91.7284,6.204201
+MLPRegressor,F0,"arch=(64, 32),lr=0.01",55.7992,79.2982,2.047521
+MLPRegressor,F1,"arch=(64, 32),lr=0.01",54.8746,77.6667,1.793852
