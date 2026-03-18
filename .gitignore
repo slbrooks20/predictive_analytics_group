@@ -2,3 +2,4 @@ Project/outputs/models/*.pkl
 Project/outputs/models/*.joblib
 **/__pycache__/
 *.pyc
+*.pkl
