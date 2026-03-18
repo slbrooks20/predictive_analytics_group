@@ -1,8 +1,0 @@
-Baseline Model Summary
-Model: LinearRegression
-Evaluation split: validation
-Feature sets evaluated: F0, F1
-Best feature set by RMSE: F1
-Best MAE: 137.5500
-Best RMSE: 174.1323
-Test set was not used for model selection or evaluation.

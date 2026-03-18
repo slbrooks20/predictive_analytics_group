@@ -1,7 +1,0 @@
-Task 4 Model Improvement Summary
-Best validation model: RandomForestRegressor (F0)
-Best validation MAE: 45.3011
-Best validation RMSE: 68.5516
-Test MAE: 47.4642
-Test RMSE: 73.0802
-Model selection used validation only; test was used only for final evaluation.
