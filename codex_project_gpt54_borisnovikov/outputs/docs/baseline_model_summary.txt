@@ -1,6 +1,0 @@
-Chronological split rows: train=12165, val=2607, test=2607.
-Baseline validation results:
-F0: MAE=155.2933, RMSE=189.7725, training_time_seconds=0.003494
-F1: MAE=137.5500, RMSE=174.1323, training_time_seconds=0.003652
-Best validation feature set by RMSE: F1 (MAE=137.5500, RMSE=174.1323).
-Test set was held out and not used for model selection or evaluation.
