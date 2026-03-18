@@ -1,0 +1,165 @@
+Random seed set to 42.
+Loading dataset from /Users/borisnovikov/Desktop/codex_project_gpt54_v2/dataset/hour.csv.
+Dataset shape: (17379, 17)
+Column names: instant, dteday, season, yr, mnth, hr, holiday, weekday, workingday, weathersit, temp, atemp, hum, windspeed, casual, registered, cnt
+Data types:
+instant         int64
+dteday         object
+season          int64
+yr              int64
+mnth            int64
+hr              int64
+holiday         int64
+weekday         int64
+workingday      int64
+weathersit      int64
+temp          float64
+atemp         float64
+hum           float64
+windspeed     float64
+casual          int64
+registered      int64
+cnt             int64
+Numeric variables: instant, season, yr, mnth, hr, holiday, weekday, workingday, weathersit, temp, atemp, hum, windspeed, casual, registered, cnt
+Categorical variables: dteday, season, yr, mnth, hr, holiday, weekday, workingday, weathersit
+Missing values per column:
+atemp         0
+casual        0
+cnt           0
+dteday        0
+holiday       0
+hr            0
+hum           0
+instant       0
+mnth          0
+registered    0
+season        0
+temp          0
+weathersit    0
+weekday       0
+windspeed     0
+workingday    0
+yr            0
+Duplicate rows: 0
+Leakage identity casual + registered = cnt: True
+Removed leakage columns: casual, registered
+Target non-negative check: True
+Count-like field check for casual: ok
+Count-like field check for registered: ok
+Count-like field check for cnt: ok
+Feature correlations with cnt:
+temp          0.404772
+atemp         0.400929
+hr            0.394071
+instant       0.278379
+yr            0.250495
+season        0.178056
+mnth          0.120638
+windspeed     0.093234
+workingday    0.030284
+weekday       0.026900
+holiday      -0.030927
+weathersit   -0.142426
+hum          -0.322911
+Features with absolute correlation > 0.95: None
+No missing values detected. No imputation required.
+Saved cleaned dataset to /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/cleaned_data.csv.
+Saved correlation report to /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/metrics/feature_target_correlations.csv.
+Saved figures to /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/figures.
+Saved validation report to /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/benchmark/data_validation_report.csv.
+Removed unrequested plot file: actual_vs_predicted.png
+Removed unrequested plot file: feature_target_correlations.png
+Removed unrequested plot file: missing_values_per_column.png
+Removed unrequested plot file: residual_distribution.png
+Task 2 EDA started with random seed 42.
+Loaded EDA dataset from /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/cleaned_data.csv with shape (17379, 15).
+Target variable identified: cnt
+Total missing values in EDA dataset: 0
+Duplicate rows in EDA dataset: 0
+Target distribution stats:
+count    17379.000000
+mean       189.463088
+std        181.387599
+min          1.000000
+25%         40.000000
+50%        142.000000
+75%        281.000000
+max        977.000000
+Target outlier check using IQR bounds [-321.50, 642.50] found 505 rows (2.91%).
+Top absolute numeric feature correlations with cnt:
+temp       0.404772
+atemp      0.400929
+hr         0.394071
+hum        0.322911
+instant    0.278379
+Saved EDA tables to /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/benchmark/eda_tables.csv.
+Saved requested EDA figures to outputs/figures.
+Saved EDA summary to /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/docs/eda_summary.txt.
+Task 3 baseline modelling started with random seed 42.
+Loaded modelling dataset from /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/cleaned_data.csv with shape (17379, 15).
+Chronological split verified: max(train_time)=2012-05-27 01:00:00, min(val_time)=2012-05-27 02:00:00, max(val_time)=2012-09-12 16:00:00, min(test_time)=2012-09-12 17:00:00
+Saved splits to /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/train.csv, /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/val.csv, and /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/test.csv.
+Saved preprocessing report to /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/benchmark/preprocessing_report.csv.
+Saved model artifact to /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/models/linear_regression_F0.pkl.
+Validation results for F0: MAE=155.2933, RMSE=189.7725, training_time_seconds=0.003494
+Saved model artifact to /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/models/linear_regression_F1.pkl.
+Validation results for F1: MAE=137.5500, RMSE=174.1323, training_time_seconds=0.003652
+Saved baseline results to /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/metrics/baseline_model_results.csv.
+Saved diagnostic plots to /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/figures/actual_vs_predicted.png and /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/figures/residual_distribution.png.
+Saved baseline summary to /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/docs/baseline_model_summary.txt.
+Task 4 model improvement started with random seed 42.
+Loaded train/val/test shapes: (12165, 20), (2607, 20), (2607, 20).
+Evaluating model family: Ridge
+Ridge on F0 with {'alpha': 0.1}: MAE=155.2933, RMSE=189.7722, training_time_seconds=0.003447
+Ridge on F0 with {'alpha': 1.0}: MAE=155.2935, RMSE=189.7703, training_time_seconds=0.002422
+Ridge on F0 with {'alpha': 10.0}: MAE=155.2932, RMSE=189.7534, training_time_seconds=0.001867
+Ridge on F0 with {'alpha': 100.0}: MAE=155.2059, RMSE=189.7010, training_time_seconds=0.002135
+Ridge on F1 with {'alpha': 0.1}: MAE=137.5499, RMSE=174.1323, training_time_seconds=0.002687
+Ridge on F1 with {'alpha': 1.0}: MAE=137.5493, RMSE=174.1324, training_time_seconds=0.002526
+Ridge on F1 with {'alpha': 10.0}: MAE=137.5435, RMSE=174.1353, training_time_seconds=0.002342
+Ridge on F1 with {'alpha': 100.0}: MAE=137.5063, RMSE=174.2191, training_time_seconds=0.002234
+Evaluating model family: RandomForestRegressor
+RandomForestRegressor on F0 with {'n_estimators': 200, 'max_depth': 10, 'min_samples_leaf': 1}: MAE=49.4701, RMSE=73.1753, training_time_seconds=3.084371
+RandomForestRegressor on F0 with {'n_estimators': 200, 'max_depth': 10, 'min_samples_leaf': 4}: MAE=48.7339, RMSE=71.5623, training_time_seconds=2.978245
+RandomForestRegressor on F0 with {'n_estimators': 400, 'max_depth': 10, 'min_samples_leaf': 1}: MAE=49.1383, RMSE=72.8720, training_time_seconds=6.178345
+RandomForestRegressor on F0 with {'n_estimators': 400, 'max_depth': None, 'min_samples_leaf': 1}: MAE=47.5330, RMSE=73.5662, training_time_seconds=10.804013
+RandomForestRegressor on F0 with {'n_estimators': 400, 'max_depth': None, 'min_samples_leaf': 4}: MAE=45.3011, RMSE=68.5516, training_time_seconds=7.867082
+RandomForestRegressor on F1 with {'n_estimators': 200, 'max_depth': 10, 'min_samples_leaf': 1}: MAE=54.0669, RMSE=79.1473, training_time_seconds=3.896213
+RandomForestRegressor on F1 with {'n_estimators': 200, 'max_depth': 10, 'min_samples_leaf': 4}: MAE=51.0836, RMSE=73.8079, training_time_seconds=3.782092
+RandomForestRegressor on F1 with {'n_estimators': 400, 'max_depth': 10, 'min_samples_leaf': 1}: MAE=53.6645, RMSE=78.7130, training_time_seconds=7.789970
+RandomForestRegressor on F1 with {'n_estimators': 400, 'max_depth': None, 'min_samples_leaf': 1}: MAE=49.7473, RMSE=75.4697, training_time_seconds=13.416057
+RandomForestRegressor on F1 with {'n_estimators': 400, 'max_depth': None, 'min_samples_leaf': 4}: MAE=47.6594, RMSE=70.5488, training_time_seconds=9.914099
+Evaluating model family: GradientBoostingRegressor
+GradientBoostingRegressor on F0 with {'n_estimators': 100, 'learning_rate': 0.05, 'max_depth': 2}: MAE=107.9176, RMSE=146.9118, training_time_seconds=0.522928
+GradientBoostingRegressor on F0 with {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 2}: MAE=102.2519, RMSE=133.0822, training_time_seconds=1.022609
+GradientBoostingRegressor on F0 with {'n_estimators': 300, 'learning_rate': 0.05, 'max_depth': 2}: MAE=99.9185, RMSE=128.3933, training_time_seconds=1.552791
+GradientBoostingRegressor on F0 with {'n_estimators': 400, 'learning_rate': 0.05, 'max_depth': 2}: MAE=97.3875, RMSE=125.0100, training_time_seconds=2.069064
+GradientBoostingRegressor on F0 with {'n_estimators': 200, 'learning_rate': 0.1, 'max_depth': 2}: MAE=95.7656, RMSE=122.4085, training_time_seconds=1.075111
+GradientBoostingRegressor on F0 with {'n_estimators': 300, 'learning_rate': 0.1, 'max_depth': 3}: MAE=58.3091, RMSE=80.9204, training_time_seconds=2.273499
+GradientBoostingRegressor on F0 with {'n_estimators': 400, 'learning_rate': 0.1, 'max_depth': 3}: MAE=58.3712, RMSE=80.7330, training_time_seconds=2.927436
+GradientBoostingRegressor on F1 with {'n_estimators': 100, 'learning_rate': 0.05, 'max_depth': 2}: MAE=101.6301, RMSE=135.6048, training_time_seconds=0.688479
+GradientBoostingRegressor on F1 with {'n_estimators': 200, 'learning_rate': 0.05, 'max_depth': 2}: MAE=89.9233, RMSE=117.6780, training_time_seconds=1.364165
+GradientBoostingRegressor on F1 with {'n_estimators': 300, 'learning_rate': 0.05, 'max_depth': 2}: MAE=86.2084, RMSE=112.5410, training_time_seconds=2.037434
+GradientBoostingRegressor on F1 with {'n_estimators': 400, 'learning_rate': 0.05, 'max_depth': 2}: MAE=82.5033, RMSE=108.3821, training_time_seconds=2.635491
+GradientBoostingRegressor on F1 with {'n_estimators': 200, 'learning_rate': 0.1, 'max_depth': 2}: MAE=81.7405, RMSE=107.9523, training_time_seconds=1.312486
+GradientBoostingRegressor on F1 with {'n_estimators': 300, 'learning_rate': 0.1, 'max_depth': 3}: MAE=54.8215, RMSE=75.8705, training_time_seconds=2.896989
+GradientBoostingRegressor on F1 with {'n_estimators': 400, 'learning_rate': 0.1, 'max_depth': 3}: MAE=53.0490, RMSE=74.1877, training_time_seconds=3.855969
+Evaluating model family: MLPRegressor
+MLPRegressor on F0 with {'hidden_layer_sizes': (64,), 'alpha': 0.0001, 'learning_rate_init': 0.001}: MAE=111.1951, RMSE=146.9304, training_time_seconds=3.820191
+MLPRegressor on F0 with {'hidden_layer_sizes': (128,), 'alpha': 0.0001, 'learning_rate_init': 0.001}: MAE=105.4422, RMSE=142.4194, training_time_seconds=6.006208
+MLPRegressor on F0 with {'hidden_layer_sizes': (64, 32), 'alpha': 0.0001, 'learning_rate_init': 0.001}: MAE=68.2193, RMSE=95.9207, training_time_seconds=6.478369
+MLPRegressor on F0 with {'hidden_layer_sizes': (128,), 'alpha': 0.001, 'learning_rate_init': 0.001}: MAE=105.4984, RMSE=142.4426, training_time_seconds=6.129491
+MLPRegressor on F0 with {'hidden_layer_sizes': (64,), 'alpha': 0.001, 'learning_rate_init': 0.01}: MAE=67.3482, RMSE=94.9281, training_time_seconds=4.025976
+MLPRegressor on F1 with {'hidden_layer_sizes': (64,), 'alpha': 0.0001, 'learning_rate_init': 0.001}: MAE=64.0131, RMSE=95.0988, training_time_seconds=4.051854
+MLPRegressor on F1 with {'hidden_layer_sizes': (128,), 'alpha': 0.0001, 'learning_rate_init': 0.001}: MAE=64.1122, RMSE=96.9698, training_time_seconds=6.354747
+MLPRegressor on F1 with {'hidden_layer_sizes': (64, 32), 'alpha': 0.0001, 'learning_rate_init': 0.001}: MAE=57.0010, RMSE=81.2477, training_time_seconds=6.476930
+MLPRegressor on F1 with {'hidden_layer_sizes': (128,), 'alpha': 0.001, 'learning_rate_init': 0.001}: MAE=64.1261, RMSE=97.0505, training_time_seconds=6.283255
+MLPRegressor on F1 with {'hidden_layer_sizes': (64,), 'alpha': 0.001, 'learning_rate_init': 0.01}: MAE=56.5976, RMSE=83.1837, training_time_seconds=1.971200
+Saved tuning results to /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/metrics/tuning_results.csv.
+Saved best validation results per model/feature set to /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/metrics/all_results.csv.
+Saved Gradient Boosting validation curve to /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/figures/validation_curve_gb.png.
+Best validation model: RandomForestRegressor with F0 and params {'n_estimators': 400, 'max_depth': None, 'min_samples_leaf': 4} (MAE=45.3011, RMSE=68.5516).
+Saved final model to /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/models/final_model.pkl.
+Saved final test results to /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/metrics/final_model_results.csv.
+Saved final evaluation plots to outputs/figures.
+Saved model improvement summary to /Users/borisnovikov/Desktop/codex_project_gpt54_v2/outputs/docs/model_improvement_summary.txt.
