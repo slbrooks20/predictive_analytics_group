@@ -1,0 +1,5 @@
+EDA Summary
+Demand pattern over time: Hourly demand is structured, with highest average demand around hour 17 and lowest around hour 4.
+Rare regimes: Rare weather categories (<5%): weathersit=4: 0.02%
+Likely modelling risks: Target outliers by IQR are 505 rows (2.91%), which can skew RMSE. Missingness is 0 values across the dataset. Strong daily/weekly seasonality suggests models need temporal signal handling without overfitting.
+Remaining leakage or data quality concerns: No obvious leakage columns (casual/registered) present in working dataset.

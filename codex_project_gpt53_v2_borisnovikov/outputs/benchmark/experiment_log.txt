@@ -1,0 +1,65 @@
+[2026-03-17T16:51:54] Started ingestion and validation pipeline.
+[2026-03-17T16:51:54] Random seed set to 42.
+[2026-03-17T16:51:54] Loaded dataset from /Users/borisnovikov/Desktop/codex_project_v2/dataset/hour.csv.
+[2026-03-17T16:51:54] Dataset shape: (17379, 17).
+[2026-03-17T16:51:54] Printed schema (column names and dtypes).
+[2026-03-17T16:51:54] Identified numeric variables: ['instant', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt']
+[2026-03-17T16:51:54] Identified categorical variables: ['dteday']
+[2026-03-17T16:51:54] Computed missing values per column. Total missing: 0
+[2026-03-17T16:51:54] Duplicate rows detected: 0
+[2026-03-17T16:51:54] Leakage identity check (casual + registered == cnt): True
+[2026-03-17T16:51:54] Removed leakage columns: casual, registered.
+[2026-03-17T16:51:54] Saved feature-target correlations to /Users/borisnovikov/Desktop/codex_project_v2/outputs/metrics/feature_target_correlations.csv.
+[2026-03-17T16:51:54] Features with |corr| > 0.95: []
+[2026-03-17T16:51:54] Target non-negative check (cnt >= 0): True
+[2026-03-17T16:51:54] Count-like fields checked: ['instant', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'cnt']
+[2026-03-17T16:51:54] Impossible values in count-like fields (negative counts): {}
+[2026-03-17T16:51:55] Saved cleaned dataset to /Users/borisnovikov/Desktop/codex_project_v2/outputs/cleaned_data.csv.
+[2026-03-17T16:51:55] Saved validation report to /Users/borisnovikov/Desktop/codex_project_v2/outputs/benchmark/data_validation_report.csv.
+[2026-03-17T16:51:55] Saved summary documentation to /Users/borisnovikov/Desktop/codex_project_v2/outputs/docs/data_ingestion_summary.md.
+[2026-03-17T16:51:55] Pipeline completed successfully.
+[2026-03-17T16:51:55] Started EDA pipeline.
+[2026-03-17T16:51:55] Random seed set to 42.
+[2026-03-17T16:51:55] Loaded EDA dataset from /Users/borisnovikov/Desktop/codex_project_v2/outputs/cleaned_data.csv with shape (17379, 15).
+[2026-03-17T16:51:55] Missing values total: 0
+[2026-03-17T16:51:55] Target outliers by IQR rule: 505 rows (2.91%).
+[2026-03-17T16:51:56] Saved all required EDA plots.
+[2026-03-17T16:51:56] Saved EDA aggregate tables to /Users/borisnovikov/Desktop/codex_project_v2/outputs/benchmark/eda_tables.csv.
+[2026-03-17T16:51:56] Saved EDA summary to /Users/borisnovikov/Desktop/codex_project_v2/outputs/docs/eda_summary.txt.
+[2026-03-17T16:51:56] EDA pipeline completed successfully.
+[2026-03-17T16:51:56] Started Task 3 baseline modeling pipeline.
+[2026-03-17T16:51:56] Random seed set to 42; stochastic n_jobs fixed to 1.
+[2026-03-17T16:51:56] Loaded modeling dataset from /Users/borisnovikov/Desktop/codex_project_v2/outputs/cleaned_data.csv with shape (17379, 15).
+[2026-03-17T16:51:56] Sorted rows chronologically by datetime.
+[2026-03-17T16:51:56] Chronological assertions passed: max(train)=2012-05-27 01:00:00, min(val)=2012-05-27 02:00:00, max(val)=2012-09-12 16:00:00, min(test)=2012-09-12 17:00:00.
+[2026-03-17T16:51:56] Saved chronological splits to outputs/train.csv, outputs/val.csv, outputs/test.csv.
+[2026-03-17T16:51:56] Saved preprocessing report to /Users/borisnovikov/Desktop/codex_project_v2/outputs/benchmark/preprocessing_report.csv.
+[2026-03-17T16:51:56] Trained LinearRegression on F0: MAE=155.2933, RMSE=189.7725, training_time_seconds=0.002961.
+[2026-03-17T16:51:56] Saved model artifact to /Users/borisnovikov/Desktop/codex_project_v2/outputs/models/linear_regression_F0.pkl.
+[2026-03-17T16:51:56] Trained LinearRegression on F1: MAE=137.5500, RMSE=174.1323, training_time_seconds=0.002561.
+[2026-03-17T16:51:56] Saved model artifact to /Users/borisnovikov/Desktop/codex_project_v2/outputs/models/linear_regression_F1.pkl.
+[2026-03-17T16:51:56] Saved baseline metrics to /Users/borisnovikov/Desktop/codex_project_v2/outputs/metrics/baseline_model_results.csv.
+[2026-03-17T16:51:56] Diagnostic plots generated from best validation feature set: F1.
+[2026-03-17T16:51:56] Saved diagnostics to /Users/borisnovikov/Desktop/codex_project_v2/outputs/figures/actual_vs_predicted.png and /Users/borisnovikov/Desktop/codex_project_v2/outputs/figures/residual_distribution.png.
+[2026-03-17T16:51:56] Saved baseline summary to /Users/borisnovikov/Desktop/codex_project_v2/outputs/docs/baseline_summary.txt.
+[2026-03-17T16:51:56] Task 3 baseline modeling pipeline completed successfully.
+[2026-03-17T16:51:56] Started Task 4 model improvement pipeline.
+[2026-03-17T16:51:56] Random seed fixed at 42; n_jobs fixed at 1.
+[2026-03-17T16:51:56] Loaded splits: train=(12165, 20), val=(2607, 20), test=(2607, 20).
+[2026-03-17T16:51:56] Comparison Ridge on F0: MAE=155.3298, RMSE=189.7169.
+[2026-03-17T16:51:56] Comparison Ridge on F1: MAE=137.5387, RMSE=174.0995.
+[2026-03-17T16:52:05] Comparison RandomForestRegressor on F0: MAE=47.5778, RMSE=73.5208.
+[2026-03-17T16:52:15] Comparison RandomForestRegressor on F1: MAE=47.9564, RMSE=73.7329.
+[2026-03-17T16:52:17] Comparison GradientBoostingRegressor on F0: MAE=77.1668, RMSE=103.8596.
+[2026-03-17T16:52:19] Comparison GradientBoostingRegressor on F1: MAE=74.8904, RMSE=98.3330.
+[2026-03-17T16:52:27] Comparison MLPRegressor on F0: MAE=94.4643, RMSE=136.6304.
+[2026-03-17T16:52:33] Comparison MLPRegressor on F1: MAE=52.2478, RMSE=76.5747.
+[2026-03-17T16:52:33] Saved comparison results to /Users/borisnovikov/Desktop/codex_project_v2/outputs/metrics/all_results.csv.
+[2026-03-17T16:59:34] Saved tuning results to /Users/borisnovikov/Desktop/codex_project_v2/outputs/metrics/tuning_results.csv.
+[2026-03-17T16:59:34] Saved GB validation curve to /Users/borisnovikov/Desktop/codex_project_v2/outputs/figures/validation_curve_gb.png.
+[2026-03-17T16:59:34] Best model by validation MAE: RandomForestRegressor on F0 with params={'n_estimators': 400, 'max_depth': None, 'min_samples_leaf': 4, 'random_state': 42, 'n_jobs': 1}.
+[2026-03-17T16:59:44] Saved final model bundle to /Users/borisnovikov/Desktop/codex_project_v2/outputs/models/final_model.pkl.
+[2026-03-17T16:59:44] Saved final test metrics to /Users/borisnovikov/Desktop/codex_project_v2/outputs/metrics/final_model_results.csv.
+[2026-03-17T16:59:44] Saved final evaluation figures for residuals and MAE diagnostics.
+[2026-03-17T16:59:44] Saved Task 4 summary to /Users/borisnovikov/Desktop/codex_project_v2/outputs/docs/model_improvement_summary.txt.
+[2026-03-17T16:59:44] Task 4 model improvement pipeline completed successfully.
