@@ -1,0 +1,9 @@
+check,result
+missing_values_total,0
+duplicate_rows,0
+leakage_identity_detected,True
+target_nonnegative_check,True
+flagged_high_corr_features,none
+impossible_count_values,False
+rows_after_cleaning,17379
+columns_after_cleaning,15
