@@ -1,0 +1,5 @@
+Validation winner: RandomForestRegressor on F0 with params {'n_estimators': 400, 'max_depth': None, 'min_samples_leaf': 4}.
+Validation metrics: MAE=45.3011, RMSE=68.5516.
+Final test metrics: MAE=47.4642, RMSE=73.0802.
+Best baseline validation result was LinearRegression F1 with MAE=137.5500 and RMSE=174.1323. Selected model changed validation MAE by 92.2489 and RMSE by 105.5807.
+Model selection used validation data only. Test data was used once for final evaluation after selection.

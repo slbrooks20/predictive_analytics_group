@@ -1,0 +1,7 @@
+metric,value
+missing_values_total,0
+duplicate_rows,0
+leakage_identity_detected,True
+leakage_columns_removed,2
+max_feature_target_corr,0.404772
+target_nonnegative_check,True

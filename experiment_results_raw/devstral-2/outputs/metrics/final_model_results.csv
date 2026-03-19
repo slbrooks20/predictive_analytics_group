@@ -1,0 +1,2 @@
+model,feature_set,split,MAE,RMSE
+RandomForest,F0,test,50.51650368652774,75.77134537992586

@@ -1,0 +1,89 @@
+=== DATA VALIDATION EXPERIMENT LOG ===
+[2026-03-18 01:06:19] Starting data validation pipeline
+[2026-03-18 01:06:19] Loading dataset from dataset/hour.csv
+[2026-03-18 01:06:19] Dataset shape: (17379, 17)
+[2026-03-18 01:06:19] Column names and data types:
+[2026-03-18 01:06:19] Numeric columns: ['instant', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt']
+[2026-03-18 01:06:19] Categorical columns: ['dteday']
+[2026-03-18 01:06:19] Missing values per column:
+Series([], dtype: int64)
+[2026-03-18 01:06:19] Total missing values: 0
+[2026-03-18 01:06:19] Duplicate rows: 0
+[2026-03-18 01:06:19] Leakage detected: casual + registered = cnt
+[2026-03-18 01:06:19] Removed columns due to leakage: ['casual', 'registered']
+[2026-03-18 01:06:19] Max correlation with target: 1.0
+[2026-03-18 01:06:19] All cnt values are non-negative
+[2026-03-18 01:06:19] Saving cleaned dataset to outputs/cleaned_data.csv
+[2026-03-18 01:06:19] Validation report saved to outputs/benchmark/data_validation_report.csv
+[2026-03-18 01:06:19] 
+=== SUMMARY OF FINDINGS AND CHANGES ===
+[2026-03-18 01:06:19] Initial dataset shape: (17379, 15)
+[2026-03-18 01:06:19] Missing values: 0
+[2026-03-18 01:06:19] Duplicate rows: 0
+[2026-03-18 01:06:19] Leakage detected and removed: ['casual', 'registered']
+[2026-03-18 01:06:19] Max feature-target correlation: 1.0000
+[2026-03-18 01:06:19] Target non-negative check: PASSED
+[2026-03-18 01:06:19] Data validation pipeline completed successfully
+[2026-03-18 01:06:20] Starting EDA analysis pipeline
+[2026-03-18 01:06:20] Loading cleaned data from outputs/cleaned_data.csv
+[2026-03-18 01:06:20] Data loaded: (17379, 15)
+[2026-03-18 01:06:20] Target variable: cnt
+[2026-03-18 01:06:20] Analyzing target distribution
+[2026-03-18 01:06:20] Creating target distribution plot
+[2026-03-18 01:06:20] Creating demand time series plot
+[2026-03-18 01:06:20] Creating hour × weekday heatmap
+[2026-03-18 01:06:20] Creating demand vs temperature plot
+[2026-03-18 01:06:21] Creating demand vs humidity plot
+[2026-03-18 01:06:21] Creating demand vs windspeed plot
+[2026-03-18 01:06:21] Creating correlation matrix plot
+[2026-03-18 01:06:21] Computing EDA tables
+[2026-03-18 01:06:21] Saved: outputs/benchmark/eda_tables.csv
+[2026-03-18 01:06:21] Writing EDA insight summary
+[2026-03-18 01:06:21] Saved: outputs/docs/eda_summary.txt
+[2026-03-18 01:06:21] EDA analysis pipeline completed successfully
+[2026-03-18 01:06:21] Starting baseline modeling pipeline
+[2026-03-18 01:06:21] Loading data for chronological splitting
+[2026-03-18 01:06:21] Train: 12139 rows, Val: 2640 rows, Test: 2600 rows
+[2026-03-18 01:06:21] Saved data splits to outputs/
+[2026-03-18 01:06:21] Saved preprocessing report to outputs/benchmark/preprocessing_report.csv
+[2026-03-18 01:06:21] Training baseline models
+[2026-03-18 01:06:21] Training with F0 feature set
+[2026-03-18 01:06:21] F0 - MAE: 155.44, RMSE: 190.00, Time: 0.01s
+[2026-03-18 01:06:21] Training with F1 feature set
+[2026-03-18 01:06:21] F1 - MAE: 138.19, RMSE: 175.14, Time: 0.00s
+[2026-03-18 01:06:21] Saved baseline results to outputs/metrics/baseline_model_results.csv
+[2026-03-18 01:06:21] Saved models to outputs/models/
+[2026-03-18 01:06:21] Generating diagnostic plots
+[2026-03-18 01:06:22] Saved actual_vs_predicted.png
+[2026-03-18 01:06:22] Saved residual_distribution.png
+[2026-03-18 01:06:22] Baseline modeling pipeline completed successfully
+[2026-03-18 01:06:22] Starting model improvement pipeline
+[2026-03-18 01:06:22] Loading data splits
+[2026-03-18 01:06:22] F0 features: 11, F1 features: 15
+[2026-03-18 01:06:22] Running model comparison
+[2026-03-18 01:06:22] Evaluating Ridge with F0
+[2026-03-18 01:06:22] Ridge F0 - MAE: 155.44, RMSE: 190.00, Time: 0.00s
+[2026-03-18 01:06:22] Evaluating Ridge with F1
+[2026-03-18 01:06:22] Ridge F1 - MAE: 138.19, RMSE: 175.14, Time: 0.00s
+[2026-03-18 01:06:22] Evaluating RandomForest with F0
+[2026-03-18 01:06:24] RandomForest F0 - MAE: 50.83, RMSE: 78.05, Time: 2.04s
+[2026-03-18 01:06:24] Evaluating RandomForest with F1
+[2026-03-18 01:06:27] RandomForest F1 - MAE: 52.27, RMSE: 79.74, Time: 2.58s
+[2026-03-18 01:06:27] Evaluating GradientBoosting with F0
+[2026-03-18 01:06:27] GradientBoosting F0 - MAE: 78.70, RMSE: 104.82, Time: 0.60s
+[2026-03-18 01:06:27] Evaluating GradientBoosting with F1
+[2026-03-18 01:06:28] GradientBoosting F1 - MAE: 74.89, RMSE: 97.63, Time: 0.79s
+[2026-03-18 01:06:28] Evaluating MLP with F0
+[2026-03-18 01:06:46] MLP F0 - MAE: 102.14, RMSE: 140.05, Time: 18.40s
+[2026-03-18 01:06:46] Evaluating MLP with F1
+[2026-03-18 01:06:58] MLP F1 - MAE: 71.67, RMSE: 104.09, Time: 11.71s
+[2026-03-18 01:06:58] Saved all model results to outputs/metrics/all_results.csv
+[2026-03-18 01:06:58] Starting model tuning
+[2026-03-18 01:06:58] Tuning Ridge
+[2026-03-18 01:06:58] Tuning Random Forest
+[2026-03-18 01:07:11] Tuning Gradient Boosting
+[2026-03-18 01:07:16] Tuning MLP
+[2026-03-18 01:07:57] Saved tuning results to outputs/metrics/tuning_results.csv
+[2026-03-18 01:07:57] Creating validation curve for Gradient Boosting
+[2026-03-18 01:08:15] Saved validation_curve_gb.png
+[2026-03-18 01:08:15] Selecting best model

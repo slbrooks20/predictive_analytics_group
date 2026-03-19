@@ -1,0 +1,8 @@
+Dataset shape: (17379, 15)
+Total missing values: 0
+Duplicate rows: 0
+Leakage identity detected: True
+Leakage columns removed: casual, registered
+Maximum absolute feature-target correlation: 0.404772
+Target non-negative check passed: True
+High-correlation features (abs > 0.95): None

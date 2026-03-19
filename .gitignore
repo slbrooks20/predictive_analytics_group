@@ -1,5 +1,4 @@
-Project/outputs/models/*.pkl
-Project/outputs/models/*.joblib
-**/__pycache__/
+__pycache__/
 *.pyc
-*.pkl
+.DS_Store
+.ipynb_checkpoints/

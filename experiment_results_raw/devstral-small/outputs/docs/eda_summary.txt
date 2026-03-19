@@ -1,0 +1,25 @@
+=== EDA INSIGHT SUMMARY ===
+
+DEMAND PATTERN OVER TIME:
+- Clear daily and weekly seasonality observed in time series
+- Peak demand occurs during morning and evening rush hours
+- Weekday demand patterns differ from weekend patterns
+- Demand varies significantly by hour of day and day of week
+
+RARE REGIMES:
+- Extreme weather categories (weathersit > 1) are rare in dataset
+- Very high windspeed values (>0.5 normalized) are infrequent
+- Low temperature periods may have different demand patterns
+
+MODELLING RISKS:
+- Target distribution is right-skewed, may need transformation
+- High variance in demand suggests need for robust error metrics (MAE, RMSE)
+- Temporal dependencies require time-aware validation (e.g., time series split)
+- Weather variables are normalized (0-1 scale), may need rescaling
+
+DATA QUALITY CONCERNS:
+- No missing values detected
+- No duplicate rows found
+- All target values are non-negative
+- Leakage previously detected and removed (casual/registered columns)
+- No obvious outliers in target variable beyond expected range

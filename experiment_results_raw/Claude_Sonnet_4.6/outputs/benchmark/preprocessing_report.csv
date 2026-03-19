@@ -1,0 +1,7 @@
+check,value
+train_rows,12165
+val_rows,2607
+test_rows,2607
+chronological_split_pass,True
+feature_set_F0_defined,True
+feature_set_F1_defined,True

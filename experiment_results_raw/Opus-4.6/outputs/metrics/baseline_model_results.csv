@@ -1,0 +1,5 @@
+model,feature_set,split,MAE,RMSE,training_time_seconds
+LinearRegression,F0,train,90.1099,120.2411,0.0017
+LinearRegression,F0,val,155.2933,189.7725,0.0017
+LinearRegression,F1,train,78.8717,107.3663,0.002
+LinearRegression,F1,val,137.55,174.1323,0.002

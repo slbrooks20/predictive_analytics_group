@@ -1,0 +1,9 @@
+check,value,details
+missing_values_total,0,Total missing values across all columns
+duplicate_rows,0,Number of fully duplicated rows
+leakage_identity_detected,True,Whether casual + registered equals cnt for all rows
+leakage_columns_removed,"casual,registered",Columns removed due to leakage rule
+max_feature_target_corr,0.40477227577865876,Maximum absolute correlation between features and cnt
+target_nonnegative_check,True,All cnt values are non-negative
+impossible_count_like_values,0,Total negative entries across count-like fields: {}
+high_correlation_features_gt_0_95,,Features with absolute correlation greater than 0.95

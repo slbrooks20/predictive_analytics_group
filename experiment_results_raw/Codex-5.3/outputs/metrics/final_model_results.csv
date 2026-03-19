@@ -1,0 +1,2 @@
+model,feature_set,split,MAE,RMSE
+RandomForestRegressor,F0,test,47.464248990557174,73.08020093400967

@@ -1,0 +1,2 @@
+model,feature_set,split,MAE,RMSE
+GradientBoosting,F1,test,50.658,75.6854

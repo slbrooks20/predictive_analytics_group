@@ -1,0 +1,4 @@
+Demand pattern over time: daily demand varies substantially over the calendar span, with stronger average demand at hour 17 and weaker average demand at hour 4; weekday 4 has the highest mean demand in the weekly profile.
+Any rare regimes: Rare weather regimes: weathersit=4 (3 rows)
+Likely modelling risks: the target distribution is right-skewed with 505 IQR-based high-end or low-end outliers (2.91% of rows), and demand levels vary sharply by hour, which can make errors uneven across low-demand and peak-demand periods.
+Any remaining leakage or data quality concerns: No direct leakage columns remain from Task 1; casual and registered are absent. No remaining missingness or duplicate-row concerns were observed.

@@ -1,0 +1,150 @@
+Experiment started at 2026-03-17 20:48:08.748216
+2026-03-17 20:48:08.748280 - Loading dataset...
+2026-03-17 20:48:08.761911 - Dataset loaded successfully.
+2026-03-17 20:48:08.761979 - Dataset shape: (17379, 17)
+2026-03-17 20:48:08.762005 - Column names and data types:
+2026-03-17 20:48:08.762085 -   instant: int64
+2026-03-17 20:48:08.762111 -   dteday: object
+2026-03-17 20:48:08.762137 -   season: int64
+2026-03-17 20:48:08.762162 -   yr: int64
+2026-03-17 20:48:08.762186 -   mnth: int64
+2026-03-17 20:48:08.762209 -   hr: int64
+2026-03-17 20:48:08.762232 -   holiday: int64
+2026-03-17 20:48:08.762258 -   weekday: int64
+2026-03-17 20:48:08.762282 -   workingday: int64
+2026-03-17 20:48:08.762305 -   weathersit: int64
+2026-03-17 20:48:08.762327 -   temp: float64
+2026-03-17 20:48:08.762348 -   atemp: float64
+2026-03-17 20:48:08.762368 -   hum: float64
+2026-03-17 20:48:08.762390 -   windspeed: float64
+2026-03-17 20:48:08.762411 -   casual: int64
+2026-03-17 20:48:08.762432 -   registered: int64
+2026-03-17 20:48:08.762453 -   cnt: int64
+2026-03-17 20:48:08.762992 - Numeric variables: ['instant', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt']
+2026-03-17 20:48:08.763013 - Categorical variables: ['dteday']
+2026-03-17 20:48:08.763930 - Missing values per column:
+2026-03-17 20:48:08.763965 -   instant: 0
+2026-03-17 20:48:08.763989 -   dteday: 0
+2026-03-17 20:48:08.764010 -   season: 0
+2026-03-17 20:48:08.764035 -   yr: 0
+2026-03-17 20:48:08.764055 -   mnth: 0
+2026-03-17 20:48:08.764074 -   hr: 0
+2026-03-17 20:48:08.764094 -   holiday: 0
+2026-03-17 20:48:08.764113 -   weekday: 0
+2026-03-17 20:48:08.764132 -   workingday: 0
+2026-03-17 20:48:08.764152 -   weathersit: 0
+2026-03-17 20:48:08.764171 -   temp: 0
+2026-03-17 20:48:08.764190 -   atemp: 0
+2026-03-17 20:48:08.764208 -   hum: 0
+2026-03-17 20:48:08.764227 -   windspeed: 0
+2026-03-17 20:48:08.764245 -   casual: 0
+2026-03-17 20:48:08.764265 -   registered: 0
+2026-03-17 20:48:08.764285 -   cnt: 0
+2026-03-17 20:48:08.769872 - Duplicate rows: 0
+2026-03-17 20:48:08.771099 - Leakage detected: casual + registered = cnt. Removed casual and registered columns.
+2026-03-17 20:48:08.775200 - Max feature-target correlation: 0.4048
+2026-03-17 20:48:08.775377 - Target nonnegative check: True
+2026-03-17 20:48:08.775406 - Checking for impossible values in count-like fields:
+2026-03-17 20:48:08.775462 -   cnt: No invalid values
+2026-03-17 20:48:08.805742 - Cleaned dataset saved to outputs/cleaned_data.csv
+2026-03-17 20:48:08.806232 - Validation report saved to outputs/benchmark/data_validation_report.csv
+2026-03-17 20:48:08.806266 - 
+=== Summary of Findings and Changes ===
+2026-03-17 20:48:08.806293 - - Dataset shape: (17379, 15)
+2026-03-17 20:48:08.806333 - - Missing values: 0
+2026-03-17 20:48:08.806355 - - Duplicate rows: 0
+2026-03-17 20:48:08.806379 - - Leakage detected: True
+2026-03-17 20:48:08.806401 - - Columns removed due to leakage: ['casual', 'registered']
+2026-03-17 20:48:08.806426 - - Max feature-target correlation: 0.4048
+2026-03-17 20:48:08.806447 - - Target nonnegative check: True
+2026-03-17 20:48:08.806467 - Data ingestion and validation completed successfully.
+
+2026-03-17 20:48:09.857819 - EDA Analysis started
+2026-03-17 20:48:09.857882 - Loading data...
+2026-03-17 20:48:09.866307 - Loaded cleaned data from outputs/cleaned_data.csv
+2026-03-17 20:48:09.866401 - Analyzing target distribution...
+2026-03-17 20:48:09.867862 - Target statistics:
+count    17379.000000
+mean       189.463088
+std        181.387599
+min          1.000000
+25%         40.000000
+50%        142.000000
+75%        281.000000
+max        977.000000
+Name: cnt, dtype: float64
+2026-03-17 20:48:09.867937 - Missing values in target: 0
+2026-03-17 20:48:09.868563 - Outliers detected: 505
+2026-03-17 20:48:09.868590 - Generating plots...
+2026-03-17 20:48:10.045755 - Saved target_distribution.png
+2026-03-17 20:48:13.290581 - Saved demand_time_series.png
+2026-03-17 20:48:13.381896 - Saved heatmap_hour_weekday.png
+2026-03-17 20:48:13.426377 - Saved demand_vs_temp.png
+2026-03-17 20:48:13.468630 - Saved demand_vs_hum.png
+2026-03-17 20:48:13.506485 - Saved demand_vs_windspeed.png
+2026-03-17 20:48:13.592321 - Saved correlation_matrix.png
+2026-03-17 20:48:13.592365 - Computing EDA tables...
+2026-03-17 20:48:13.594130 - Saved eda_tables.csv
+2026-03-17 20:48:13.594159 - Writing EDA summary...
+2026-03-17 20:48:13.594626 - EDA summary saved to outputs/docs/eda_summary.txt
+2026-03-17 20:48:13.594652 - EDA analysis completed successfully.
+
+2026-03-17 20:48:14.762733 - Baseline Model Training started
+2026-03-17 20:48:14.762798 - Loading data...
+2026-03-17 20:48:14.777690 - Loaded cleaned data from outputs/cleaned_data.csv
+2026-03-17 20:48:14.777840 - Creating chronological split...
+2026-03-17 20:48:14.786476 - Chronological split validation passed
+2026-03-17 20:48:14.786803 - Train: 12165 rows (2011-01-01 00:00:00 00:00 to 2012-05-27 00:00:00 01:00)
+2026-03-17 20:48:14.787063 - Val: 2607 rows (2012-05-27 00:00:00 02:00 to 2012-09-12 00:00:00 16:00)
+2026-03-17 20:48:14.787414 - Test: 2607 rows (2012-09-12 00:00:00 17:00 to 2012-12-31 00:00:00 23:00)
+2026-03-17 20:48:14.787458 - Saving data splits...
+2026-03-17 20:48:14.845159 - Data splits saved to outputs/train.csv, outputs/val.csv, outputs/test.csv
+2026-03-17 20:48:14.845204 - Defining feature sets...
+2026-03-17 20:48:14.847301 - F0 features: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed']
+2026-03-17 20:48:14.847373 - F1 features: ['atemp', 'weekday', 'yr', 'hum', 'windspeed', 'season', 'mnth', 'sin_month', 'cos_hour', 'temp', 'sin_hour', 'cos_month', 'workingday', 'weathersit', 'hr']
+2026-03-17 20:48:14.847870 - Preprocessing report saved to outputs/benchmark/preprocessing_report.csv
+2026-03-17 20:48:14.847936 - Training baseline models...
+2026-03-17 20:48:14.847983 - Training Linear Regression with feature set F0
+2026-03-17 20:48:14.866109 - Feature set F0 - MAE: 155.2933, RMSE: 189.7725, Training time: 0.0025s
+2026-03-17 20:48:14.867165 - Model saved to outputs/models/linear_regression_F0.joblib
+2026-03-17 20:48:14.868015 - Generating diagnostic plots for feature set F0
+2026-03-17 20:48:15.167948 - Training Linear Regression with feature set F1
+2026-03-17 20:48:15.171779 - Feature set F1 - MAE: 137.5500, RMSE: 174.1323, Training time: 0.0020s
+2026-03-17 20:48:15.172124 - Model saved to outputs/models/linear_regression_F1.joblib
+2026-03-17 20:48:15.172160 - Generating diagnostic plots for feature set F1
+2026-03-17 20:48:15.278468 - Baseline model results saved to outputs/metrics/baseline_model_results.csv
+2026-03-17 20:48:15.278508 - Baseline model training completed successfully.
+
+2026-03-17 20:48:16.481694 - Advanced Modeling started
+2026-03-17 20:48:16.481756 - Loading data splits...
+2026-03-17 20:48:16.490037 - Loaded train: 12165, val: 2607, test: 2607 rows
+2026-03-17 20:48:16.490072 - Recreating cyclical features...
+2026-03-17 20:48:16.491893 - F0 features: ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed']
+2026-03-17 20:48:16.491928 - F1 features: ['season', 'windspeed', 'hr', 'weathersit', 'sin_month', 'weekday', 'atemp', 'mnth', 'cos_month', 'yr', 'temp', 'cos_hour', 'hum', 'workingday', 'sin_hour']
+2026-03-17 20:48:16.491954 - Starting model comparison...
+2026-03-17 20:48:16.492017 - Training Ridge with feature set F0
+2026-03-17 20:48:16.512955 - Ridge F0 - Best MAE: 153.5930, RMSE: 190.1522, Params: {'alpha': 100.0}
+2026-03-17 20:48:16.512991 - Training Ridge with feature set F1
+2026-03-17 20:48:16.525846 - Ridge F1 - Best MAE: 136.9522, RMSE: 173.9273, Params: {'alpha': 100.0}
+2026-03-17 20:48:16.525875 - Training RandomForest with feature set F0
+2026-03-17 20:48:59.749311 - RandomForest F0 - Best MAE: 47.8196, RMSE: 73.5073, Params: {'max_depth': 20, 'min_samples_split': 5, 'n_estimators': 100}
+2026-03-17 20:48:59.750057 - Training RandomForest with feature set F1
+2026-03-17 20:49:47.656604 - RandomForest F1 - Best MAE: 48.6447, RMSE: 74.1917, Params: {'max_depth': None, 'min_samples_split': 5, 'n_estimators': 200}
+2026-03-17 20:49:47.659146 - Training GradientBoosting with feature set F0
+2026-03-17 20:50:47.527916 - GradientBoosting F0 - Best MAE: 50.2382, RMSE: 74.4676, Params: {'learning_rate': 0.05, 'max_depth': 7, 'n_estimators': 100}
+2026-03-17 20:50:47.528189 - Training GradientBoosting with feature set F1
+2026-03-17 20:52:04.024858 - GradientBoosting F1 - Best MAE: 48.4693, RMSE: 71.0576, Params: {'learning_rate': 0.2, 'max_depth': 7, 'n_estimators': 50}
+2026-03-17 20:52:04.025210 - Training MLP with feature set F0
+2026-03-17 21:01:33.269587 - MLP F0 - Best MAE: 70.1988, RMSE: 93.2373, Params: {'alpha': 0.01, 'hidden_layer_sizes': (50, 50), 'max_iter': 500}
+2026-03-17 21:01:33.270156 - Training MLP with feature set F1
+2026-03-17 21:09:16.542534 - MLP F1 - Best MAE: 58.6779, RMSE: 86.8590, Params: {'alpha': 0.01, 'hidden_layer_sizes': (50, 50), 'max_iter': 200}
+2026-03-17 21:09:16.582170 - All model results saved to outputs/metrics/all_results.csv
+2026-03-17 21:09:16.583470 - Tuning results saved to outputs/metrics/tuning_results.csv
+2026-03-17 21:09:16.583523 - Generating Gradient Boosting validation curve...
+2026-03-17 21:09:16.593414 - Best model: RandomForest with F0
+2026-03-17 21:09:16.593485 - Best validation MAE: 47.8196, RMSE: 73.5073
+2026-03-17 21:09:16.735931 - Best model saved to outputs/models/final_model.pkl
+2026-03-17 21:09:16.737023 - Evaluating best model on test set...
+2026-03-17 21:09:16.806056 - Test set results - MAE: 50.5165, RMSE: 75.7713
+2026-03-17 21:09:16.806105 - Generating diagnostic plots...
+2026-03-17 21:09:17.471124 - Advanced modeling completed successfully.

@@ -1,0 +1,386 @@
+============================================================
+TASK 1: Data Ingestion, Schema Checks & Missingness Handling
+============================================================
+
+[1] Dataset loaded from /Users/mahiramalikzada/Desktop/Clean Desktop/Predictive Analytics/GW/project/dataset/hour.csv
+[2] Dataset shape: 17379 rows x 17 columns
+
+[3] Column names and data types:
+    instant              -> int64
+    dteday               -> object
+    season               -> int64
+    yr                   -> int64
+    mnth                 -> int64
+    hr                   -> int64
+    holiday              -> int64
+    weekday              -> int64
+    workingday           -> int64
+    weathersit           -> int64
+    temp                 -> float64
+    atemp                -> float64
+    hum                  -> float64
+    windspeed            -> float64
+    casual               -> int64
+    registered           -> int64
+    cnt                  -> int64
+
+[4] Numeric columns (16):     ['instant', 'season', 'yr', 'mnth', 'hr', 'holiday', 'weekday', 'workingday', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'casual', 'registered', 'cnt']
+    Categorical columns (1): ['dteday']
+
+[5] Missing values per column:
+    instant              -> 0
+    dteday               -> 0
+    season               -> 0
+    yr                   -> 0
+    mnth                 -> 0
+    hr                   -> 0
+    holiday              -> 0
+    weekday              -> 0
+    workingday           -> 0
+    weathersit           -> 0
+    temp                 -> 0
+    atemp                -> 0
+    hum                  -> 0
+    windspeed            -> 0
+    casual               -> 0
+    registered           -> 0
+    cnt                  -> 0
+    TOTAL missing values: 0
+
+[6] Duplicate rows: 0
+
+[7] Leakage check (casual + registered == cnt): True
+    -> Confirmed: casual + registered = cnt (identity leak).
+    -> Dropping 'casual' and 'registered' to prevent leakage.
+
+[8] Correlation of each feature with cnt:
+    instant              -> +0.2784
+    season               -> +0.1781
+    yr                   -> +0.2505
+    mnth                 -> +0.1206
+    hr                   -> +0.3941
+    holiday              -> -0.0309
+    weekday              -> +0.0269
+    workingday           -> +0.0303
+    weathersit           -> -0.1424
+    temp                 -> +0.4048
+    atemp                -> +0.4009
+    hum                  -> -0.3229
+    windspeed            -> +0.0932
+    No features flagged with |corr| > 0.95.
+
+[9] cnt >= 0 for all rows: True  (negative rows: 0)
+
+[10] Impossible-value check on count-like fields ['cnt']:
+     cnt: OK (no negative values)
+     No impossible values detected.
+
+[11] Cleaned dataset saved to /Users/mahiramalikzada/Desktop/Clean Desktop/Predictive Analytics/GW/project/outputs/cleaned_data.csv
+     Final shape: (17379, 15)
+
+[12] Validation report saved to /Users/mahiramalikzada/Desktop/Clean Desktop/Predictive Analytics/GW/project/outputs/benchmark/data_validation_report.csv
+
+============================================================
+SUMMARY OF FINDINGS AND CHANGES
+============================================================
+  - Original shape:          17379 rows x 17 columns
+  - Total missing values:    0
+  - Duplicate rows removed:  0
+  - Leakage columns dropped: casual, registered
+  - High-corr features:      none
+  - Negative cnt values:     0
+  - Final cleaned shape:     17379 rows x 15 columns
+  - Cleaned data saved to:   /Users/mahiramalikzada/Desktop/Clean Desktop/Predictive Analytics/GW/project/outputs/cleaned_data.csv
+============================================================
+
+============================================================
+TASK 2: Exploratory Data Analysis
+============================================================
+[1] Loaded cleaned data from /Users/mahiramalikzada/Desktop/Clean Desktop/Predictive Analytics/GW/project/outputs/cleaned_data.csv
+    Shape: (17379, 15)
+    Target variable: cnt
+
+[2] Target variable summary:
+    count   : 17379.00
+    mean    : 189.46
+    std     : 181.39
+    min     : 1.00
+    25%     : 40.00
+    50%     : 142.00
+    75%     : 281.00
+    max     : 977.00
+    missing:  0
+    IQR outliers (1.5×IQR): 505  (2.9%)
+    IQR bounds: [-321.5, 642.5]
+    skewness: 1.277
+
+[3a] Saved target_distribution.png
+[3b] Saved demand_time_series.png
+[3c] Saved heatmap_hour_weekday.png
+[3d] Saved demand_vs_temp.png
+[3e] Saved demand_vs_hum.png
+[3f] Saved demand_vs_windspeed.png
+[3g] Saved correlation_matrix.png
+
+[4] Saved eda_tables.csv to /Users/mahiramalikzada/Desktop/Clean Desktop/Predictive Analytics/GW/project/outputs/benchmark
+
+    Mean demand by hour:
+      hr  0: 53.9
+      hr  1: 33.4
+      hr  2: 22.9
+      hr  3: 11.7
+      hr  4: 6.4
+      hr  5: 19.9
+      hr  6: 76.0
+      hr  7: 212.1
+      hr  8: 359.0
+      hr  9: 219.3
+      hr 10: 173.7
+      hr 11: 208.1
+      hr 12: 253.3
+      hr 13: 253.7
+      hr 14: 240.9
+      hr 15: 251.2
+      hr 16: 312.0
+      hr 17: 461.5
+      hr 18: 425.5
+      hr 19: 311.5
+      hr 20: 226.0
+      hr 21: 172.3
+      hr 22: 131.3
+      hr 23: 87.8
+    Mean demand by weekday:
+      weekday 0: 177.5
+      weekday 1: 183.7
+      weekday 2: 191.2
+      weekday 3: 191.1
+      weekday 4: 196.4
+      weekday 5: 196.1
+      weekday 6: 190.2
+
+[5] Saved eda_summary.txt to /Users/mahiramalikzada/Desktop/Clean Desktop/Predictive Analytics/GW/project/outputs/docs
+    EDA INSIGHT SUMMARY
+    ==================================================
+    
+    1. DEMAND PATTERN OVER TIME
+       - Dataset spans 2011-01-01 to 2012-12-31 (731 days).
+       - Clear upward trend from 2011 to 2012, suggesting growing service adoption.
+       - Strong seasonality: demand peaks in summer months and drops in winter.
+       - Daily totals range from 22 to 8714.
+    
+    2. HOURLY AND WEEKDAY PATTERNS
+       - Peak demand hours: hr 17 (461), hr 18 (426), hr 8 (359).
+       - Lowest demand hours: hr 4 (6), hr 3 (12), hr 5 (20).
+       - Weekday pattern shows commute peaks (8 AM, 5-6 PM) on workdays,
+         while weekends have a single midday plateau — indicating two distinct
+         usage regimes (commuter vs. recreational).
+    
+    3. RARE CATEGORIES
+       - weathersit distribution: {1: 11413, 2: 4544, 3: 1419, 4: 3}.
+         Category 4 (heavy rain/snow) has very few observations (3 rows),
+         which may cause instability in models that split on this category.
+       - season distribution: {1: 4242, 2: 4409, 3: 4496, 4: 4232} — roughly balanced.
+       - holiday=1 rows: 500 out of 17379 (2.9%).
+    
+    4. WEATHER FEATURE RELATIONSHIPS
+       - temp vs cnt correlation:      +0.405 (moderate positive).
+       - hum vs cnt correlation:        -0.323 (moderate negative).
+       - windspeed vs cnt correlation:  +0.093 (weak positive).
+       - temp vs atemp correlation:     +0.988 (near-perfect collinearity).
+         Consider dropping one of temp/atemp during feature engineering.
+    
+    5. TARGET DISTRIBUTION
+       - cnt is right-skewed (skewness = 1.28), with many low-demand hours.
+       - IQR-based outliers: 505 rows (2.9%).
+       - A log transform or tree-based model may handle this skew well.
+    
+    6. LIKELY MODELLING RISKS
+       - Right-skewed target may degrade linear models; consider transforms.
+       - temp and atemp are highly correlated — multicollinearity risk for
+         linear models. Use one or apply regularisation.
+       - The 'instant' column is a row index, not a true feature — it should
+         be excluded from modelling to avoid spurious trend capture.
+       - 'dteday' is a date string; useful for time-based splits but should
+         not be fed directly as a feature.
+       - Rare weathersit=4 category may cause high-variance predictions.
+    
+    7. REMAINING LEAKAGE / DATA QUALITY CONCERNS
+       - casual and registered were already removed in Task 1 (they sum to cnt).
+       - No remaining perfect-correlation leakage detected (all |corr| < 0.95).
+       - No missing values; no duplicate rows.
+       - 'instant' monotonically increases and correlates with cnt (+0.28) only
+         because of the year-over-year growth trend — not a genuine predictor.
+
+============================================================
+TASK 2 COMPLETE
+============================================================
+
+============================================================
+TASK 3: Baseline Model & Evaluation Harness
+============================================================
+
+[1] Loaded cleaned data from /Users/mahiramalikzada/Desktop/Clean Desktop/Predictive Analytics/GW/project/outputs/cleaned_data.csv
+    Shape: (17379, 15)
+    Train: 12165 rows  (70.0%)
+    Val:   2607 rows  (15.0%)
+    Test:  2607 rows  (15.0%)
+
+    Chronological check (date level):
+      max(train date) = 2012-05-27, min(val date) = 2012-05-27  <= (boundary day shared, row order OK)
+      max(val date)   = 2012-09-12, min(test date) = 2012-09-12  <= (boundary day shared, row order OK)
+    Row-index ordering verified: train[-1]=12164 < val[0]=12165 < test[0]=14772  ✓
+
+    F0 features (11): ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed']
+    F1 features (15): ['hr', 'weekday', 'workingday', 'season', 'mnth', 'yr', 'weathersit', 'temp', 'atemp', 'hum', 'windspeed', 'sin_hour', 'cos_hour', 'sin_month', 'cos_month']
+
+    Splits saved to outputs/train.csv, val.csv, test.csv
+
+[2] Preprocessing report saved to /Users/mahiramalikzada/Desktop/Clean Desktop/Predictive Analytics/GW/project/outputs/benchmark/preprocessing_report.csv
+
+[3] Training Linear Regression baselines...
+
+    F0 — LinearRegression
+      Train MAE=90.11  RMSE=120.24
+      Val   MAE=155.29  RMSE=189.77
+      Training time: 0.0017s
+
+    F1 — LinearRegression
+      Train MAE=78.87  RMSE=107.37
+      Val   MAE=137.55  RMSE=174.13
+      Training time: 0.0020s
+
+[4] Baseline results saved to /Users/mahiramalikzada/Desktop/Clean Desktop/Predictive Analytics/GW/project/outputs/metrics/baseline_model_results.csv
+
+[5] Saved actual_vs_predicted.png
+[5] Saved residual_distribution.png
+
+============================================================
+TASK 3 SUMMARY
+============================================================
+  Splits: train=12165, val=2607, test=2607
+  Feature sets: F0 (11 cols), F1 (15 cols)
+  Baseline model: LinearRegression
+    F0 val — MAE=155.29, RMSE=189.77
+    F1 val — MAE=137.55, RMSE=174.13
+  Test set held out (not used).
+============================================================
+
+============================================================
+TASK 4: Model Comparison, Tuning & Final Evaluation
+============================================================
+
+[0] Loaded splits — train=12165, val=2607, test=2607
+
+[1] Model comparison on validation set...
+  Ridge                F0  train MAE=  90.12  val MAE= 155.33  val RMSE= 189.72  (0.00s)
+  Ridge                F1  train MAE=  78.87  val MAE= 137.54  val RMSE= 174.10  (0.00s)
+  RandomForest         F0  train MAE=  18.37  val MAE=  45.80  val RMSE=  68.94  (3.55s)
+  RandomForest         F1  train MAE=  18.14  val MAE=  46.47  val RMSE=  69.41  (4.52s)
+  GradientBoosting     F0  train MAE=  16.11  val MAE=  49.45  val RMSE=  72.27  (4.14s)
+  GradientBoosting     F1  train MAE=  15.59  val MAE=  46.62  val RMSE=  68.92  (5.46s)
+  MLP                  F0  train MAE=  25.14  val MAE=  51.47  val RMSE=  77.03  (5.78s)
+  MLP                  F1  train MAE=  22.55  val MAE=  61.39  val RMSE=  86.11  (3.60s)
+
+  All results (incl. baseline) saved to outputs/metrics/all_results.csv
+
+[2] Hyperparameter tuning...
+
+  [2a] Ridge alpha sweep...
+    Ridge F0 alpha=  0.01  val MAE=155.29  RMSE=189.77
+    Ridge F1 alpha=  0.01  val MAE=137.55  RMSE=174.13
+    Ridge F0 alpha=  0.10  val MAE=155.30  RMSE=189.76
+    Ridge F1 alpha=  0.10  val MAE=137.55  RMSE=174.13
+    Ridge F0 alpha=  1.00  val MAE=155.33  RMSE=189.72
+    Ridge F1 alpha=  1.00  val MAE=137.54  RMSE=174.10
+    Ridge F0 alpha= 10.00  val MAE=155.28  RMSE=189.67
+    Ridge F1 alpha= 10.00  val MAE=137.51  RMSE=174.02
+    Ridge F0 alpha=100.00  val MAE=153.59  RMSE=190.15
+    Ridge F1 alpha=100.00  val MAE=136.95  RMSE=173.93
+
+  [2b] Random Forest sweep...
+    RF F0 n=100 d=10  val MAE=49.06  RMSE=71.87  (1.5s)
+    RF F1 n=100 d=10  val MAE=49.90  RMSE=72.26  (1.8s)
+    RF F0 n=100 d=15  val MAE=45.92  RMSE=69.07  (1.8s)
+    RF F1 n=100 d=15  val MAE=46.47  RMSE=69.43  (2.3s)
+    RF F0 n=100 d=20  val MAE=45.98  RMSE=69.17  (1.8s)
+    RF F1 n=100 d=20  val MAE=46.36  RMSE=69.29  (2.3s)
+    RF F0 n=200 d=10  val MAE=48.97  RMSE=71.74  (2.9s)
+    RF F1 n=200 d=10  val MAE=49.93  RMSE=72.23  (3.7s)
+    RF F0 n=200 d=15  val MAE=45.80  RMSE=68.94  (3.6s)
+    RF F1 n=200 d=15  val MAE=46.47  RMSE=69.41  (4.5s)
+    RF F0 n=200 d=20  val MAE=45.82  RMSE=68.98  (3.6s)
+    RF F1 n=200 d=20  val MAE=46.39  RMSE=69.31  (4.7s)
+    RF F0 n=400 d=10  val MAE=48.68  RMSE=71.37  (5.8s)
+    RF F1 n=400 d=10  val MAE=49.73  RMSE=71.93  (7.3s)
+    RF F0 n=400 d=15  val MAE=45.59  RMSE=68.71  (7.1s)
+    RF F1 n=400 d=15  val MAE=46.24  RMSE=69.05  (8.9s)
+    RF F0 n=400 d=20  val MAE=45.59  RMSE=68.71  (7.3s)
+    RF F1 n=400 d=20  val MAE=46.16  RMSE=68.98  (9.2s)
+
+  [2c] Gradient Boosting n_estimators sweep...
+    GB F0 n=50 lr=0.05  val MAE=63.14  RMSE=95.21  (0.7s)
+    GB F1 n=50 lr=0.05  val MAE=60.59  RMSE=87.98  (0.9s)
+    GB F0 n=50 lr=0.1  val MAE=50.52  RMSE=77.29  (0.7s)
+    GB F1 n=50 lr=0.1  val MAE=47.36  RMSE=70.74  (0.9s)
+    GB F0 n=100 lr=0.05  val MAE=50.47  RMSE=76.76  (1.4s)
+    GB F1 n=100 lr=0.05  val MAE=48.46  RMSE=71.57  (1.8s)
+    GB F0 n=100 lr=0.1  val MAE=47.36  RMSE=72.02  (1.4s)
+    GB F1 n=100 lr=0.1  val MAE=45.44  RMSE=67.81  (1.8s)
+    GB F0 n=200 lr=0.05  val MAE=47.73  RMSE=71.78  (2.8s)
+    GB F1 n=200 lr=0.05  val MAE=45.48  RMSE=67.25  (3.6s)
+    GB F0 n=200 lr=0.1  val MAE=49.16  RMSE=72.49  (2.8s)
+    GB F1 n=200 lr=0.1  val MAE=46.24  RMSE=68.36  (3.6s)
+    GB F0 n=300 lr=0.05  val MAE=49.06  RMSE=72.38  (4.1s)
+    GB F1 n=300 lr=0.05  val MAE=45.30  RMSE=66.71  (5.4s)
+    GB F0 n=300 lr=0.1  val MAE=49.45  RMSE=72.27  (4.2s)
+    GB F1 n=300 lr=0.1  val MAE=46.62  RMSE=68.92  (5.4s)
+    GB F0 n=500 lr=0.05  val MAE=49.00  RMSE=71.30  (6.9s)
+    GB F1 n=500 lr=0.05  val MAE=45.82  RMSE=66.93  (9.1s)
+    GB F0 n=500 lr=0.1  val MAE=49.89  RMSE=71.90  (6.9s)
+    GB F1 n=500 lr=0.1  val MAE=46.62  RMSE=68.90  (9.1s)
+
+  Saved validation_curve_gb.png
+
+  [2d] MLP architecture sweep...
+    MLP F0 hidden=(64, 32)            val MAE=64.83  RMSE=91.90  (5.1s)
+    MLP F1 hidden=(64, 32)            val MAE=70.28  RMSE=96.24  (2.2s)
+    MLP F0 hidden=(128, 64)           val MAE=51.47  RMSE=77.03  (5.8s)
+    MLP F1 hidden=(128, 64)           val MAE=61.39  RMSE=86.11  (3.6s)
+    MLP F0 hidden=(256, 128)          val MAE=61.25  RMSE=85.73  (9.5s)
+    MLP F1 hidden=(256, 128)          val MAE=54.88  RMSE=75.76  (7.6s)
+    MLP F0 hidden=(128, 64, 32)       val MAE=54.73  RMSE=79.86  (3.9s)
+    MLP F1 hidden=(128, 64, 32)       val MAE=56.46  RMSE=83.85  (2.7s)
+
+  Tuning results saved to outputs/metrics/tuning_results.csv
+
+[3] Selecting best model...
+  Best: GradientBoosting | F1 | n_est=300,lr=0.05
+        val MAE=45.3014  RMSE=66.7074
+  Best model saved to /Users/mahiramalikzada/Desktop/Clean Desktop/Predictive Analytics/GW/project/outputs/models/final_model.pkl
+
+[4] Final evaluation on TEST set...
+  TEST MAE  = 50.6580
+  TEST RMSE = 75.6854
+  Final results saved to outputs/metrics/final_model_results.csv
+
+[5] Generating diagnostic plots on test set...
+  Saved residual_distribution.png
+  Saved mae_by_hour.png
+  Saved mae_by_weekday.png
+  Saved residual_vs_temperature.png
+  Saved rolling_mae_over_time.png
+
+============================================================
+TASK 4 SUMMARY
+============================================================
+  Baseline (LR F1 val MAE):     137.55
+  Best model (test MAE):         50.66
+  Improvement over baseline:     +63.2%
+
+  Best model:     GradientBoosting
+  Feature set:    F1
+  Best params:    n_est=300,lr=0.05
+  Validation MAE: 45.3014
+  Test MAE:       50.6580
+  Test RMSE:      75.6854
+============================================================

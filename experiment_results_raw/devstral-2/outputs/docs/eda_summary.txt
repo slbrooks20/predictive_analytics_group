@@ -1,0 +1,13 @@
+EDA Insights Summary
+==================================================
+
+- Demand shows clear temporal patterns with peak hours during morning and evening commute times.
+- Weekday demand is generally higher than weekend demand, suggesting commuter usage patterns.
+- Weather conditions distribution: {1: 0.656712123827608, 2: 0.26146498647793315, 3: 0.08165026756430174, 4: 0.00017262213015708613}
+- Some weather categories are rare, which may affect model performance for those regimes.
+- Potential modelling risks include:
+- - Temporal autocorrelation that standard models may not capture
+- - Rare weather conditions that may not be well-represented in training data
+- - Potential non-linear relationships between weather variables and demand
+- No missing values detected in target variable.
+- 505 outliers detected in target variable that may affect model performance.

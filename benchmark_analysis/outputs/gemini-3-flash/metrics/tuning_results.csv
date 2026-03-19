@@ -1,0 +1,14 @@
+model,param,value,MAE
+GradientBoosting,n_estimators,50,82.88848104887317
+GradientBoosting,n_estimators,100,72.74501305179476
+GradientBoosting,n_estimators,200,60.81115635237348
+GradientBoosting,n_estimators,300,55.19065613304199
+GradientBoosting,n_estimators,500,52.15767545775942
+Ridge,alpha,0.1,137.54857205157236
+Ridge,alpha,1.0,137.53867342362403
+Ridge,alpha,10.0,137.50743192330833
+RandomForest,max_depth,10,54.21505789669001
+RandomForest,max_depth,20,50.531981191993644
+RandomForest,max_depth,30,51.481490666155224
+MLP,hidden_layer_sizes,"(100,)",68.83869136926485
+MLP,hidden_layer_sizes,"(100, 50)",61.40483626724187

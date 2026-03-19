@@ -1,0 +1,7 @@
+metric,value
+train_rows,12139
+val_rows,2640
+test_rows,2600
+chronological_split_pass,True
+feature_set_F0_defined,11
+feature_set_F1_defined,15
