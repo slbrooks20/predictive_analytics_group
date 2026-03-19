@@ -28,11 +28,7 @@ fi
 for model in "${MODELS[@]}"; do
   model_root="$TEMPLATE_ROOT/$model"
   project_root="$model_root/project"
-
-  if [[ ! -d "$model_root" ]]; then
-    echo "Skipping unknown model folder: $model" >&2
-    continue
-  fi
+  mkdir -p "$model_root"
 
   mkdir -p \
     "$project_root/dataset" \
