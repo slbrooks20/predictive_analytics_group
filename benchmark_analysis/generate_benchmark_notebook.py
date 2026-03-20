@@ -499,6 +499,8 @@ cells = [
             )
 
 
+
+
         def resolve_figure_path(slug, candidates):
             figure_dir = get_model_paths(slug)["figures"]
             if figure_dir is None:
@@ -975,18 +977,14 @@ cells = [
             .reset_index(drop=True)
         )
 
-        cq_plot = model_summary.sort_values(["avg_CQ", "avg_spec", "avg_SR", "total_time_min"], ascending=[False, False, False, True])
+        cq_plot = model_summary.sort_values(["avg_CQ", "avg_spec", "avg_SR", "total_time_min"], ascending=[False, False, False, True]).reset_index(drop=True)
         fig, axes = plt.subplots(1, 2, figsize=(17, 7), gridspec_kw={"width_ratios": [1.1, 1.0]})
 
-        sns.barplot(
-            data=cq_plot,
-            y="short",
-            x="avg_CQ",
-            hue="cli_tool",
-            dodge=False,
-            palette=CLI_COLORS,
-            ax=axes[0],
-        )
+        cq_y = np.arange(len(cq_plot))
+        cq_colors = cq_plot["cli_tool"].map(CLI_COLORS).tolist()
+        axes[0].barh(cq_y, cq_plot["avg_CQ"], color=cq_colors)
+        axes[0].set_yticks(cq_y, labels=cq_plot["short"])
+        axes[0].invert_yaxis()
         axes[0].set_title("Overall Leaderboard: Average Code Quality")
         axes[0].set_xlabel("Average CQ")
         axes[0].set_ylabel("")
@@ -1001,8 +999,6 @@ cells = [
                 va="center",
                 fontsize=8.5,
             )
-        if axes[0].legend_ is not None:
-            axes[0].legend_.remove()
         axes[0].set_xlim(0, max(118, cq_plot["avg_CQ"].max() + 20))
         axes[0].grid(axis="x", alpha=0.18)
 
@@ -1040,7 +1036,6 @@ cells = [
             for verdict, marker in marker_map.items()
         ]
         axes[1].legend(handles=cli_handles + verdict_handles, frameon=False, loc="lower right", fontsize=8)
-
         plt.tight_layout()
         plt.show()
 
@@ -1117,6 +1112,7 @@ cells = [
         task4_plot = (
             benchmark_df[benchmark_df["task_code"] == "T4"]
             .sort_values("CQ_total", ascending=True)
+            .reset_index(drop=True)
         )
 
         fig, axes = plt.subplots(1, 2, figsize=(18, 7))
@@ -1132,20 +1128,15 @@ cells = [
         axes[1].set_ylabel("Average CQ")
         add_bar_labels(axes[1], fmt="{:.1f}")
         axes[1].set_ylim(0, 105)
-
         plt.tight_layout()
         plt.show()
 
         fig, ax = plt.subplots(figsize=(12, 6))
-        sns.barplot(
-            data=task4_plot,
-            y="short",
-            x="CQ_total",
-            hue="cli_tool",
-            dodge=False,
-            palette=CLI_COLORS,
-            ax=ax,
-        )
+        task4_y = np.arange(len(task4_plot))
+        task4_colors = task4_plot["cli_tool"].map(CLI_COLORS).tolist()
+        ax.barh(task4_y, task4_plot["CQ_total"], color=task4_colors)
+        ax.set_yticks(task4_y, labels=task4_plot["short"])
+        ax.invert_yaxis()
         ax.set_title("Task 4 Is the Decision Bottleneck")
         ax.set_xlabel("Task 4 CQ Total")
         ax.set_ylabel("")
@@ -1157,7 +1148,6 @@ cells = [
                 va="center",
                 fontsize=9,
             )
-        ax.legend(title="CLI Tool", loc="lower right")
         plt.tight_layout()
         plt.show()
 
@@ -1221,22 +1211,30 @@ cells = [
         axes[0].set_xlabel("CQ Subcategory")
         axes[0].set_ylabel("Model")
 
-        weakest_plot = weakest_cq.sort_values(["Average Score", "Model"], ascending=[True, True])
-        sns.barplot(
-            data=weakest_plot,
-            y="Model",
-            x="Average Score",
-            hue="Weakest CQ Subcategory",
-            dodge=False,
-            palette="muted",
-            ax=axes[1],
-        )
+        weakest_plot = weakest_cq.sort_values(["Average Score", "Model"], ascending=[True, True]).reset_index(drop=True)
+        weakest_palette = dict(zip(CQ_COLUMNS, sns.color_palette("muted", n_colors=len(CQ_COLUMNS))))
+        weakest_y = np.arange(len(weakest_plot))
+        weakest_colors = weakest_plot["Weakest CQ Subcategory"].map(weakest_palette).tolist()
+        axes[1].barh(weakest_y, weakest_plot["Average Score"], color=weakest_colors)
+        axes[1].set_yticks(weakest_y, labels=weakest_plot["Model"])
+        axes[1].invert_yaxis()
         axes[1].axvline(20, color="black", linestyle="--", linewidth=1)
         axes[1].set_title("Each Model's Weakest CQ Area")
         axes[1].set_xlabel("Average Score in Weakest CQ Subcategory")
         axes[1].set_ylabel("")
-        axes[1].legend(title="Weakest Area", bbox_to_anchor=(1.02, 1), loc="upper left")
-        add_bar_labels(axes[1], fmt="{:.1f}")
+        weakest_handles = [
+            plt.Line2D([0], [0], marker="s", color=color, linestyle="None", markersize=8, label=label)
+            for label, color in weakest_palette.items()
+        ]
+        axes[1].legend(handles=weakest_handles, title="Weakest Area", bbox_to_anchor=(1.02, 1), loc="upper left")
+        for patch, (_, row) in zip(axes[1].patches, weakest_plot.iterrows()):
+            axes[1].text(
+                patch.get_width() + 0.1,
+                patch.get_y() + patch.get_height() / 2,
+                f"{row['Average Score']:.2f}".rstrip("0").rstrip("."),
+                va="center",
+                fontsize=9,
+            )
         plt.tight_layout()
         plt.show()
 
@@ -1301,16 +1299,12 @@ cells = [
         axes[0].grid(alpha=0.22)
         axes[0].set_ylim(80, 101)
 
-        time_plot_df = timed_models.sort_values("total_time_min", ascending=True)
-        sns.barplot(
-            data=time_plot_df,
-            y="short",
-            x="total_time_min",
-            hue="cli_tool",
-            dodge=False,
-            palette=CLI_COLORS,
-            ax=axes[1],
-        )
+        time_plot_df = timed_models[["short", "total_time_min", "cli_tool"]].sort_values("total_time_min", ascending=True).reset_index(drop=True)
+        time_y = np.arange(len(time_plot_df))
+        time_colors = time_plot_df["cli_tool"].map(CLI_COLORS).tolist()
+        axes[1].barh(time_y, time_plot_df["total_time_min"], color=time_colors)
+        axes[1].set_yticks(time_y, labels=time_plot_df["short"])
+        axes[1].invert_yaxis()
         axes[1].set_title("Who Is Actually Fast")
         axes[1].set_xlabel("Total Time (min)")
         axes[1].set_ylabel("")
@@ -1322,19 +1316,14 @@ cells = [
                 va="center",
                 fontsize=9,
             )
-        axes[1].legend_.remove()
         axes[1].grid(axis="x", alpha=0.18)
 
-        token_plot_df = token_models.sort_values("peak_token_pct", ascending=True)
-        sns.barplot(
-            data=token_plot_df,
-            y="short",
-            x="peak_token_pct",
-            hue="cli_tool",
-            dodge=False,
-            palette=CLI_COLORS,
-            ax=axes[2],
-        )
+        token_plot_df = token_models[["short", "peak_token_pct", "cli_tool"]].sort_values("peak_token_pct", ascending=True).reset_index(drop=True)
+        token_y = np.arange(len(token_plot_df))
+        token_colors = token_plot_df["cli_tool"].map(CLI_COLORS).tolist()
+        axes[2].barh(token_y, token_plot_df["peak_token_pct"], color=token_colors)
+        axes[2].set_yticks(token_y, labels=token_plot_df["short"])
+        axes[2].invert_yaxis()
         axes[2].set_title("Who Peaks Highest on Token Usage")
         axes[2].set_xlabel("Peak Token % Used")
         axes[2].set_ylabel("")
@@ -1346,7 +1335,6 @@ cells = [
                 va="center",
                 fontsize=9,
             )
-        axes[2].legend_.remove()
         axes[2].grid(axis="x", alpha=0.18)
 
         plt.tight_layout()
@@ -1390,13 +1378,6 @@ cells = [
             .fillna(0)
         )
 
-        fig, axes = plt.subplots(1, 2, figsize=(18, 7))
-
-        sns.heatmap(reprompt_matrix, annot=True, fmt=".0f", cmap="OrRd", cbar=False, linewidths=0.5, ax=axes[0])
-        axes[0].set_title("Where Human Re-prompts Were Needed")
-        axes[0].set_xlabel("Task")
-        axes[0].set_ylabel("Model")
-
         self_corr_df = model_summary.sort_values("total_self_corrections", ascending=False)
         intervention_df = self_corr_df[["short", "total_re_prompts", "total_self_corrections"]].melt(
             id_vars="short",
@@ -1411,6 +1392,13 @@ cells = [
         )
         intervention_df = intervention_df.groupby(["short", "Intervention Type"], as_index=False)["Count"].sum()
         intervention_df = intervention_df[intervention_df["Count"] > 0]
+
+        fig, axes = plt.subplots(1, 2, figsize=(18, 7))
+        sns.heatmap(reprompt_matrix, annot=True, fmt=".0f", cmap="OrRd", cbar=False, linewidths=0.5, ax=axes[0])
+        axes[0].set_title("Where Human Re-prompts Were Needed")
+        axes[0].set_xlabel("Task")
+        axes[0].set_ylabel("Model")
+
         sns.barplot(
             data=intervention_df,
             y="short",
@@ -1424,7 +1412,6 @@ cells = [
         axes[1].set_ylabel("")
         axes[1].legend(title="", loc="lower right")
         axes[1].grid(axis="x", alpha=0.18)
-
         plt.tight_layout()
         plt.show()
 
@@ -1486,8 +1473,9 @@ cells = [
             placeholder_axes(ax, "Task 4 Test MAE", "No final model results available")
             plt.show()
         else:
+            plot_order = plot_df["Model"].tolist()
             fig, axes = plt.subplots(1, 2, figsize=(18, 6))
-            sns.barplot(data=plot_df, y="Model", x="Test MAE", hue="Model", palette="Set2", legend=False, ax=axes[0])
+            sns.barplot(data=plot_df, y="Model", x="Test MAE", order=plot_order, color="#76B7B2", ax=axes[0])
             axes[0].set_title("Final Test MAE by Selected Pipeline")
             axes[0].set_xlabel("Test MAE (lower is better)")
             axes[0].set_ylabel("")
@@ -1522,10 +1510,12 @@ cells = [
                 baseline_compare["Best Baseline Validation MAE"] - baseline_compare["Final Test MAE"]
             )
             improvement_plot = baseline_compare.dropna(subset=["Absolute MAE Gain"]).sort_values("Absolute MAE Gain", ascending=False)
+            improvement_order = improvement_plot["Model"].tolist()
             sns.barplot(
                 data=improvement_plot,
                 y="Model",
                 x="Absolute MAE Gain",
+                order=improvement_order,
                 color="#59A14F",
                 ax=axes[1],
             )
@@ -1550,11 +1540,14 @@ cells = [
         selection_gap_plot["Selection Status"] = selection_gap_plot["Correct Selection"].map(
             {True: "Correct", False: "Wrong / Failed"}
         ).fillna("Unknown")
+        selection_gap_sorted = selection_gap_plot.sort_values("Selection Gap", ascending=False, na_position="last")
+        selection_gap_order = selection_gap_sorted["Model"].tolist()
         fig, ax = plt.subplots(figsize=(12, 6))
         sns.barplot(
-            data=selection_gap_plot.sort_values("Selection Gap", ascending=False, na_position="last"),
+            data=selection_gap_sorted,
             y="Model",
             x="Selection Gap",
+            order=selection_gap_order,
             hue="Selection Status",
             palette={"Correct": "#59A14F", "Wrong / Failed": "#E15759", "Unknown": "#9D9D9D"},
             ax=ax,
@@ -1625,7 +1618,7 @@ cells = [
         ]
 
         for ax, (column, title, ylabel) in zip(axes, metrics):
-            sns.barplot(data=cli_summary, x="cli_tool", y=column, hue="cli_tool", palette=CLI_COLORS, legend=False, ax=ax)
+            sns.barplot(data=cli_summary, x="cli_tool", y=column, palette=CLI_COLORS, ax=ax)
             ax.set_title(title)
             ax.set_xlabel("")
             ax.set_ylabel(ylabel)
@@ -1996,8 +1989,9 @@ cells = [
 
         mae_plot_df = metric_summary_df.dropna(subset=["Final Test MAE"]).sort_values("Final Test MAE")
         if not mae_plot_df.empty:
+            mae_plot_order = mae_plot_df["Model"].tolist()
             fig, ax = plt.subplots(figsize=(12, 6))
-            sns.barplot(data=mae_plot_df, y="Model", x="Final Test MAE", hue="Model", palette="Set2", legend=False, ax=ax)
+            sns.barplot(data=mae_plot_df, y="Model", x="Final Test MAE", order=mae_plot_order, hue="Model", palette="Set2", legend=False, ax=ax)
             ax.set_title("Final Test MAE from final_model_results.csv")
             ax.set_xlabel("Final Test MAE")
             ax.set_ylabel("")
@@ -2087,6 +2081,6 @@ notebook = {
 }
 
 
-output_path = Path("benchmark_analysis.ipynb")
+output_path = Path("benchmark_analysis") / "benchmark_analysis.ipynb"
 output_path.write_text(json.dumps(notebook, indent=1), encoding="utf-8")
 print(f"Wrote {output_path}")
